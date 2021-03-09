@@ -1,0 +1,11 @@
+{
+  "actions": [
+    {
+      "action": "negate",
+      "parameters": {
+        "column_id": "tagada",
+        "scope": "column"
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<buzztrax
+  xmlns="http://www.buzztrax.org/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+  xsd:noNamespaceSchemaLocation="buzztrax.xsd">
+
+  <meta>
+    <info>one buzz drum generator</info>
+    <name>buzz 4</name>
+    <genre>demo</genre>
+    <create-dts>2005-09-20T22:10:56Z</create-dts>
+    <change-dts>2005-09-20T22:10:56Z</change-dts>
+    <bpm>120</bpm>
+    <tpb>4</tpb>
+    <bars>16</bars>
+  </meta>
+  
+  <setup>
+    <machines>
+      <machine type="sink" id="audio_sink">
+        <properties>
+          <property key="xpos" value="0.7"/>
+          <property key="ypos" value="0.5"/>
+        </properties>
+      </machine>
+      
+      <machine type="source" id="gen" plugin-name="bml-FSM-Kick" voices="1">
+        <properties>
+          <property key="xpos" value="-0.7"/>
+          <property key="ypos" value="-0.5"/>
+        </properties>
+        <patterns>
+          <pattern name="beats" length="16">
+            <tick time="0"><voicedata name="Trigger" voice="0" value="60"/></tick>
+            <tick time="4"><voicedata name="Trigger" voice="0" value="40"/></tick>
+            <tick time="8"><voicedata name="Trigger" voice="0" value="100"/></tick>
+            <tick time="12"><voicedata name="Trigger" voice="0" value="100"/></tick>
+            <tick time="14"><voicedata name="Trigger" voice="0" value="60"/></tick>
+          </pattern>
+        </patterns>
+      </machine>
+    </machines>
+    
+    <wires>
+      <wire src="gen" dst="audio_sink" gain="1.0" panorama="-0.5"/>
+    </wires>    
+  </setup>
+    
+  <sequence length="96" tracks="1">
+    <labels>
+      <label time="0" name="start"/>
+      <label time="95" name="end"/>
+    </labels>
+    <tracks>
+      <track index="0" machine="gen">
+        <position time="0" pattern="beats"/>
+        <position time="32" pattern="beats"/>
+        <position time="48" pattern="beats"/>
+        <position time="64" pattern="beats"/>
+        <position time="80" pattern="beats"/>
+      </track>
+    </tracks>
+  </sequence>
+  
+</buzztrax>

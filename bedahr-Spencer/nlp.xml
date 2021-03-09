@@ -1,0 +1,1289 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<languageDefinition xsi:noNamespaceSchemaLocation="http://tugraz.at/schema/spencer_nlp.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <attributes>
+    <attribute type="countable">
+      <actOn>rating</actOn>
+      <names>
+        <name>Rating</name>
+        <name>Bewertung</name>
+        <name>Kundenbewertung</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>storageMedia[_][1]</actOn>
+      <names>
+        <name>Datenspeicher</name>
+        <name>permanenten Speicher</name>
+        <name>Festplatten</name>
+        <name>Festplatte</name>
+        <name>Platte</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>storageMedia[_][1],mainMemoryCapacity</actOn>
+      <names>
+        <name>Speicher</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>storageMedia[_][0]</actOn>
+      <names>
+        <name>(SSD|HDD)</name>
+        <name value="SSD">SSD festplatte</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>batteryCells</actOn>
+      <names>
+        <name>Akkuzellen</name>
+        <name>Batteriezellen</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>screenTouchMode</actOn>
+      <names>
+        <name>Touchscreen Typ</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>weight</actOn>
+      <names>
+        <name>Gewicht</name>
+        <name>Kilogramm</name>
+        <name>Kilo</name>
+      </names>
+    </attribute>
+    <attribute type="boolean">
+      <actOn>digitizerSupport</actOn>
+      <names>
+        <name>Digitizer</name>
+        <name>Stift</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>Hard Drive Interface</actOn>
+      <names>
+        <name>Festplatteninterface</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>screenHResolution,screenVResolution</actOn>
+      <names>
+        <name>Auflösung</name>
+      </names>
+    </attribute>
+    <attribute type="opinion">
+      <actOn>screenHResolution,screenVResolution</actOn>
+      <names>
+        <name>Auflösung</name>
+        <name>Bildschirm</name>
+        <name>Display</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>screenHResolution</actOn>
+      <names>
+        <name>Horizontale Auflösung</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>Available Since</actOn>
+      <names>
+        <name>Verfügbar seit</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>processorType</actOn>
+      <names>
+        <name>Prozessortyp</name>
+        <name>Prozessor Marke</name>
+        <name>(Intel|AMD)</name>
+      </names>
+    </attribute>
+    <attribute type="boolean">
+      <actOn>hasPointingStick</actOn>
+      <names>
+        <name>Trackpoint</name>
+        <name>tracking point</name>
+        <name>Pointing Stick</name>
+        <name>Nippel</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>ASIN</actOn>
+      <names>
+        <name>ASIN</name>
+      </names>
+    </attribute>
+    <attribute type="boolean">
+      <actOn>screenIsHardened</actOn>
+      <names>
+        <name>Gehärteter Bildschirm</name>
+        <name>Gorilla Glas</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>connectivity</actOn>
+      <names>
+        <name>Konnektivität</name>
+        <name>Kommunikation</name>
+        <name>Verbindungen</name>
+        <name>Anbindungen</name>
+      </names>
+    </attribute>
+    <attribute type="boolean">
+      <actOn>litKeybaord</actOn>
+      <names>
+        <name>Beleuchtete Tastatur</name>
+        <name>Tastaturbeleuchtung</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>Product Weight including Packaging</actOn>
+      <names>
+        <name>Produktgewicht inklusive Verpackung</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>averageRuntimeOnBattery</actOn>
+      <names>
+        <name>Akkulaufzeit</name>
+        <name>Akkuzeit</name>
+        <name>Durchschnittliche Laufzeit</name>
+        <name>Akku</name>
+        <name>Batterie</name>
+      </names>
+    </attribute>
+    <attribute type="unOpinionatedCountable">
+      <actOn>screenSize</actOn>
+      <names>
+        <name>Bildschirmdiagonale</name>
+        <name>Bildschirmgrösse</name>
+	<name>Bildschirm</name>
+	<name>Display</name>
+        <name>Zoll</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>length</actOn>
+      <names>
+        <name>Länge</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>screenPanelType</actOn>
+      <names>
+        <name>Panel</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>mainMemoryCapacity</actOn>
+      <names>
+        <name>Hauptspeicher</name>
+        <name>Arbeitsspeicher</name>
+        <name>RAM</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>graphicsType</actOn>
+      <names>
+        <name>Grafikkartentyp</name>
+        <name>Grafikkartenmarke</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>Plattform</actOn>
+      <names>
+        <name>Plattform</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>Main Memory Type</actOn>
+      <names>
+        <name>Hauptspeichertyp</name>
+        <name>Arbeitsspeichertyp</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>operatingSystem</actOn>
+      <names>
+        <name>Betriebssystem</name>
+        <name>OS</name>
+	<name value="Mac OS X">Mac</name>
+	<name value="Mac OS X">Mac Os</name>
+	<name value="Windows*">Windows</name>
+	<name value="Windows*">Windows Betriebssystem</name>
+	<name>(Linux|Windows 8|Windows 7|Windows 8.1)</name>
+	<name>(Linux|Windows 8|Windows 7|Windows 8.1) Betriebssystem</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>width</actOn>
+      <names>
+        <name>Breite</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>fingerPrintReader</actOn>
+      <names>
+        <name>Fingerabdruckleser</name>
+        <name>Fingerabdruckscanner</name>
+        <name>Fingerabdruck</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>manufacturer</actOn>
+      <names>
+        <name>Hersteller</name>
+        <name>Marke</name>
+        <name>(Apple|Lenovo|Lenovo|Samsung|Sony|Dell|Acer|Fujitsu|Toshiba|Compaq|MSI|Medion|Gigabyte|Terra|Panasonic|Wortmann|Terra)</name>
+        <name value="Apple">Macbook</name>
+        <name value="Hewlett-Packard">HP</name>
+        <name value="ASUS Computer">ASUS</name>
+        <name value="TAROX AG">TAROX</name>
+      </names>
+    </attribute>
+    <attribute type="unOpinionatedUnountable">
+      <actOn>name</actOn>
+      <names>
+        <name>Modell</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>opticalMediaTypes</actOn>
+      <names>
+        <name>Optische Medien</name>
+        <name>CD</name>
+        <name>DVD</name>
+        <name>Laufwerk</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>batteryType</actOn>
+      <names>
+        <name>Akkuart</name>
+        <name>Batterieart</name>
+        <name>Akkutyp</name>
+        <name>Batterietyp</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>warrantyDuration</actOn>
+      <names>
+        <name>Garantiedauer</name>
+        <name>Garantiezeit</name>
+        <name>Garnatie</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>graphicsModel</actOn>
+      <names>
+        <name>Grafikkarte</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>_id</actOn>
+      <names>
+        <name>ID</name>
+      </names>
+    </attribute>
+    <attribute type="boolean">
+      <actOn>convertible</actOn>
+      <names>
+        <name>Konvertierbar</name>
+        <name>Convertible</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>screenVResolution</actOn>
+      <names>
+        <name>Vertikale Auflösung</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>memoryCardTypes</actOn>
+      <names>
+        <name>Speicherkarten</name>
+        <name>Kartenleser</name>
+      </names>
+    </attribute>
+    <attribute type="boolean">
+      <actOn>hasNumblock</actOn>
+      <names>
+        <name>Nummernblock</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>dedicatedGraphicsMemoryCapacity</actOn>
+      <names>
+        <name>Grafikkartenspeicher</name>
+        <name>Grafikspeicher</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>height</actOn>
+      <names>
+        <name>Höhe</name>
+        <name>Dicke</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>Form Factor</actOn>
+      <names>
+        <name>Formfaktor</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>processorName</actOn>
+      <names>
+        <name>Prozessor Name</name>
+        <name value="*core*i3*">i3</name>
+        <name value="*core*i5*">i5</name>
+        <name value="*core*i7*">i7</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>processorSpeed</actOn>
+      <names>
+        <name>Prozessor</name>
+        <name>CPU</name>
+        <name>Leistung</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>webcamResolution</actOn>
+      <names>
+        <name>Webcam</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>warrantyType</actOn>
+      <names>
+        <name>Garantieart</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>price</actOn>
+      <names>
+        <name>Preis</name>
+        <name>Kosten</name>
+        <name>Euro Kosten</name>
+        <name>Euro</name>
+        <name>Preislich</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>&gt;32?storageMedia[_][1]:mainMemoryCapacity</actOn>
+      <names>
+        <name>Gigabyte</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>mainMemoryCapacity</actOn>
+      <names>
+        <name>Gigabyte RAM</name>
+        <name>Gigabyte Hauptspeicher</name>
+        <name>Gigabyte Arbeitsspeicher</name>
+      </names>
+    </attribute>
+    <attribute type="boolean">
+      <actOn>screenAntiGlareCoated</actOn>
+      <names>
+        <name>Entspiegelt</name>
+        <name>Matt</name>
+        <name>nicht( \w+){0,3} spiegelnd</name>
+        <name>nicht( \w+){0,3} spiegelt</name>
+        <name>entspiegelter</name>
+        <name>entspiegeltem</name>
+        <name>matter</name>
+        <name>matter bildschirm</name>
+        <name>mattem</name>
+        <name>mattes</name>
+        <name>mattes display</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>processorCores</actOn>
+      <names>
+        <name>Prozessorkerne</name>
+        <name>Cores</name>
+        <name>Kerne</name>
+        <name value="2">Dualcore</name>
+        <name value="4">Quadcore</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>name</actOn>
+      <names>
+        <name>Name</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>processorFrequency</actOn>
+      <names>
+        <name>Prozessortakt</name>
+        <name>Taktfrequenz</name>
+        <name>Takt</name>
+        <name>Frequenz</name>
+      </names>
+    </attribute>
+    <attribute type="uncountable">
+      <actOn>Chip Set Manufacturer</actOn>
+      <names>
+        <name>Chipsatzhersteller</name>
+        <name>Chipsatz</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>ports</actOn>
+      <names>
+        <name>Ports</name>
+      </names>
+    </attribute>
+    <attribute type="countable">
+      <actOn>ports[_]</actOn>
+      <names>
+        <name value="USB3">USB 3</name>
+        <name value="USB2">USB 2</name>
+        <name value="USB3">USB</name>
+        <name value="Lan1000M">LAN</name>
+        <name value="ExpressCard54">Express Card</name>
+        <name value="SmartCard">Smart Card</name>
+        <name value="MicroHDMI">Micro HDMI</name>
+        <name value="MiniHDMI">Mini HDMI</name>
+        <name value="MiniDisplayPort">Mini DisplayPort</name>
+        <name value="MiniVGA">Mini VGA</name>
+        <name>(Thunderbolt|Firewire|PCMCIA|ESATA|HDMI|DisplayPort|VGA|DVI)</name>
+      </names>
+    </attribute>
+
+  </attributes>
+  <modifiers>
+    <modifier on="countable,unOpinionatedCountable,boolean" binding="pre">
+      <names>
+	<name>BEIBEHALTEN</name>
+	<name>BLEIBEN</name>
+      </names>
+      <relationship>Equal</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable,uncountable,unOpinionatedUnountable,boolean" binding="pre">
+      <names>
+        <name>ÄNDERN</name>
+        <name>UNGLEICH</name>
+	<name>WECHSELN</name>
+      </names>
+      <relationship>Inequal</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable,uncountable,unOpinionatedUnountable" binding="post">
+      <names>
+        <name>KEINEN</name>
+        <name>KEINE</name>
+        <name>KEIN</name>
+      </names>
+      <relationship>Inequal</relationship>
+    </modifier>
+    <modifier on="boolean" binding="post">
+      <names>
+        <name>MIT</name>
+      </names>
+      <relationship>IsTrue</relationship>
+    </modifier>
+    <modifier on="boolean" binding="post">
+      <names>
+        <name>OHNE</name>
+        <name>KEINEN</name>
+        <name>KEINE</name>
+        <name>KEIN</name>
+      </names>
+      <relationship>IsFalse</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable,unOpinionatedUnountable,uncountable" binding="post">
+      <names>
+	<name>GLEICH</name>
+	<name>GLEICHE</name>
+	<name>GLEICHES</name>
+	<name>GLEICHER</name>
+	<name>GLEICHEM</name>
+        <name>GLEICHEN</name>
+        <name>SELBE</name>
+        <name>UM</name>
+	<name>SELBER</name>
+	<name>SELBEN</name>
+	<name>SELBES</name>
+        <name>das gewünschte</name>
+        <name>das richtige</name>
+      </names>
+      <relationship>Equal</relationship>
+    </modifier>
+    <modifier on="mitable" binding="post">
+      <names>
+	<name>MIT</name>
+      </names>
+      <relationship>Equal</relationship>
+    </modifier>
+
+    <modifier on="countable,unOpinionatedCountable,unOpinionatedUnountable,uncountable" binding="post" default="name">
+      <names>
+	<name>ANDERE</name>
+	<name>ANDERER</name>
+	<name>ANDERES</name>
+	<name>ANDEREN</name>
+      </names>
+      <relationship>Inequal</relationship>
+    </modifier>
+
+
+    <modifier on="countable,unOpinionatedCountable" binding="pre,post">
+      <names>
+      <name>MEHR ALS</name>
+      <name>MEHR WIE</name>
+      <name>HÖHER ALS</name>
+      <name>HÖHER WIE</name>
+      <name>MEHR</name>
+      <name>ZU KLEINES</name>
+      <name>ZU KLEINER</name>
+      <name>ZU KLEINEN</name>
+      <name>ZU KLEINEM</name>
+      <name polarity="0.4">NICHT ZU KLEINES</name>
+      <name polarity="0.4">NICHT ZU KLEINER</name>
+      <name polarity="0.4">NICHT ZU KLEINEN</name>
+      <name polarity="0.4">NICHT ZU KLEINEM</name>
+      </names>
+      <relationship>LargerThan</relationship>
+    </modifier>
+
+    <modifier on="countable,unOpinionatedCountable" binding="pre,post" default="screenSize">
+      <names>
+      <name>GRÖSSER</name>
+      <name>GRÖSSERER</name>
+      <name>GRÖSSERES</name>
+      <name>GRÖSSEREN</name>
+      <name>GRÖSSEREM</name>
+      <name>ZU KLEIN</name>
+      <name polarity="0.4">IST ETWAS KLEIN</name>
+      <name polarity="0.4">NICHT ZU KLEIN</name>
+      </names>
+      <relationship>LargerThan</relationship>
+    </modifier>
+
+
+    <modifier on="countable,unOpinionatedCountable" binding="post">
+      <names>
+      <name>viel</name>
+      <name>hoch</name>
+      <name>HOHER</name>
+      <name>HOHEN</name>
+      <name>HOHES</name>
+      <name>HOHEM</name>
+      </names>
+      <relationship>Large</relationship>
+    </modifier>
+
+    <modifier on="countable,unOpinionatedCountable" binding="pre">
+      <names>
+      <name>ERHÖHEN</name>
+      <name>HÖHER</name>
+      </names>
+      <relationship>LargerThan</relationship>
+    </modifier>
+
+    <modifier on="countable,unOpinionatedCountable" binding="pre,post">
+      <names>
+	<name>ZU WENIG</name>
+	<name>ZU NIEDRIG</name>
+	<name polarity="0.4">ETWAS WENIG</name>
+	<name polarity="0.4">ETWAS NIEDRIG</name>
+	<name>HÖHERES</name>
+	<name>ÜBER</name>
+      </names>
+      <relationship>LargerThan</relationship>
+    </modifier>
+
+    <modifier on="countable,unOpinionatedCountable" binding="pre,post">
+      <names>
+	<name>MINDESTENS</name>
+	<name>WENIGSTENS</name>
+	<name>ZUMINDEST</name>
+      </names>
+      <relationship>LargerThan|Equal</relationship>
+    </modifier>
+
+    <modifier on="countable,unOpinionatedCountable" binding="post" default="screenSize">
+      <names>
+        <name>HÖHEREN</name>
+        <name>HÖHERE</name>
+        <name>HÖHERER</name>
+        <name>HÖHERERE</name>
+        <name>GRÖSSERE</name>
+        <name>GRÖSSERER</name>
+        <name>GRÖSSEREM</name>
+        <name>GRÖSSEREN</name>
+      </names>
+      <relationship>LargerThan</relationship>
+    </modifier>
+
+    <modifier on="countable,unOpinionatedCountable" binding="post" default="screenSize">
+      <names>
+        <name>GROSSEN</name>
+        <name>GROSSE</name>
+        <name>GROSSER</name>
+      </names>
+      <relationship>Large</relationship>
+    </modifier>
+
+    <!-- default="length" -->
+    <modifier on="countable,unOpinionatedCountable" binding="post">
+      <names>
+        <name>lang</name>
+        <name>lange</name>
+        <name>langer</name>
+        <name>langen</name>
+      </names>
+      <relationship>Large</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable" binding="post">
+      <names>
+        <name>Längeren</name>
+        <name>Längere</name>
+      </names>
+      <relationship>LargerThan</relationship>
+    </modifier>
+
+
+    <modifier on="countable,unOpinionatedCountable" binding="pre,post">
+      <names>
+      <name>WENIGER ALS</name>
+      <name>NIEDRIGER ALS</name>
+      <name>WENIGER WIE</name>
+      <name>NIEDRIGER WIE</name>
+      <name>WENIGER</name>
+      </names>
+      <relationship>SmallerThan</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable" binding="pre,post">
+      <names>
+      <name>MAXIMAL</name>
+      <name>HÖCHSTENS</name>
+      </names>
+      <relationship>SmallerThan|Equal</relationship>
+    </modifier>
+
+    <modifier on="countable,unOpinionatedCountable" binding="pre">
+      <names>
+      <name>VERRINGERN</name>
+      <name>NIEDRIGER</name>
+      <name>ZU HOCH</name>
+      <name>ZU VIEL</name>
+      <name polarity="0.4">ETWAS HOCH</name>
+      <name polarity="0.4">ETWAS VIEL</name>
+      </names>
+      <relationship>SmallerThan</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable" binding="post">
+      <names>
+	<name>UNTER</name>
+	<name>GERINGERES</name>
+	<name>GERINGERER</name>
+	<name>GERINGERERE</name>
+	<name>GERINGEREN</name>
+      </names>
+      <relationship>SmallerThan</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable" binding="post" default="screenSize">
+      <names>
+	<name>NIEDRIGERE</name>
+	<name>NIEDRIGERES</name>
+	<name>NIEDRIGEREN</name>
+	<name>NIEDRIGERER</name>
+	<name>KLEINER</name>
+	<name>KLEINERE</name>
+	<name>KLEINEREN</name>
+	<name>KLEINERER</name>
+	<name>KLEINEREM</name>
+      </names>
+      <relationship>SmallerThan</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable" binding="pre,post" default="screenSize">
+      <names>
+	<name>ZU GROSS</name>
+        <name polarity="0.4">ETWAS GROSS</name>
+        <name>ZU GROSSER</name>
+        <name>ZU GROSSES</name>
+        <name>ZU GROSSEN</name>
+	<name polarity="0.4">NICHT ZU GROSS</name>
+	<name polarity="0.4">NICHT ZU GROSSER</name>
+	<name polarity="0.4">NICHT ZU GROSSES</name>
+	<name polarity="0.4">NICHT ZU GROSSEN</name>
+      </names>
+      <relationship>SmallerThan</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable" binding="post" default="screenSize">
+      <names>
+        <name>KLEINEN</name>
+        <name>KLEINEM</name>
+        <name>KLEINES</name>
+        <name>KLEINE</name>
+      </names>
+      <relationship>Small</relationship>
+    </modifier>
+    <modifier on="countable,unOpinionatedCountable" binding="post">
+      <names>
+        <name>WENIG</name>
+        <name>NIEDERER</name>
+        <name>NIEDEREN</name>
+        <name>NIEDERES</name>
+        <name>NIEDEREM</name>
+        <name>NIEDRIGER</name>
+        <name>NIEDRIGES</name>
+        <name>NIEDRIGEN</name>
+        <name>NIEDRIGEM</name>
+      </names>
+      <relationship>Small</relationship>
+    </modifier>
+    <modifier on="countable,boolean,opinion" binding="pre">
+      <names>
+        <name>notwendig</name>
+      </names>
+      <relationship>Good</relationship>
+    </modifier>
+    <modifier on="uncountable,countable,boolean,opinion" binding="pre,post">
+      <names>
+        <name polarity="0.6">ausreichend</name>
+        <name polarity="0.6">genügend</name>
+        <name>gute</name>
+        <name>entsprechende</name>
+        <name>entsprechenden</name>
+        <name>entsprechendem</name>
+        <name>entsprechendes</name>
+        <name>gutes</name>
+        <name>guter</name>
+        <name>guten</name>
+        <name>stark</name>
+        <name>starken</name>
+        <name>starke</name>
+        <name>starkes</name>
+        <name>starker</name>
+        <name>gescheit</name>
+        <name>herausragend</name>
+        <name>gut</name>
+        <name>cool</name>
+      </names>
+      <relationship>Good</relationship>
+    </modifier>
+    <modifier on="uncountable,countable,boolean,opinion" binding="post">
+      <names>
+        <name>günstige</name>
+      </names>
+      <relationship>Good</relationship>
+    </modifier>
+    <modifier on="countable,boolean" binding="post">
+      <names>
+        <name>genug</name>
+      </names>
+      <relationship>Good</relationship>
+    </modifier>
+    <modifier on="uncountable,countable,boolean,opinion" binding="pre,post">
+      <names>
+        <name>besser</name>
+        <name>bessere</name>
+        <name>besseren</name>
+        <name>besseres</name>
+        <name>besserer</name>
+        <name>stärker</name>
+        <name>stärkere</name>
+        <name>stärkeren</name>
+        <name>stärkeres</name>
+        <name>stärkerer</name>
+      </names>
+      <relationship>Better</relationship>
+    </modifier>
+  </modifiers>
+
+  <metaModifiers>
+    <metaModifier>
+      <names>
+        <name>BISSCHEN</name>
+        <name>BISSERL</name>
+        <name>WENIG</name>
+        <name>ETWAS</name>
+	<name>SPUR</name>
+        <name>MARGINAL</name>
+        <name>RELATIV</name>
+        <name>RECHT</name>
+        <name>EHER</name>
+      </names>
+      <factor>0.2</factor>
+    </metaModifier>
+    <metaModifier>
+      <names>
+        <name>NICHT BESONDERS</name>
+        <name>nicht unbedingt</name>
+        <name>nicht notwendigerweise</name>
+      </names>
+      <factor>-0.1</factor>
+    </metaModifier>
+    <metaModifier>
+      <names>
+	<name>ORDENTLICH</name>
+	<name>SIGNIFIKANT</name>
+	<name>WESENTLICH</name>
+	<name>DEUTLICH</name>
+        <name>KOMPLETT</name>
+        <name>SEHR</name>
+        <name>VIEL</name>
+      </names>
+      <factor>2.0</factor>
+    </metaModifier>
+    <metaModifier>
+      <names>
+        <name>NICHT</name>
+        <name>AUSSER</name>
+      </names>
+      <factor>-1</factor>
+    </metaModifier>
+    <metaModifier>
+      <names>
+        <name>WENIGER</name>
+      </names>
+      <factor>-0.2</factor>
+    </metaModifier>
+  </metaModifiers>
+
+  <commands>
+    <command>
+    <command>
+      <names>
+        <name>Kratzfest</name>
+        <name>Kratzfesten</name>
+        <name>verhärteten</name>
+        <name>robust</name>
+        <name>robusteren</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>screenIsHardened</attribute>
+        <relationship>IsTrue</relationship>
+        </action>
+      </actions>
+    </command>
+      <names>
+	<name>GÜNSTIGES</name>
+        <name>GÜNSTIGER</name>
+        <name>GÜNSTIGEN</name>
+	<name>GÜNSTIGERE</name>
+        <name>GÜNSTIGERES</name>
+        <name>GÜNSTIGEREN</name>
+	<name>BILLIGE</name>
+        <name>BILLIGEN</name>
+	<name>BILLIGER</name>
+	<name>BILLIGERE</name>
+        <name>BILLIGERES</name>
+        <name>BILLIGEREN</name>
+	<name>PREISWERTER</name>
+	<name>PREISWERTERE</name>
+        <name>PREISWERTERES</name>
+        <name>PREISWERTEREN</name>
+        <name>UM( \w+){0,4} ZU TEUER</name>
+        <name>TEUER</name>
+        <name>ZU TEUEREN</name>
+	<name>NICHT ZU Teuer</name>
+	<name>NICHT SO Teuer</name>
+        <name polarity="0.4">ETWAS TEUER</name>
+        <name>BILLIG</name>
+        <name>GÜNSTIG</name>
+      </names>
+      <actions>
+	<action>
+	<attribute>price</attribute>
+	<relationship>SmallerThan</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+	<name>WEITER</name>
+	<name>ALTERNATIVE</name>
+	<name>gefällt mir( \w+){0,3} nicht</name>
+      </names>
+      <actions>
+	<action>
+	<attribute>name</attribute>
+	<relationship>Inequal</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>ZU BILLIGE</name>
+        <name>ZU BILLIGEN</name>
+        <name>ZU BILLIGER</name>
+	<name>ZU BILLIG</name>
+        <name>ZU GÜNSTIG</name>
+        <name>ZU GÜNSTIGER</name>
+        <name>ZU GÜNSTIGEN</name>
+        <name polarity="0.4">ETWAS BILLIG</name>
+        <name>TEURER</name>
+	<name>TEURERES</name>
+        <name>TEURERE</name>
+        <name>TEUREREN</name>
+	<name>HOCHWERTIGER</name>
+	<name>HOCHWERTIGERE</name>
+	<name>HOCHWERTIGERES</name>
+	<name>HOCHWERTIGEREN</name>
+	<name>WERTIGEREN</name>
+	<name>WERTIGERE</name>
+	<name>WERTIGE</name>
+	<name>WERTIG</name>
+	<name>WERTIGEN</name>
+      </names>
+      <actions>
+	<action>
+	<attribute>price</attribute>
+	<relationship>LargerThan</relationship>
+	</action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>ZIERLICHER</name>
+        <name>ZIERLICHERE</name>
+        <name>SCHMALERE</name>
+        <name>SCHMALER</name>
+        <name>SCHMALE</name>
+        <name>SCHMALEN</name>
+        <name>DÜNNER</name>
+        <name>DÜNNEN</name>
+        <name>DÜNNERE</name>
+        <name>DÜNNER</name>
+        <name>FLACHER</name>
+        <name>FLACHEN</name>
+        <name polarity="1.2">ZU RIESIG</name>
+        <name>ZU BREITER</name>
+        <name>ZU BREITEN</name>
+        <name>ZU BREITES</name>
+        <name>ZU BREIT</name>
+        <name polarity="0.4">ETWAS BREIT</name>
+        <name>ZU KLOBIG</name>
+        <name>ZU KLOBIGER</name>
+        <name>ZU KLOBIGEN</name>
+        <name>ZU KLOBIGES</name>
+        <name polarity="0.4">ETWAS KLOBIG</name>
+        <name polarity="0.4">ETWAS DICK</name>
+        <name>ZU DICK</name>
+        <name>ZU DICKER</name>
+        <name>ZU DICKEN</name>
+        <name>ZU DICKES</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>screenSize</attribute>
+        <relationship>SmallerThan</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>DÜNNES</name>
+        <name>Flaches</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>screenSize</attribute>
+        <relationship>Small</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+	<name>STABILER</name>
+	<name>STABILERE</name>
+	<name>BREITERE</name>
+	<name>BREITER</name>
+	<name>DICKERE</name>
+	<name>DICKER</name>
+	<name>ZU ZIERLICH</name>
+	<name>ZU DÜNN</name>
+        <name polarity="0.4">ETWAS DÜNN</name>
+        <name polarity="0.4">ETWAS SCHMAL</name>
+	<name>ZU SCHMAL</name>
+	<name>KLOBIG</name>
+	<name>STABIL</name>
+      </names>
+      <actions>
+	<action>
+	<attribute>screenSize</attribute>
+	<relationship>LargerThan</relationship>
+	</action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>STABIL</name>
+        <name>STABILES</name>
+        <name>BREITES</name>
+        <name>DICKES</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>screenSize</attribute>
+        <relationship>Large</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+	<name>ZU LEICHT</name>
+	<name>SCHWERER</name>
+	<name>SCHWERERE</name>
+      </names>
+      <actions>
+	<action>
+	<attribute>weight</attribute>
+	<relationship>LargerThan</relationship>
+	</action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>leicht</name>
+        <name>leichtigkeit</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>weight</attribute>
+        <relationship>Small</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>schwer</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>weight</attribute>
+        <relationship>Large</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>KOMPAKT</name>
+        <name>transportabel</name>
+        <name>transportieren</name>
+        <name>PORTABEL</name>
+        <name>MITNEHMEN</name>
+        <name>PORTABELE</name>
+        <name>PORTABELEN</name>
+        <name>PORTABELER</name>
+        <name>KOMPAKTE</name>
+        <name>KOMPAKTER</name>
+        <name>KOMPAKTES</name>
+        <name>KOMPAKTERE</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>screenSize</attribute>
+        <relationship>Small</relationship>
+        </action>
+        <action>
+        <attribute>weight</attribute>
+        <relationship>Small</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>LEISTUNGSSTARK</name>
+        <name>LEISTUNGSSTARKEN</name>
+        <name>LEISTUNGSSTARKES</name>
+        <name>SCHNELL</name>
+        <name>SCHNELLEN</name>
+        <name>SCHNELLES</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>processorSpeed</attribute>
+        <relationship>Large</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>LEISTUNGSSTARKER</name>
+        <name>SCHNELLER</name>
+        <name>ZU LANGSAM</name>
+        <name polarity="0.4">ETWAS LANGSAM</name>
+        <name polarity="0.4">ETWAS LAHM</name>
+        <name>ZU LAHM</name>
+      </names>
+      <actions>
+        <action>
+        <attribute>processorSpeed</attribute>
+        <relationship>LargerThan</relationship>
+        </action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>ZU SCHWER</name>
+        <name polarity="0.4">NICHT ZU SCHWER</name>
+        <name polarity="0.4">ETWAS SCHWER</name>
+	<name>LEICHTER</name>
+	<name>LEICHTERE</name>
+      </names>
+      <actions>
+	<action>
+	<attribute>weight</attribute>
+	<relationship>SmallerThan</relationship>
+	</action>
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>ZURÜCK</name>
+        <name>LÖSCHEN</name>
+        <name>noch mal zeigen</name>
+        <name>noch einmal zeigen</name>
+        <name>das vorige</name>
+        <name>das vorherige</name>
+        <name>das letzte</name>
+        <name>VORHERIGES MODELL</name>
+        <name>VORIGES MODELL</name>
+	<name>VERGISS DAS</name>
+	<name>VERGESSEN</name>
+      </names>
+      <actions>
+	<action special="back" />
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>JA</name>
+        <name>ok</name>
+        <name>sicher</name>
+        <name>schön</name>
+        <name polarity="0.5">ziemlich wichtig</name>
+        <name>wäre von vorteil</name>
+        <name>ist von vorteil</name>
+        <name polarity="0.2">naja</name>
+      </names>
+      <actions>
+        <action special="yes" />
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>nein</name>
+        <name>nichts</name>
+        <name>brauche ich nicht</name>
+        <name>brauch ich nicht</name>
+        <name>will ich nicht</name>
+        <name polarity="0.2">muss( \w+){0,3} nicht sein</name>
+        <name polarity="0.6">nicht( \w+){0,3} wichtig</name>
+	<name polarity="0.6">weniger wichtig</name>
+      </names>
+      <actions>
+        <action special="no" />
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>will ich haben</name>
+        <name>nimm ich</name>
+        <name>kaufen</name>
+        <name>nehme ich</name>
+        <name>gutes gerät</name>
+        <name>würde passen</name>
+        <name polarity="0.8">könnte mich( \w+){0,1} mit dem( \w+){0,2} anfreunden</name>
+        <name>bin zufrieden</name>
+        <name>hätt ich( \w+){0,1} gerne</name>
+        <name>hätte ich( \w+){0,1} gerne</name>
+        <name>gefällt mir</name>
+        <name polarity="0.8">besser</name>
+        <name polarity="0.6">kommt hin</name>
+        <name>entspricht( \w+){0,3} erwartungen</name>
+        <name>erwartungen( \w+){0,2} entsprechen</name>
+        <name>würde mir zusprechen</name>
+        <name polarity="0.8">nicht schlecht</name>
+        <name>nicht übel</name>
+        <name polarity="0.4">nicht so übel</name>
+        <name polarity="0.4">nicht so schlecht</name>
+        <name>würde mir auch zusprechen</name>
+        <name polarity="0.2">ungefähr</name>
+        <name polarity="0.6">in ordnung</name>
+        <name polarity="0.6">ist ok</name>
+        <name>gut</name>
+      </names>
+      <actions>
+        <action special="accept" />
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>Uni</name>
+        <name>Universität</name>
+        <name>universitäts</name>
+        <name>Arbeit</name>
+        <name>Textverarbeitung</name>
+        <name>Recherchen</name>
+        <name>Internetrecherchen</name>
+        <name>Surfen</name>
+        <name>Kommunikation</name>
+        <name>Datenverarbeitung</name>
+        <name>Programmieren</name>
+        <name>arbeitsgerät</name>
+        <name>softwareentwicklung</name>
+        <name>arbeiten</name>
+        <name polarity="0.6">entwicklungsmaschine</name>
+        <name>berufliche</name>
+        <name>beruflich</name>
+        <name>office</name>
+        <name>emails</name>
+      </names>
+      <actions>
+        <action special="use=office" />
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>grafikbearbeitung</name>
+        <name polarity="2.0">berechnungen</name>
+        <name polarity="2.0">workstation</name>
+        <name>softwareentwicklung</name>
+        <name>entwicklungsmaschine</name>
+        <name polarity="1.4">virtuelle maschine</name>
+      </names>
+      <actions>
+        <action special="use=cpuheavy" />
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name polarity="0.5">filme</name>
+        <name polarity="0.5">film</name>
+        <name>video</name>
+        <name>videos</name>
+        <name>schnitt</name>
+        <name>musik</name>
+        <name>grafikbearbeitung</name>
+        <name>fotos</name>
+      </names>
+      <actions>
+        <action special="use=multimedia" />
+      </actions>
+    </command>
+    <command>
+      <names>
+        <name>computerspiele</name>
+        <name>spiele</name>
+        <name polarity="2.0">zocken</name>
+        <name>spielen</name>
+        <name polarity="1.4">gamen</name>
+      </names>
+      <actions>
+        <action special="use=gaming" />
+      </actions>
+    </command>
+  </commands>
+</languageDefinition>

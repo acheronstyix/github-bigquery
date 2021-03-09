@@ -1,0 +1,58 @@
+{
+  "type": "statement",
+  "name": "oscillatorStartAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "hwVariable",
+        "selectVariable"
+      ],
+      "name": "542d90ef-32ca-43c6-81b8-e3194c41fffe"
+    }
+  ],
+  "bloqClass": "bloq-oscillator-start-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-oscillator-start-advanced-oscillator"
+      },
+      {
+        "bloqInputId": "OSCILLATOR",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "hwVariable",
+          "selectVariable"
+        ],
+        "name": "542d90ef-32ca-43c6-81b8-e3194c41fffe"
+      }
+    ]
+  ],
+  "code": "{OSCILLATOR}.start()",
+  "arduino": {
+    "code": "{OSCILLATOR}.start()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"oscillatorStartAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

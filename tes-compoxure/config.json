@@ -1,0 +1,56 @@
+{
+    "cdn":{
+        "url":"http://localhost:5001/cdn/"
+    },
+    "parameters": {
+        "urls": [
+            {"pattern": "/pattern/.*-(\\d+)", "names": ["storyId"]}
+        ],
+        "servers": {
+            "local": "http://localhost:5001"
+        }
+    },
+    "backend": [
+        {
+            "fn": "selectGoogle",
+            "target":"http://www.google.com",
+            "host":"google.com"
+        },
+        {
+            "pattern": "/quiet/.*",
+            "timeout": "1000",
+            "target":"http://localhost:5001/backend.html",
+            "host":"localhost",
+            "ttl":"10s",
+            "quietFailure": true
+        },
+        {
+            "pattern": ".*",
+            "timeout": "1000",
+            "target":"http://localhost:5001",
+            "host":"localhost",
+            "ttl":"10s",
+            "cacheKey":"backend:{{url:path}}",
+            "dontPassUrl": false,
+            "quietFailure": false
+        }
+    ],
+    "statusCodeHandlers":{
+        "403":{
+            "fn":"handle403",
+            "data":{
+                "redirect":"http://www.google.com"
+            }
+        }
+    },
+    "cache": {
+        "defaultNoCacheHeaders": {
+            "cache-control": "private, no-cache, max-age=0, must-revalidate, no-store"
+        },
+        "engine": "memorycache",
+        "apiEnabled": true
+    },
+    "hogan": {
+        "delimiters": "{{ }}"
+    }
+}

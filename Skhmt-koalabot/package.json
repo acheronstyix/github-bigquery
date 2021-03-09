@@ -1,0 +1,21 @@
+{
+	"name": "KoalaBot",
+	"description": "blah",
+	"version": "0.9.9",
+	"main": "index.html",
+	"dependencies": {
+		"node-irc": "latest",
+		"express": "latest",
+		"sql.js": "latest"
+	},
+	"window": {
+		"width": 800,
+		"min_width": 800,
+		"height": 600,
+		"title": "KoalaBot",
+		"toolbar": false,
+		"icon": "koala.png",
+		"frame": true
+	},
+	"user-agent": "%name nw.js"
+}

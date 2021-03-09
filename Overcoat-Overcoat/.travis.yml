@@ -1,0 +1,35 @@
+language: objective-c
+osx_image: xcode7.3
+
+install:
+  - gem install cocoapods --pre 
+  - gem install xcpretty
+
+script: make test-osx test-ios #test-tvos
+
+# xcode_workspace: Overcoat.xcworkspace
+# xcode_scheme:
+#   - OvercoatTests-OSX
+#   - OvercoatTests-iOS
+#   - OvercoatTests-tvOS
+# xcode_sdk:
+#   - macosx
+#   - iphonesimulator
+#   - appletvsimulator
+
+# matrix:
+#   exclude:
+#     - xcode_scheme: OvercoatApp-OSX
+#       xcode_sdk: iphonesimulator
+#     - xcode_scheme: OvercoatApp-OSX
+#       xcode_sdk: appletvsimulator
+
+#     - xcode_scheme: OvercoatApp-iOS
+#       xcode_sdk: macosx
+#     - xcode_scheme: OvercoatApp-iOS
+#       xcode_sdk: appletvsimulator
+
+#     - xcode_scheme: OvercoatApp-tvOS
+#       xcode_sdk: iphonesimulator
+#     - xcode_scheme: OvercoatApp-tvOS
+#       xcode_sdk: macosx

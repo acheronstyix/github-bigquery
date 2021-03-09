@@ -1,0 +1,61 @@
+{
+  "title": "Untitled (Grapes, Cherries and Apples)",
+  "creation_date": "c. 1825",
+  "creation_date_earliest": "1820-01-01",
+  "creation_date_latest": "1830-01-01",
+  "medium": "watercolor on paper",
+  "accession_number": "70.32.2557",
+  "id": "cmoa:things/71efa3dc-f27a-4816-9431-a757e8bf5b43",
+  "credit_line": "Ailsa Mellon Bruce Collection",
+  "date_acquired": "1970-10-08",
+  "department": "Fine Arts",
+  "physical_location": "Not on View",
+  "item_width": 8.875,
+  "item_height": 6.625,
+  "item_depth": 0.0,
+  "item_diameter": 0.0,
+  "web_url": "http://collection.cmoa.org/CollectionDetail.aspx?item=1014792",
+  "provenance_text": "Ailsa Mellon Bruce",
+  "classification": "drawings and watercolors",
+  "images": [
+
+  ],
+  "creator": [
+    {
+      "artist_id": "cmoa:parties/abb25a5a-5a19-4d93-9601-b90894daf92b",
+      "party_type": "Person",
+      "full_name": "John Hancock",
+      "cited_name": "Hancock, John",
+      "role": "possibly by",
+      "nationality": "English",
+      "birth_date": "1757-01-01",
+      "death_date": "1847-01-01",
+      "birth_place": "England",
+      "death_place": "England"
+    },
+    {
+      "artist_id": "cmoa:parties/ed25735f-6f59-4e40-9431-bbb56e5beeb4",
+      "party_type": "Person",
+      "full_name": "John Hancock the elder",
+      "cited_name": "Hancock, John",
+      "role": "possibly by",
+      "nationality": "English",
+      "birth_date": "1777-01-01",
+      "death_date": "1840-01-01",
+      "birth_place": "England",
+      "death_place": "England"
+    },
+    {
+      "artist_id": "cmoa:parties/39e768a9-9da2-4631-b466-6ab2bb9c4357",
+      "party_type": "Person",
+      "full_name": "John Hancock , Jr.",
+      "cited_name": "Hancock, John",
+      "role": "possibly by",
+      "nationality": "English",
+      "birth_date": "1804-01-01",
+      "death_date": "1839-01-01",
+      "birth_place": "England",
+      "death_place": "England"
+    }
+  ]
+}

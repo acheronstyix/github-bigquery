@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="AppWidget.ActionButton" parent="@style/Widget.AppCompat.ActionButton" />
+	<style name="AppWidget.ActionButton.Overflow" parent="@style/Widget.AppCompat.ActionButton.Overflow" />
+
+	<style name="AppTheme" parent="AppBaseTheme">
+		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+		<item name="android:statusBarColor">?attr/colorPrimaryDark</item>
+	</style>
+
+	<!--MainActivity custom theme-->
+	<style name="MainActivityTheme" parent="AppTheme">
+		<item name="android:statusBarColor">@android:color/transparent</item>
+	</style>
+
+	<!-- preference activity has support of material styles -->
+	<style name="SettingsActivity" parent="AppTheme" />
+
+	<style name="BeeeOn.ProgressDialog" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/beeeon_accent</item>
+	</style>
+
+	<style name="BeeeOn.ModuleGraph.FloatingActionButton" parent="">
+		<item name="android:layout_marginRight">@dimen/space_double</item>
+		<item name="android:layout_marginEnd">@dimen/space_double</item>
+		<item name="android:layout_marginBottom">@dimen/space_double</item>
+	</style>
+</resources>

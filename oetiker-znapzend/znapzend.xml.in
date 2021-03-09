@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<service_bundle type="manifest" name="znapzend">
+
+<service 
+        name="@SVCNAME_SMF@" 
+        type="service" 
+        version="4">
+
+        <create_default_instance 
+                enabled="false" />
+
+        <single_instance/>
+
+        <dependency
+                name='milestone'
+                grouping='require_all'
+                restart_on='none'
+                type='service'>
+                <service_fmri value='svc:/milestone/multi-user' />
+        </dependency>
+
+        <method_context>
+                <method_credential
+                        user='root'/>
+        </method_context>
+
+        <exec_method 
+                type="method" 
+                name="start" 
+                exec="@BINDIR@/znapzend --daemonize --pidfile=/dev/null"
+                timeout_seconds="180" />
+
+        <exec_method
+                type="method"
+                name="stop"
+                exec=":kill"
+                timeout_seconds="180" />
+
+        <exec_method 
+                type="method" 
+                name="refresh" 
+                exec=":kill -HUP"
+                timeout_seconds="180" />
+
+        <property_group name="startd" type="framework">
+             <propval name="ignore_error" type="astring" value="core,signal" />
+        </property_group>
+
+        <stability 
+                value="Unstable" />
+
+        <template>
+            <common_name>
+                <loctext xml:lang="C">
+                ZnapZend - ZFS Backup System
+                </loctext>
+            </common_name>
+            <documentation>
+                <manpage title="znapzend" section="1" manpath="@mandir@" />
+                <manpage title="znapzendzetup" section="1" manpath="@mandir@" />
+                <manpage title="znapzendztatz" section="1" manpath="@mandir@" />
+            </documentation>
+        </template>
+</service>
+</service_bundle>

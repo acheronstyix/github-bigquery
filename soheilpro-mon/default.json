@@ -1,0 +1,148 @@
+{
+  "groups": [
+    {
+      "name": "CPU",
+      "counters": [
+        {
+          "name": "Total",
+          "id": "\\Processor(_Total)\\% Processor Time",
+          "threshold": {
+            "50": "ok",
+            "75": "warning",
+            "100": "critical"
+          }
+        },
+        {
+          "name": "Kernel",
+          "id": "\\Processor(_Total)\\% Privileged Time",
+          "threshold": {
+            "50": "ok",
+            "75": "warning",
+            "100": "critical"
+          }
+        },
+        {
+          "name": "User",
+          "id": "\\Processor(_Total)\\% User Time",
+          "threshold": {
+            "50": "ok",
+            "75": "warning",
+            "100": "critical"
+          }
+        },
+        {
+          "id": "\\System\\Processor Queue Length",
+          "threshold": {
+            "50": "ok",
+            "100": "warning",
+            "*": "critical"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Memory",
+      "counters": [
+        {
+          "name": "Used",
+          "id": "\\Process(_Total)\\Working Set",
+          "format": "0.000 b"
+        },
+        {
+          "name": "Free",
+          "id": "\\Memory\\Available Bytes",
+          "format": "0.000 b",
+          "threshold": {
+            "1000000000": "critical",
+            "2000000000": "warning",
+            "*": "ok"
+          }
+        },
+        {
+          "name": "Page File Usage",
+          "id": "\\Paging File(_Total)\\% Usage",
+          "threshold": {
+            "10": "ok",
+            "50": "warning",
+            "*": "critical"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Disk C",
+      "column": 1,
+      "counters": [
+        {
+          "id": "\\LogicalDisk(C:)\\% Free Space",
+          "threshold": {
+            "5": "critical",
+            "10": "warning",
+            "100": "ok"
+          }
+        },
+        {
+          "id": "\\LogicalDisk(C:)\\% Idle Time",
+          "threshold": {
+            "20": "critical",
+            "60": "warning",
+            "*": "ok"
+          }
+        },
+        {
+          "id": "\\LogicalDisk(C:)\\Disk Read Bytes/sec",
+          "format": "0 b"
+        },
+        {
+          "id": "\\LogicalDisk(C:)\\Disk Write Bytes/sec",
+          "format": "0 b"
+        },
+        {
+          "id": "\\LogicalDisk(C:)\\Avg. Disk sec/Read",
+          "format": "0 b"
+        },
+        {
+          "id": "\\LogicalDisk(C:)\\Avg. Disk sec/Write",
+          "format": "0 b"
+        }
+      ]
+    },
+    {
+      "name": "Top",
+      "column": 2,
+      "lists": [
+        {
+          "name": "CPU Usage",
+          "id": "\\Process(*)\\% Processor Time",
+          "formula": "value / env.NUMBER_OF_PROCESSORS",
+          "count": 4,
+          "exclude": [
+            "_Total",
+            "Idle"
+          ],
+          "threshold": {
+            "400": "ok",
+            "800": "warning",
+            "*": "critical"
+          },
+         "stats": [
+            "avg(60)"
+          ]
+        },
+        {
+          "name": "Memory Usage",
+          "id": "\\Process(*)\\Working Set - Private",
+          "exclude": [
+            "_Total"
+          ],
+          "threshold": {
+            "3000000000": "ok",
+            "*": "warning"
+          },
+          "count": 4,
+          "format": "0 b"
+        }
+      ]
+    }
+  ]
+}

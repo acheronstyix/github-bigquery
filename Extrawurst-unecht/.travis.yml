@@ -1,0 +1,26 @@
+language: d
+
+sudo: false
+
+d:
+  # https://semitwist.com/travis-d-compilers
+  - dmd #-2.072.2
+  - dmd-2.071.2
+  - dmd-2.070.2
+  - dmd-2.069.2
+  - ldc
+
+script:
+  - dub test --compiler=$DC || exit 1
+  - cd samples/helloworld/
+  - dub build --compiler=$DC
+  - cd ../pong/
+  - dub build --compiler=$DC
+  - cd ../../
+
+after_success:
+  - openssl aes-256-cbc -K $encrypted_c40f5907e549_key -iv $encrypted_c40f5907e549_iv
+    -in travisconfig/travisci_rsa.enc -out travisconfig/travisci_rsa -d
+  - chmod 0600 travisconfig/travisci_rsa
+  - cp travisconfig/travisci_rsa ~/.ssh/id_rsa
+  - ./createddox.sh

@@ -1,0 +1,2134 @@
+es:
+  loomio_onboarding:
+    group_progress_card:
+      title: Empieza un grupo
+      activities:
+        set_description: Configura la descripción de tu grupo
+        set_cover_photo: Sube una foto de portada y logo para vuestro grupo
+        invite_people_in: Invita a personas a
+        start_thread: Comience un hilo de discusión
+        make_decision: 'Iniciar una decisión '
+      learn_more: Conoce más en Ayuda Loomio
+      celebration_message: Genial! Vuestro grupo está listo para actuar!
+      dismiss_this_card: Descartar este cartel
+  plan_names:
+    free: 'Gratis '
+    trial: Prueba
+    small: Pequeño
+    medium: Mediano
+    large: Grande
+    monthly: Mensual
+    yearly: Anual
+  current_plan_button:
+    upgrade: Mejore su abono a Loomio
+    free_trial: Prueba gratis. Quedan {{days}} días
+    trial_expired: Tu periodo de prueba ha terminado. Actualice para continuar usando Loomio.
+    tooltip: "Nuestros precios son fantásticos! Actualice hoy y disfrute lo que Loomio puede ofrecer a su grupo."
+    was_gift_trial: "Vuestro grupo ha estado usando Loomio de forma gratuita desde {{createdDate}}. Ya no podemos seguir ofreciendo un servicio gratuito. Por favor actualiza a otro superior para continuar usando Loomio.<a href='https://help.loomio.org/en/plan-changes/' target='_blank' style='text-decoration: underline;'>Leer más.</a>"
+    was_gift_remaining: "Quedan {{days}} días"
+    was_gift_expired: "Vuestro plan gratuito ha caducado"
+  subscription_status:
+    plan: "Proyecto"
+    state: "Posición"
+    members: "Integrantes"
+    active_members: "Miembros activos"
+    max_threads: "Máximo de hilos"
+    max_members: "Máximo de miembros"
+    expires_at: "Caduca"
+    renews_at: "Renueva"
+    referral_code: "Código de referencia"
+    chargify_link: "Factura electrónica"
+    referral_code_help: "Da a un amigo un descuento, consigue para ti un crédito"
+    manage_payment_details: "Gestionar detalles del pago"
+  loomio_tags:
+    all_tags: Todas las etiquetas
+    tags: Etiquetas
+    apply_tags: Aplicar etiquetas
+    new_tag: Nueva etiqueta
+    name_label: Nombre
+    color_label: Color
+    card_title: Categorizar etiquetas
+    modal_title: Crea una nueva etiqueta
+    modal_edit_title: 'Editar etiqueta '
+    modal_destroy_title: 'Eliminar etiqueta '
+    destroy_tag: Borrar etiqueta
+    destroy_helptext: Esto borrará la etiqueta y la eliminará de todos los hilos en el grupo. ¿Estás seguro?
+    helptext: Las etiquetas permiten categorizar conversaciones para encontrarlas más fácilmente después.
+    discussions_count_singular: ({{count}} hilo)
+    discussions_count_plural: ({{count}} hilos)
+    tag_created: Etiqueta guardada
+    tags_marked: Hilos marcados con '{{name}}' en {{groupName}}
+    no_tags_present: ¡No se ha encontrado ningún hilo con esta etiqueta! Inténtalo con otra.
+    no_tags_in_group: Este grupo todavía no tiene etiquetas de categoría.
+  reactions:
+    slight_smile: Me gusta
+    heart: Me encanta
+    laughing: Risa
+    clap: 'Aplauso '
+    hugging: 'Abrazo '
+    sunglasses: Guay
+    wink: Guiño
+    nerd: Listo
+    relieved: 'Aliviado '
+    worried: 'Preocupado '
+    confused: 'Confundido '
+    confounded: Aturdido
+    neutral_face: Neutral
+    slight_frown: 'Ceño fruncido  '
+    disappointed: 'Decepcionado '
+    angry: 'Enojado '
+    weary: Cansado
+    astonished: 'Asombrado '
+    rolling_eyes: Ojos en blanco
+    cry: 'Llorar '
+    scream: 'Gritar '
+    sleeping: 'Aburrido '
+    thinking: 'Pensando '
+    raised_hands: Manos arriba
+    pray: 'Rezar '
+    fingers_crossed: Cruzar los dedos
+    v: Paz
+    metal: Metal
+    ok_hand: Ok
+    wave: Saludar
+    thumbsup: Pulgar arriba
+    thumbsdown: Pulgar abajo
+  poll_types:
+    proposal: propuesta
+    count: verificación
+    poll: sondeo
+    dot_vote: punto electoral
+    meeting: Coordinación de horario
+    ranked_choice: elección clasificada
+    score: Encuesta de puntuación
+  new_poll_types:
+    proposal: propuesta
+    count: Conteo
+    poll: Elegir
+    score: Puntuación
+    ranked_choice: rango
+    dot_vote: asignar
+    meeting: Coordinación de horario
+  timezones:
+    local: Hora local ({{value}})
+  common:
+    empty: Vacío
+    no_results_found: No hemos encontrado nada
+    view: Vista
+    history: Historia
+    option: Opción
+    add: Añadir
+    you: Tú
+    expand: Expandir
+    all_day: Todo el día
+    ok_got_it: Bien, ¡lo tengo!
+    learn_more: Aprender más
+    not_found: 'No encontrado '
+    time_zone: 'Zona horaria '
+    local_time: Hora local
+    attachments: Adjuntos
+    active_time_ago: El último activo {{time_ago}}
+    confirm_discard_changes: ¿Descartar tus cambios?
+    time:
+      am: am
+      pm: pm
+    closing_in: 'Cerrando {{time}}'
+    closed_ago: 'Finalizada {{time}}'
+    volume: 'Volumen '
+    notification_volume: 'Volumen de notificaciones'
+    group: 'Grupo'
+    groups: 'Grupos'
+    organization: "Organización"
+    organizations: "Organizaciones"
+    threads: 'Hilos'
+    decisions: 'Decisiones '
+    settings: 'Configuración '
+    help: 'Ayuda'
+    anonymous: Anónimo
+    required: Solicitado
+    email_address: Dirección de correo electrónico
+    privacy:
+      privacy: 'Privacidad'
+      public: 'Público'
+      open: 'Abierto'
+      closed: 'Cerrado '
+      private: 'Privado'
+      secret: 'Secreto '
+    selected: 'Seleccionado'
+    date_range:
+      today: 'Hoy'
+      yesterday: 'Ayer'
+      thisweek: 'Esta semana'
+      thismonth: 'Este mes'
+      older: 'Antiguo'
+    more_help: 'Mas ayuda '
+    models:
+      proposal: 'Propuesta'
+    copy: 'Copiar'
+    reset: 'Reiniciar'
+    copy_text: 'Copiar texto'
+    copied: 'Copiado al portapapeles'
+    points_abbrev: 'Cada voto vale {{score}} puntos '
+    total: Total
+    action:
+      print: 'Imprimir '
+      preview: Vista anticipada
+      pin: Anclar
+      unpin: Desanclar
+      search: 'Buscar'
+      filter: 'Filtrar'
+      back: 'Atrás'
+      next: 'Siguiente'
+      close: 'Cerrar'
+      reopen: 'Reabierto'
+      save: 'Guardar'
+      move: 'Mover'
+      save_changes: 'Guardar cambios'
+      update_settings: 'Actualizar preferencias'
+      reply: 'Responder'
+      edit: 'Editar'
+      remove: 'Eliminar'
+      undo_remove: 'Deshacer eliminar'
+      like: 'Me gusta'
+      unlike: 'Ya no me gusta'
+      update: 'Actualizar '
+      cancel: 'Cancelar'
+      show_more: "Mostrar más"
+      show_fewer: "Mostrar menos"
+      view_count_more: "Ver {{count}} mas"
+      view_count_responses: "Ver {{count}} respuestas"
+      count_more: "{{count}}  más"
+      count_responses: "{{count}} respuestas"
+      view_all: "Mostrar todo"
+      new_thread: "Nuevo hilo"
+      add_subgroup: 'Nuevo subgrupo'
+      loading: 'Cargando'
+      translate: 'Traducir'
+      upload: 'Cargar '
+      uploading: 'Cargando'
+      load_more: 'Cargar Más'
+      share: Compartir
+      ok: Ok
+      retry: 'Reintentar '
+      done: Listo
+      start: 'Empezar '
+      delete: Eliminar
+      unsubscribe: Cancelar suscripción
+      subscribe: Suscribirme a la lista de correo electrónico
+      unignore: Dejar de ignorar
+      remind: 'Recordar '
+      resend: 'Reenviar '
+      send: Enviar
+      joined: 'Se unió '
+      last_seen: 'Visto '
+      invite: Invitar
+      resent: Invitación reenviada
+      export: Exportar
+      fork: Bifurcar
+      apply: Enviar una solicitud
+      add_people: Añadir gente
+    formatting_help:
+      label: 'Formato '
+      title: 'Aprenda a usar Markdown para dar formato a su texto'
+  merge_accounts:
+    modal:
+      title: Fusionar cuentas
+      helptext: "Puedes fusionar la cuenta bajo <strong>{{sourceEmail}}</strong>en eso de <strong>{{targetEmail}}</strong>. Clica Verificar y se enviará un email de verificación a {{emailmeta}} para comenzar el proceso."
+      submit: Verificar
+      flash: Email de verificación enviado!
+    email_taken: Lo sentimos, este email ya está asociado con otro usuario. ¿Este email es el tuyo?
+    find_out_more: Descubre más
+    placeholder_modal_text: |
+        <p>Si os gustaría fusionar dos cuentas juntas, simplemente tienes que poner al dirección de correo electrónico correspondiente (la que pertenece a la otra cuenta) en el campo del email de tu página de perfil y sigue las instrucciones que aparecen.</p>
+        <p>Necesitas ayuda? <a href="/contact" target="_blank">Contacta con nosotros</a>.
+  emoji_picker:
+    search: Buscar
+    common: Usado con frecuencia
+    expressions: Rostros
+    hands: Manos
+    people: Personas
+    nature: Naturaleza
+    objects: Cosas
+    places: Lugares
+  ordinal:
+    _1: 1º
+    _2: 2º
+    _3: 3º
+    _4: 4º
+    _5: 5º
+    _6: 6º
+    _7: 7º
+    _8: 8º
+    _9: 9º
+    _10: 10º
+  devise:
+    sessions:
+      signed_up: 'Cuenta creada satisfactoriamente '
+    failure:
+      inactive: 'Hay una cuenta desactivada asociada a este correo electrónico. Contáctenos si quiere reactivar su cuenta.'
+  error_page:
+    forbidden: 'No tiene permiso para hacer esto.'
+    page_not_found: 'No encontramos lo que busca. Puede haber sido borrado o movido.'
+    internal_server_error: 'Lo sentimos, algo ha salido mal. Por favor, inténtelo de nuevo.'
+  verify_email_notice:
+    please_verify: Gracias por participar! Por favor busque en su bandeja de entrada el enlace para verificar su voto.
+  previous_polls_page:
+    heading: Actividades en {{name}}
+    polls_count: Mostrando {{loaded}} de {{total}} decisiones
+    search_activities: 'Buscar decisiones '
+  volume_levels:
+    loud: 'Alto'
+    normal: 'Normal'
+    quiet: 'Bajo'
+    mute: 'Silenciado '
+    unmute: 'Des-silenciar '
+  pin_event_form:
+    title: Anclar para cronograma
+    title_label: Título
+    hint: 'Indicio para la próxima vez: Intenta resaltar algo de texto antes de clicar "Pin".'
+  change_volume_form:
+    explain_scope:
+      thread: Esto cambia cuando seas notificado sobre este hilo
+      group: Estos cambios cuando serás notificado acerca de todos los hilos en el grupo
+    simple:
+      label: Notificaciones
+      loud: Suscrito
+      normal: Normal
+      quiet: Ignorar
+      question: ¿Cuándo quieres que se te notifique?
+      loud_explain: Cuando quiera que haya una actividad
+      normal_explain: cuando alguien solicita tu atención
+      quiet_explain: Sin notificaciones
+    aria_label: "Formulario para cambiar las notificaciones de correo electrónico"
+    loud_label: "Toda la actividad"
+    normal_label: "Anuncios"
+    quiet_label: "No enviar correo"
+    mute_label: "Silenciar "
+    saved: "Ajustes de notificaciones actualizados"
+    discussion:
+      title: "Notificaciones de los hilos"
+      loud_description: "Se te enviará un email con toda la actividad en este hilo."
+      normal_description: "Sólo se te enviará un email con actividad importante en este hilo."
+      quiet_description: "No se te enviará ninguna actividad en este hilo"
+      apply_to_all: "Aplicar esta configuración para todos los hilos de este grupo."
+      only_this_thread: "Solamente se aplica en este hilo"
+      group: "Cambiar notificaciones del grupo"
+      user: "Cambiar los ajustes de notificaciones del usuario"
+      messages:
+        loud: "Recibirás la actividad de este hilo por correo electrónico. "
+        normal: "Recibirás correo electrónico sobre propuestas en este hilo. "
+        quiet: "No recibirás correo electrónico sobre este hilo."
+    membership:
+      title: "Notificaciones para {{title}}"
+      loud_description: "Recibirás correo electrónico siempre que haya actividad en este grupo."
+      normal_description: "Recibirás correo electrónico siempre que haya actividad en este grupo."
+      quiet_description: "No recibirás correo electrónico sobre la actividad en este grupo."
+      apply_to_all: "Aplicar esta configuración para todos mis grupos. "
+      apply_to_organization: "Solicitar para todos los grupos en {{organization}}"
+      messages:
+        loud: "Recibirás correo electrónico sobre toda la actividad en este grupo. "
+        normal: "Sólo se enviarán anuncios por correo electrónico en este grupo."
+        quiet: "No recibirás correo electrónico sobre este grupo."
+    all_groups:
+      title: "Preferencias de notificación para todos los grupos"
+      loud_description: "Recibirá por correo electrónico toda la actividad de todos sus grupos."
+      normal_description: "Sólo se te enviará actividad importante en todos tus grupos."
+      quiet_description: "No se te enviará ninguna actividad en ninguno de tus grupos."
+      messages:
+        loud: "Recibirá por correo electrónico toda la actividad de todos sus grupos."
+        normal: "Sólo se te enviarán anuncios por correo electrónico en todos sus grupos."
+        quiet: "No recibirá ningún correo electrónico sobre sus grupos."
+    user:
+      title: Configuración de correo electrónico para grupos nuevos
+      loud_description: "Recibirás correo electrónico sobre toda la actividad en cualquier grupo nuevo. "
+      normal_description: "Recibirás por correo electrónico los anuncios de cualquier grupo nuevo en el que participes."
+      quiet_description: "No recibirás correo electrónico sobre la actividad en ningún nuevo grupo en el que participes."
+      apply_to_all: "Aplicar esta configuración para todos mis grupos."
+      messages:
+        loud: "Recibirá correos electrónicos sobre toda la actividad en nuevos grupos."
+        normal: "Recibirás por correo electrónico los anuncios de grupos nuevos."
+        quiet: "No recibirás correo electrónico de los nuevos grupos."
+  close_explanation_modal:
+    aria_label: Cerrar hilo
+    close_thread: 'Cerrar hilo '
+    body: |
+        <p>Cierra hilos viejos e irrelevantes para que no sean visibles e indicar que la discusión se ha cerrado.</p>
+        <p>Cualquiera puede comentar o iniciar un sondeo sobre un hilo cerrado, pero no aparecerá en el listado de los hilos del grupo o en el página de inicio. </p>
+    image_alt: Todos los hilos cerrados
+  mute_explanation_modal:
+    aria_label: 'Silenciar hilo '
+    mute_thread: Silenciar hilo
+    body_html: |
+        Silenciar significa que <strong>no se te enviarán notificaciones sobre propuestas</strong>, o cualquier otra actividad en este hilo, a menos que alguien te <strong>@mencione</strong>.
+    body_html_2: |
+        Los hilos silenciados no serán visibles ni en la página <strong>Recientes</strong> ni en la de <strong>No leído</strong>. Para encontrar sus hilos silenciados, seleccione la opción <strong>Silenciado</strong> en la barra lateral de navegación.
+    image_alt: 'Opción de hilos silenciados en la barra lateral '
+  dismiss_explanation_modal:
+    aria_label: Ignorar hilo
+    dismiss_thread: Ignorar hilo
+    body_html: |
+        <p>Ignorar un hilo lo elimina de la lista de no leídos. Si alguna nueva
+        actividad ocurre en el hilo, volverá a aparecer como no leído otra vez.</p>
+  inbox:
+    clear: 'Limpiar'
+    latest: 'Últimos'
+    unread: 'No leído'
+    closing_in: 'Cerrando'
+  sign_up_form:
+    password_label: 'Contraseña:'
+    password_confirmation_label: 'Esa contraseña otra vez:'
+  signed_out_modal:
+    aria_label: 'Sesión cerrada '
+    title: "Su sesión ha terminado"
+    message: "Su sesión ha sido desconectada desde otra pestaña del navegador. Por favor vuelva a entrar para continuar."
+    ok: "listo"
+  comment_reply_form:
+    aria_label: 'Añade una respuesta'
+  comment_form:
+    aria_label: 'Añade un comentario'
+    attachments:
+      add_attachment: 'Adjuntar archivos '
+      remove_attachment: 'Quitar archivo adjunto'
+    messages:
+      created: 'Comentario añadido'
+      replied: '{{name}} ha sido notificado de la respuesta '
+      updated: 'Comentario actualizado'
+      destroyed: 'Comentario eliminado'
+      removed: 'Comentario eliminado'
+    say_something: Diga algo...
+    edit_comment: 'Editar comentario'
+    delete_comment: 'Borrar comentario'
+    cancel_reply: 'Cancelar respuesta'
+    confirm_delete_message: '¿Estás seguro de que quieres borrar este comentario?'
+    confirm_delete: 'Eliminar comentario '
+    in_reply_to: "Responder a {{name}}"
+    write_a_comment: "Añade un comentario..."
+    post_comment: "Publicar comentario"
+    submit_button:
+      label: 'Enviar'
+    private_privacy_notice: 'Su comentario solo será visible para integrantes de {{groupName}}.'
+    public_privacy_notice: 'Su comentario será público para cualquiera en internet.'
+    sign_in: "Inicia sesión para unirte a la conversación "
+  thread_nav:
+    participants: Participantes
+  sidebar:
+    threads: 'Hilos'
+    my_groups: 'Mis grupos'
+    other_groups: 'Otros grupos'
+    all_groups: 'Todos los grupos'
+    recent_threads: 'Hilos recientes'
+    invite_only_threads: 'Hilos sólo con invitación'
+    direct_threads: 'Hilos directos'
+    unread_threads: 'No leído ({{count}})'
+    muted_threads: 'Hilos silenciados '
+    start_group: 'Nueva organización'
+    start_subgroup: 'Nuevo subgrupo'
+    explore: 'Grupos públicos'
+    explore_groups: Explorar grupos
+    start_thread: Nuevo hilo
+    start_decision: 'Nueva decisión  '
+    more_groups: Más grupos
+    aria_labels:
+      heading: 'Barra Lateral '
+      threads_list: 'Acciones del hilo'
+      groups_list: 'Grupos'
+      user_list: 'Acciones de usuario'
+  strand_nav:
+    newest_first: Última actividad
+    oldest_first: Principio del hilo
+    all_pinned: Todos elementos anclados
+    whole_thread: Todo el hilo
+    from_comment: Desde un comentario url
+    from_sequence_id: Desde un elemento hilo url
+    unread: Nuevo para ti
+  navbar:
+    search_all_threads: Busca todos los hilos
+    search_threads: 'Busca todos los hilos {{name}}'
+    search_polls: 'Encuestas de búsqueda {{name}}'
+    search_members: 'Busca miembros en {{name}}'
+    search_subgroups: 'Busca miembros en {{name}}'
+    search_files: 'Busca ficheros en {{name}}'
+    recent_title: 'Ir al Escritorio'
+    unread_title: 'Ver los mensajes no leídos'
+    start_thread: 'Nuevo hilo '
+    notifications: 'Panel de notificaciones'
+    search:
+      label: 'Búsqueda, por grupos o hilos  '
+      results_aria_label: 'Resultados de la búsqueda '
+      no_results: 'Ningún hilo encontrado'
+      close: 'Cerrar panel de búsqueda'
+      placeholder: 'Buscar'
+      loading: 'Cargando resultados...'
+      discussions: 'Hilos'
+      proposals: 'Propuestas'
+      comments: 'Comentarios '
+    sign_in: 'Iniciar sesión'
+    toggle_sidebar: 'Alternar barra lateral'
+    open_sidebar: 'Abrir recuadro'
+    close_sidebar: 'Cerrar recuadro'
+    logo_title: 'Página principal'
+    group_and_subgroups: '{{group}} y subgrupos'
+  user_dropdown:
+    pin_sidebar: "Anclar barra lateral"
+    unpin_sidebar: "Desanclar barra lateral"
+    enable_beta_features: "Permite funciones beta"
+    disable_beta_features: "Deshabilita funciones beta"
+    button_label: 'Menú del usuario'
+    edit_profile: 'Editar perfil '
+    email_settings: 'Ajustes de notificación'
+    help: 'Ayuda'
+    contact_site_name: 'Contacto {{site_name}}'
+    sign_out: 'Salir'
+    beta_collab: "Ediciones de forma colaborativa a tiempo real acerca de discusiones y propuestas, borrador de comentarios auto guardados"
+  membership_card:
+    group_members: "Integrantes del grupo"
+    discussion_members: "Integrantes del hilo"
+    poll_members: "{{pollType}} integrantes"
+    voters: "Votantes"
+    invite_to_group: "Invitar al grupo"
+    invite_to_discussion: "Invitar al hilo"
+    invite_to_poll: "Invitar a votar "
+    invitations: "Invitaciones"
+  membership_dropdown:
+    set_title: "Añada un título"
+    resend: "Reenviar la invitación"
+    invitation_resent: "Invitación reenviada"
+    make_coordinator: 'Convertir en admin'
+    demote_coordinator: 'Degradar admin'
+    remove_from:
+      discussion: "Eliminar del hilo"
+      group: "Eliminar del grupo"
+      poll: 'Eliminar de {{pollType}}'
+    cancel_invitation: Cancelar la invitación
+  notification_models:
+    discussion: 'Hilo:'
+    comment: 'comentar en'
+    poll: 'decisión: '
+    outcome: 'resultado:'
+  notifications:
+    header: "Notificaciones"
+    no_notifications: "No tienes notificaciones"
+    new_discussion: "<strong>{{nombre}}</strong>comenzó un hilo <strong>{{título}}</strong>"
+    discussion_edited: "<strong>{{nombre}}</strong> editó el hilo <strong>{{título}}</strong>"
+    discussion_announced: "<strong>{{nombre}}</strong> ha compartido un hilo <strong>{{título}}</strong>"
+    new_motion: "<strong>{{name}}</strong> creó una propuesta <strong>{{title}}</strong>"
+    motion_closed: "Propuesta cerrada: <strong>{{title}}</strong>"
+    publish_outcome: "Publicar el resultado"
+    motion_closed_by_user: "<strong>{{name}}</strong> cerró la propuesta <strong>{{title}}</strong>"
+    motion_closed_by_expiry: "La propuesta <strong>{{title}}</strong> está cerrada."
+    new_vote: "<strong>{{name}}</strong> {{position}} a la propuesta <strong>{{title}}</strong>"
+    new_comment: "<strong>{{name}}</strong> ha comentado en <strong>{{title}}</strong>"
+    comment_replied_to: "<strong>{{name}}</strong> ha contestado a su comentario en <strong>{{title}}</strong>"
+    reaction_created: "<strong>{{name}}</strong> reaccionó <img class='emojione' src='{{reaction_src}}' alt='{{reaction}}'/> a su {{model}} <strong>{{title}}</strong>"
+    reaction_created_vue: "<strong>{{name}}</strong>accionado {{reaction}} a tu {{model}}<strong>{{title}}</strong>"
+    user_mentioned: "<strong>{{name}}</strong> te ha mencionado en <strong>{{title}}</strong>"
+    user_reminded: "<strong>{{name}}</strong> esta esperando que participes en <strong>{{title}}</strong>"
+    membership_requested: "<strong>{{name}}</strong> ha solicitado unirse a <strong>{{title}}</strong>"
+    membership_request_approved: '<strong>{{name}}</strong> ha aprobado su solicitud para unirse a <strong>{{title}}</strong>'
+    user_added_to_group: "<strong>{{name}}</strong> te ha añadido al grupo <strong>{{title}}</strong>"
+    user_added_to_group_no_inviter: "Has sido añadido al grupo <strong>{{title}}</strong>"
+    motion_closing_soon: "La propuesta <strong>{{title}}</strong> se cerrará pronto."
+    motion_outcome_created: "<strong>{{name}}</strong> ha publicado un resultado para la propuesta <strong>{{title}}</strong>"
+    motion_outcome_updated: "<strong>{{name}}</strong> ha actualizado el resultado de la propuesta <strong>{{title}}</strong>"
+    invitation_accepted: "<strong>{{name}}</strong> ha aceptado su invitación a unirse a <strong>{{title}}</strong>"
+    new_coordinator: "<strong>{{name}}</strong> te hizo un administrador de <strong>{{title}}</strong>"
+    poll_created: "<strong>{{name}}</strong> empezó una {{poll_type}}: <strong>{{title}}</strong>"
+    poll_edited: "<strong>{{name}}</strong> editó una {{poll_type}}: <strong>{{title}}</strong>"
+    poll_reminder: "<strong>{{nombre}}</strong>te está recordando que votes en: <strong>{{título}}</strong>"
+    poll_announced: "<strong>{{name}}</strong> compartió un {{poll_type}}: <strong>{{title}}</strong>"
+    poll_closing_soon: "{{poll_type}} <strong>{{title}}</strong> está cerrando."
+    poll_expired: "{{poll_type}} <strong>{{title}}</strong> está cerrada"
+    poll_option_added: "<strong>{{name}}</strong> agregó opciones en: <strong>{{title}}</strong>"
+    outcome_created: "<strong>{{name}}</strong> compartió un resultado: <strong>{{title}}</strong>"
+    outcome_announced: "<strong>{{name}}</strong> compartió un resultado: <strong>{{title}}</strong>"
+    stance_created: "<strong>{{name}}</strong> participó en: <strong>{{title}}</strong>"
+    group_announced: "<strong>{{name}}</strong> te invitó al grupo <strong>{{title}}</strong>"
+  discussion_fork_actions:
+    helptext: Selecciona puntos que te gustaría mover a otro hilo.
+    move: Mover
+    search_placeholder: Encuentra el hilo por título
+    moved: Moviendo comentarios, esto podría llevar un tiempo
+    move_to_existing_thread: 'Mover a un hilo existente '
+    start_new_thread: O empieza un nuevo hilo
+  discussion_form:
+    to: Para
+    direct_thread: "Hilo directo"
+    invite_only_thread: "Hilo sólo con invitación"
+    none_direct_thread: "Hilo directo (no grupo)"
+    none_invite_only_thread: "Hilo sólo con invitación (no grupo)"
+    change_log_placeholder: Opcionalmente, describe tus cambios. Este mensaje será añadido al hilo.
+    change_log_label: ¿Qué ha cambiado?
+    invite: Invitar
+    aria_label: 'Formulario del hilo'
+    start_thread: Empezar un hilo
+    messages:
+      created: 'Hilo iniciado'
+      updated: 'Hilo actualizado'
+      forked: 'Bifurcación del hilo creado'
+    new_discussion_title: 'Inicia un nuevo hilo'
+    moving_items_title: 'Mover puntos a un nuevo hilo'
+    edit_discussion_title: 'Editar hilo'
+    group_label: 'Grupo'
+    group_placeholder: 'Seleccionar un grupo'
+    title_label: 'Título'
+    title_placeholder: '¿Cuál es el tema que quieres discutir?'
+    context_label: 'Contexto'
+    context_placeholder: 'Da suficiente información de contexto para que el grupo pueda llevar a cabo una discusión productiva. Esta información puede actualizarse según progresa la discusión.'
+    privacy_label: 'Privacidad'
+    privacy_public: 'Cualquier persona puede ver los hilos. Solo integrantes pueden participar. '
+    privacy_private: 'Los hilos solo serán visibles para integrantes de {{group}}.'
+    privacy_organisation: 'Los hilos serán visibles para integrantes de {{parent}} e integrantes de {{group}}.'
+    fork_notice: 'Un nuevo hilo será creado con {{count}} items de {{title}}'
+    one_person_notified: 1 persona será notificada
+    notify_group: Grupo de notificación
+  announcement:
+    send_discussion: Manda hilo
+    send_discussion_explain: Invita a gente a participar en el debate
+    send_group: Invita a gente a {{name}}
+    send_poll: Enviar {{type}}
+    send_poll_explain: Invita a gente a participar en el {{type}}
+    send_outcome: Enviar resultado
+    send_outcome_explain: Notificar a la gente acerca del resultado del {{type}}
+    discussion_notification_history: Historial de la notificación del hilo
+    group_notification_history: Historial de la invitación del grupo
+    poll_notification_history: Historia de la notificación del sondeo
+    outcome_notification_history: Historia de la notificación del resultado
+    comment_notification_history: Historia de la notificación del comentario
+    notification_history_explanation: Indica que se ha leído la notificación o que se ha abierto el correo electrónico
+    quick_add: "Adición breve:"
+    any_other_groups: "Algún otro grupo?"
+    notified_people: "{{name}} notificado {{lenght}} gente:"
+    preview: Vista preliminar del email
+    no_notifications_sent: No se han enviado notificaciones
+    history_error: Algo ha salido mal! No se pudo cargar la historia
+    inviting_guests_to_thread: Los invitados no pertenecen a tu grupo y solamente tienen acceso a este hilo
+    select_groups: Grupos seleccionados
+    search_by_name_or_email: Busca por nombre o introduce emails para invitar
+    search_by_name: Busca a la gente por nombre
+    only_admins_can_announce: Solamente los administradores pueden notificar a todo el grupo
+    only_admins_can_invite: Sólo los administradores pueden invitar invitados
+    only_admins_can_announce_or_invite: Solamente los administradores pueden notificar a todos el grupo o invitar invitados
+    user_mentioned: '{{name}} mencionado {{length}} gente:'
+    comment_replied_to: '{{name}} respondió a {{length}} gente:'
+    new_discussion: '{{name}} invitó a {{length}} gente a este hilo:'
+    discussion_announced: '{{name}} invitó {{length}} gente a este hilo:'
+    poll_created: '{{name}} invited a {{length}} gente a votar:'
+    poll_announced: '{{name}} invited a {{length}} gente a votar:'
+    outcome_created: '{{name}} compartió un resultado con {{length}} gente:'
+    outcome_announced: '{{name}} compartió un resultado con {{length}} gente:'
+    announcement_created: '{{name}} invitó {{length}} gente a este hilo:'
+    discussion_edited: '{{name}} editó el hilo, notificando a {{length}} gente:'
+    poll_edited: '{{name}} editó una encuesta, notificando a {{length}} gente:'
+    outcome_edited: '{{name}} editó un resultado, notificando {{length}} gente:'
+    outcome_updated: '{{name}} editó un resultado, notificando {{length}} gente:'
+    poll_closing_soon: "El recordatorio del cierre del sondeo de {{name}} notificó a {{length}} gente:"
+    poll_reminder: '{{name}} recordó {{length}} gente a votar:'
+    audiences:
+      group: 'Integrantes de {{name}} '
+      discussion_group: Todos en el hilo
+      voters: Todos invitados a votar
+      decided_voters: Todos los que votaron
+      undecided_voters: Votantes indecisos
+      non_voters: Miembros de {{name}} todavía no han sido invitados
+    form:
+      too_many_invitations: |
+          Límite de invitaciones excedido. <a href="{{upgradeUrl}}" target="_blank">Mejore su abono</a>
+      no_invitations_remaining: |
+          <p>Ha usado todas las {{maxMembers}} invitaciones disponibles para este grupo.</p>
+          <p>Si quiere puede, <a href="{{upgradeUrl}}" target="_blank">elegir un abono</a> para continuar colaborando en Loomio.</p>
+      invitations_remaining: '{{count}} invitaciones disponibles. <a href="{{upgradeUrl}}" target="_blank">Mejore su abono</a>'
+      who_to_invite: ¿A quién te gustaría invitar?
+      invitation_message_placeholder: Un mensaje a incluir en el email de invitación. (opcional)
+      invitation_message_label: Mensaje
+      group_announced:
+        title: Invitar al grupo
+        helptext: ¿A quién le gustaría invitar al grupo?
+      discussion_announced:
+        title: Invitar al hilo
+        helptext: ¿A quién le gustaría invitar a este hilo?
+        notify_helptext: ¿A quien le gustaría notificar sobre este hilo?
+      discussion_edited:
+        title: Notificar cambios
+        helptext: ¿A quién te gustaría notificar sobre esta actualización? (opcional)
+      poll_announced:
+        title: 'Invitar a votar '
+        helptext: ¿A quién le gustaría invitar a la votación?
+      poll_reminder:
+        title: Recuerda votar
+        helptext: ¿A quién te gustaría recordar que vote?
+        message_label: Mensaje
+        message_placeholder: Mensaje opcional para decir a la gente porque deberían votar
+      poll_edited:
+        title: Notificar cambios
+        helptext: ¿A quién te gustaría notificar sobre esta notificación?
+      outcome_announced:
+        title: Compartr resultado
+        helptext: Resumir los resultados del proceso, incluyendo cualquier entendimiento encontrado o problemas sacados a la luz.
+      anyone_can_participate: Cualquiera con el enlace puede paticipar
+      placeholder: Puedes introducir nombres o direcciones de correo electrónico
+      notified_empty: 'No se ha seleccionado a nadie todavía'
+      notified: '{{notified}} gente será notificada.'
+      notified_singular: '1 persona será notificada'
+      notified_none: 'Nadie será notificado.'
+      group_title: '{{name}} ({{count}} personas)'
+      visible_to_group: 'Cualquiera en {{group}} será capaz de ver este hilo.'
+      visible_to_guests: 'Solamente la gente invitada puede ver este hilo.'
+      click_group_to_see_individuals: Clica grupo para ver individual
+    members_list:
+      title: Compartido con
+      last_notified: Notificado
+      not_notified: No ha sido notificado aún
+      no_members: "Esto no ha sido compartido con nadie aún"
+      group_admin: "Grupo de administración"
+      thread_admin: "Hilo de administración"
+      last_read_at: "El último visto {{time}}"
+      has_not_read_thread: "Tiene un hilo no visto"
+    group_form:
+      search_placeholder: Buscar personas...
+      modal_title: Selecciona integrantes del grupo
+    flash:
+      success: '{{count}} notificaciones enviadas'
+  action_dock:
+    actions_menu: Menú de acciones
+    more_actions: Más acciones
+    react: 'Reaccionar '
+    notify: Notificar
+    add_resource: Agregar archivo adjunto
+    edit_group: Editar contexto de grupo
+    add_comment: Comentario
+    copy_url: Copiar enlace
+    edit_thread: Editar contexto
+    announce_thread: Manda hilo
+    invite_guests: Gente invitada
+    translate_thread: Traducir contexto
+    edit_poll: Editar encuesta
+    edit_poll_type: "Editar {{pollType}}"
+    move_items: Mover elementos
+    announce_poll: 'Invitar a personas a votar '
+    announce_poll_active: '(Nadie ha sido invitado aún) '
+    translate_poll: Traducir encuesta
+    edit_stance: Cambiar decisión
+    translate_stance: Traducir voto
+    edit_comment: Editar comentario
+    delete_comment: 'Eliminar comentario '
+    reply_to_comment: Responder
+    fork_comment: Bifurcar hilo
+    translate_comment: Traducir comentario
+    edit_outcome: Editar el resultado
+    announce_outcome: Notificar personas sobre el resultado
+    announce_outcome_active: (Nadie ha sido notificado sobre el resultado aún)
+    translate_outcome: Traducir resultado
+    show_history: Ver historial de revisión
+    edited: Editado
+    show_edits: Muestra las ediciones
+    show_notifications: Muestra notificacinoes
+    history: Historia
+    pin_thread: Anclar hilo
+    unpin_thread: Soltar hilo
+    pin_event: 'Indicio para la próxima vez: Intenta subrayar algo de texto antes de clicar "Pin".'
+    unpin_event: Desanclar del plazo
+    comment_copied: URL del comentario copiado al portapapeles
+    move_thread: Mover al grupo
+    poll_copied: URL de la decisión ha sido copiado al portapapeles
+    discussion_copied: URL del hilo ha sido copiado al portapapeles
+    url_copied: Enlace copiado a la tablilla
+    tag_thread: Administrar etiquetas
+    close_thread: 'Cerrar hilo '
+    reopen_thread: Reabrir hilo
+    delete_thread: 'Eliminar hilo '
+    notification_history: Historial de notificación
+    move_item: Mover elemento
+    add_poll_to_thread: Añadir al hilo
+    count_members: "{{count}} miembros"
+    count_voters: "{{count}} votantes"
+  formatting:
+    formatting_tools: Herramientas formateo de texto
+    colors: Colores
+    alignment: Alineación
+    lists: Listados
+    expand: Mostrar más herramientas de formateo
+    collapse: Mostrar menos herramientas de formateo
+    bold: Negrita
+    italicize: En cursiva
+    blockquote: Presupuesto
+    strikethrough: Tachado
+    underline: Subrayado
+    link: Inserte un enlace
+    code_block: Bloque código
+    insert_image: Insertar imagen
+    insert_emoji: Insertar emoticono
+    attach: 'Adjuntar archivos '
+    heading_size: Tamaño del encabezado
+    heading1: Encabezado 1
+    heading2: Encabezado 2
+    heading3: Encabezado 3
+    left_align: Alinear a la izquiera
+    center_align: Alinear al centro
+    right_align: Alinear a la derecha
+    justify_align: Alinear justificado
+    paragraph: Párrafo
+    bullet_list: Lista
+    number_list: Lista numerada
+    check_list: Lista de control
+    reset: Reiniciar
+    text_color: Color del texto
+    background_color: Color de fondo
+    quote: Presupuesto
+    embed: Video integrado
+    divider: Divisor
+    add_table: Añadir tabla
+    remove_table: Quitar tabla
+    add_column_before: Añadir columna antes de
+    add_column_after: Añadir columna después de
+    remove_column: Quitar columna
+    add_row_before: Añadir fila antes de
+    add_row_after: 'Añadir fila después de '
+    remove_row: Quitar fila
+    merge_selected: Fusionar celdas seleccionadas
+    wysiwyg: wysiwyg
+    edit_markdown: Editar el descuento
+    markdown_confirm: Puede que se pierdan algunos formatos cuando se convierta de contenido wysiwyg a la reducción.
+    upload_failed: Carga fallida
+  cover_photo_form:
+    aria_label: 'Formulario para cargar la foto de portada '
+    heading: 'Nueva foto de portada'
+    upload_link: 'Cargar una nueva foto de portada'
+    image_size_helptext: 'Tamaño de imagen ideal 1400x320px'
+    upload_success: 'La foto de portada ha sido cargada con éxito'
+  logo_photo_form:
+    aria_label: 'Formulario para cambiar el logo del grupo'
+    heading: 'Nuevo logo del grupo'
+    upload_link: 'Cargar un nuevo logo del grupo'
+    image_size_helptext: 'Tamaño de imagen ideal 100x100px'
+    upload_success: 'El logo ha sido cargado con éxito'
+  join_group_button:
+    not_a_member: "En estos momentos no eres miembro de este grupo."
+    join_group: Unirse al grupo
+    membership_requested: Membresía solicitada.
+    messages:
+      joined_group: 'Ahora eres integrante de {{group}}'
+  membership_request_form:
+    aria_label: Formulario de petición de membresías
+    heading: Solicita unirte al grupo
+    name_label: Nombre
+    email_label: Correo electrónico
+    introduction_label: ¿Porqué quieres unirte?
+    submit_button: 'Solicita membresía '
+    introduction_over_limit: La respuesta es muy larga
+    messages:
+      membership_requested: 'Ya has solicitado unirte a {{group}}'
+  revision_history_modal:
+    aria_label: Historial de revisión
+    discussion_header: Ediciones de debates
+    comment_header: Ediciones de comentarios
+    poll_header: Ediciones de encuestas
+    outcome_header: Ediciones de resultados
+    stance_header: Ediciones de posición
+    started_by: 'Iniciado por <strong>{{name}}</strong>'
+    edited_by: 'Editado por <strong>{{name}}</strong>'
+    edit_by: "Editar por {{name}} · {{date}}"
+    posted: Enviado
+    field: Campo
+    before: Antes
+    after: Después
+    original_text: Original
+    current_revision: Últimos
+    closing_at_changed: "Cierre configurado al {{time}}"
+    private_changed: "privacidad configurada a {{private}}"
+    group_id_changed: "movido a {{name}}"
+  reactions_input:
+    add_your_reaction: 'Añadir reacción '
+  reactions_display:
+    more_reactions: "{{count}}  más"
+    you: "Tú"
+    you_and_name: "Tú y {{name}}"
+    you_and_name_and_count_more: "Tú, {{name}} y {{count}} más"
+    name_and_count_more: "{{name}} y {{count}} más"
+  context_panel:
+    aria_intro: "Contexto del hilo {{author}}"
+    thread_status:
+      pinned: "Este hilo ha sido fijado. Permanecerá en la parte superior de la lista de hilos del grupo para todos los integrantes."
+      closed: "Este hilo ha sido cerrado. Ya no aparecerá en el escritorio, y será listado bajo 'Cerrado' en la página principal del grupo"
+  delete_group_modal:
+    title: Eliminar grupo
+    body: |
+        ¿Estás seguro de que quieres eliminar este grupo?
+        Todos los hilos, sondeos, archivos y otros contenidos del grupo se borrarán permanentemente.
+        Se recomienda que exportes los datos del grupo y descargues manualmente cualquier archivo importante antes de continuar.
+    confirm: "Escribe '%{name}' para confirmar que quieres borrar este grupo."
+    success: 'Se ha archivado este grupo y se ha programado eliminarlo permanentemente en 2 semanas. '
+  group_page:
+    stats: Estadísticas de grupo
+    threads: Hilos
+    polls: Sondeos
+    members: Integrantes
+    files: Archivos
+    settings: 'Configuración '
+    subgroups: Subgrupos
+    show_opened: '{{count}} Abierto'
+    show_closed: '{{count}} Cerrado '
+    no_threads_here: Ningún hilo para ver aquí!
+    search_threads: Buscar hilos ...
+    private_threads: Usted debe ser un integrante para ver los hilos privados de este grupo
+    no_more_threads: No más hilos para cargar
+    view_closed_threads: 'Ver hilos cerrados'
+    messages:
+      privacy:
+        members: 'Ahora este grupo es visible sólo para integrantes.'
+        parent_members: 'Este grupo ahora es visible solamente para miembros de tu organización.'
+        public: 'Ahora este grupo es visible para el público'
+      leave_group_success: 'Has dejado este grupo'
+      archive_group_success: 'Este grupo ha sido desactivado '
+    group_logo: 'Logo del grupo'
+    new_photo: 'Nueva foto '
+    new_cover_photo: 'Cargar una nueva foto de portada'
+    new_group_logo: 'Cargar un nuevo logo para el grupo'
+    open_discussions: 'Hilos abiertos'
+    closed_discussions: 'Hilos cerrados'
+    discussions_placeholder: 'Un hilo es donde todo el mundo puede discutir un tema y tomar decisiones juntos.'
+    members_placeholder: 'Está solo aquí: ¡Invite a otras personas! '
+    member_options: Opciones de membresía
+    see_all_members: 'Mostrar los ({{count}}) integrantes'
+    pending_invitations: '+ {{count}} pendientes'
+    subgroups_placeholder: 'Los subgrupos le dan su propio espacio a los equipos y mantienen las notificaciones enfocadas en las personas indicadas.'
+    invite_people: 'Invitar'
+    visibility_label: 'Visibilidad'
+    options_label: 'Opciones'
+    options:
+      label: 'Opciones'
+      edit_group: 'Editar la configuración del grupo'
+      become_coordinator: Convertirte en administrador
+      export_data: Exportar la data grupal
+      export_data_as_json: Exporta los datos del grupo como JSON (formato ligero para el intercambio de datos)
+      export_data_as_csv: Exportar datos del grupo como CSV
+      export_data_as_html: Exportar datos del grupo como HTML
+      manage_members: 'Administrar integrantes '
+      add_subgroup: 'Agregar un Subgrupo'
+      manage_subscription: 'Dirigir la subscripción del grupo'
+      email_settings: 'Preferencias de correo electrónico '
+      leave_group: 'Abandonar el grupo '
+      deactivate_group: 'Desactivar el grupo '
+      subscription_status: 'Estado de la subscripción  '
+    volume:
+      loud: Enviar correo electrónico siempre que haya actividad.
+      loud_aria_description: El volumen de notificaciones para este grupo está establecido como Alto. Se te enviará un correo electrónico siempre que haya actividad.
+      loud_message: Correo electrónico te será enviado sobre toda la actividad en "{{name}}."
+      normal: 'Sólo enviar actividad importante: Hilos y propuestas nuevos, resultados... etc.'
+      normal_aria_description: El volumen de notificaciones para este grupo está establecido como Normal. Sólo se te enviarán correos electrónicos con actividad importante como cuando alguien inicia un hilo nuevo, surge una propuesta o se establece un resultado.
+      normal_message: 'Solo te será enviado correo electrónico sobre eventos importantes en "{{name}}".'
+      quiet: No enviar correo electrónico sobre el grupo. La actividad del grupo se mostrará en el Escritorio.
+      quiet_aria_description: El volumen de notificaciones para este grupo está establecido como "Bajo". No se enviarán correos electrónicos con actividad de este grupo. La actividad del grupo se mostrará en su Escritorio.
+      quiet_message: 'No te será enviado correo electrónico sobre actividad en "{{name}}".'
+      mute: Ocultar este grupo en el Escritorio y no notificarme a no ser que sea @mencionado.
+      mute_aria_description: El volumen de notificaciones para este grupo está establecido como "Silencio". No se enviarán correos electrónicos con actividad de este grupo a menos que sea mencionado. La actividad del grupo no se mostrará en su Escritorio.
+      mute_message: '"{{name}}" ha sido eliminado de su escritorio.'
+    privacy:
+      private: 'Privacidad: Este grupo es solo visible para integrantes'
+      parent_members: 'Privacidad: Este grupo es visible para los integrantes de {{parentGroupName}} y integrantes de {{groupName}} '
+      public: 'Privacidad: Este grupo es visible en la red '
+      aria_label: 'Privacidad del grupo: {{privacy}}'
+  export_data_modal:
+    title: ¿Cómo quieres utilizar tus datos?
+    as_csv: Abrir en una hoja de cálculo
+    as_html: Abrir en el navegador
+    as_json: Presentar este grupo en mi propio servidor
+  description_card:
+    title: 'Descripción del Grupo '
+    placeholder: 'Los administradores de grupo pueden usar este area para describir el propósito del grupo, con lo que todo el mundo sabe porqué están ahí.'
+    messages:
+      description_updated: 'Descripción actualizada'
+  leave_group_form:
+    aria_label: 'Abandonar el grupo'
+    title: 'Abandonar el grupo '
+    question: '¿Estás seguro de que quieres abandonar este grupo?'
+    submit: 'Sí, quiero abandonar este grupo'
+  archive_group_form:
+    aria_label: 'Desactivar el grupo'
+    title: 'Desactivar el grupo '
+    question: '¿Estás seguro de que quieres desactivar este grupo?'
+    submit: 'Sí, desactivar este grupo'
+  group_form:
+    thread_defaults_help: Ajustes predeterminados para nuevos hilos
+    click_to_change_image: Cubre imagen y logo (clicar para cambiar)
+    permissions_explaination: |
+        Hay dos niveles de membresía a los que una persona puede optar para un grupo: admin y miembro.
+        Los administradores pueden editar los ajustes del grupo, hacer a otras personas administradores y ejecutar todas la acciones que se listan a continuación.
+    aria_label: 'Formulario de grupo'
+    new_organisation: Nueva organización
+    start_group_heading: 'Crea un grupo'
+    start_subgroup_heading: 'Comienza un sub-grupo '
+    edit_group_heading: 'Editar la configuración del grupo'
+    edit_subgroup_heading: 'Editar la configuración del subgrupo'
+    group_name: 'Nombre del Grupo'
+    handle: Gestionar
+    group_handle_placeholder: "Para la dirección URL y el email, ej: loomio.org/handle y handle@loomio.org"
+    organization_name: 'Nombre de la organización'
+    start_organization_heading: Nueva organización
+    edit_organization_heading: Editar los ajustes de la organización
+    group_name_placeholder: '¿Cuál es el nombre de tu grupo?'
+    organization_name_placeholder: '¿Cuál es el nombre de la organización?'
+    subgroup_name: 'Nombre del sub-grupo '
+    description: 'Descripción '
+    description_placeholder: 'Describa el propósito del grupo para que los integrantes sepan porque están aquí.'
+    privacy_statement:
+      public_on_web: 'Nombre, descripción y archivos adjuntos al contexto del grupo, serán visibles al públicos '
+      private_to_group: 'El nombre y la descripción solo serán visibles para integrantes. '
+      private_to_parent_members: 'El nombre y la descripción serán visibles para los integrantes de {{parent}}'
+    privacy: 'Privacidad'
+    group_privacy_is_open_description: "Listada públicamente. Cualquiera puede pedir unirse. Todos los hilos son públicos."
+    group_privacy_is_closed_description: "Sin listar. Cualquiera con el enlace puede pedir unirse. Todos los hilos son privados."
+    group_privacy_is_closed_public_threads_description: "Sin listar. Cualquiera con el enlace puede pedir unirse. Los hilos pueden ser públicos o privados."
+    group_privacy_is_secret_description: "Sólo la gente a la que han invitado puede encontrar el grupo. Todos los hilos son privados"
+    confirm_change_to_secret: "Si procedes, todos los hilo en este grupo y sus subgrupos se harán privados."
+    confirm_change_to_secret_subgroup: 'Si continuas todos los hilos se harán privados.'
+    confirm_change_to_public: 'Si continúas, todos los hilos de este grupo se harán públicos en internet.  '
+    confirm_change_to_private_discussions_only: 'Si continuas cualquier hilo público en este grupo se hará privado. '
+    profile: Perfil
+    subgroup_privacy_is_open_description: "Cualquier persona puede encontrar este subgrupo y pedir membresía. Solo los integrantes pueden ver quien pertenece al mismo. Todos los hilos son públicos."
+    subgroup_privacy_is_closed_description: "Cualquier persona puede encontrar este subgrupo y pedir membresía. Sólo los integrantes pueden ver quien pertenece al mismo. Todos los hilos son privados."
+    subgroup_privacy_is_closed_public_threads_description: "Cualquier persona puede encontrar este subgrupo y pedir membresía. Sólo los integrantes pueden ver quien pertenece al mismo. Los hilos pueden ser públicos o privados."
+    subgroup_privacy_is_closed_secret_parent_description: "Integrantes de {{parent}} puede encontrar este subgrupo y pedir membresía. Solo los integrantes pueden ver quien pertenece al mismo. Todos los hilos son privados."
+    subgroup_privacy_is_secret_description: 'Sólo integrantes invitados pueden encontrar este sub-grupo, ver sus integrantes y sus hilos.'
+    advanced_settings: "Configuración avanzada "
+    how_do_people_join: "¿Cómo se unen las personas a este grupo?"
+    membership_granted_upon_request: 'Cualquiera puede unirse al grupo.'
+    membership_granted_upon_approval: 'Cualquiera puede pedir la membresía, pero debe ser aprobada.'
+    membership_granted_upon_approval_secret_parent: 'Cualquiera en {{parent}} puede pedir apuntarse al grupo <strong>por petición</strong>.'
+    permissions: 'Permisos'
+    features: 'Herramientas especificas de este grupo'
+    thread_privacy: 'Privacidad del hilo'
+    public_threads: 'Sólo hilos públicos'
+    public_discussions_subgroup: 'Cualquiera que pertenezca a {{parentGroupName}} puede ver las discusiones'
+    public_or_private_threads: 'Permitir hilos públicos y privados'
+    private_threads: 'Solamente los integrantes pueden ver las discusiones'
+    allow_public_threads: 'Permitir hilos públicos en este grupo.'
+    parent_members_can_see_discussions: 'Miembros de {{parent}} pueden ver los hilos privados'
+    parent_members_can_see_discussions_help: 'Permite a los miembros del grupo parental ver pero no participar en hilos y sondeos dentro de este grupo'
+    members_can_announce: 'Los miembros pueden notificar a cualquiera en el grupo'
+    members_can_announce_help: 'Permite a los miembros notificar a cualquiera en el grupo acerca del hilo o sondeo'
+    members_can_add_members: 'Los miembros pueden invitar a otros miembros'
+    members_can_add_members_help: "Permite a los miembros invitar a la gente a unirse a este grupo "
+    members_can_add_guests: 'Los miembros pueden invitar invitados'
+    members_can_add_guests_help: 'Permite a los miembros invitar invitados a los hilos o sondeos de este grupo'
+    members_can_create_subgroups: 'Los miembros pueden crear subgrupos'
+    members_can_create_subgroups_help: 'Permite a los miembros crear y convertirse en administradores de nuevos subgrupos'
+    members_can_edit_discussions: 'Los miembros pueden controlar hilos y comentarios'
+    members_can_edit_discussions_help: 'Permite a los miembros editar, mover, marcar, etiquetar o cerrar hilos'
+    members_can_edit_comments: 'Los miembros pueden editar sus propios comentarios'
+    members_can_edit_comments_help: 'Permite a los miembros editar sus propios comentarios en cualquier momento'
+    members_can_start_discussions: 'Los miembros pueden comenzar nuevos hilos'
+    members_can_start_discussions_help: 'Permite a los miembros comenzar nuevos hilos dentro de este grupo'
+    members_can_raise_motions: 'Los miembros pueden comenzar encuestas'
+    members_can_raise_motions_help: 'Permite a los miembros comenzar encuestas y proposiciones dentro de los debates o del grupo'
+    admins_can_edit_user_content: "Los administradores pueden editar comentarios de los miembros"
+    admins_can_edit_user_content_help: 'Permite a los administradores editar contenido escrito por los miembros'
+    submit_start_group: 'Crear grupo'
+    submit_start_subgroup: 'Crear subgrupos'
+    submit_update: 'Actualizar preferencias'
+    messages:
+      group_created: 'Grupo ha sido creado'
+      group_updated: 'Grupo actualizado'
+    upload_logo: 'Cargar el logo'
+    upload_cover_photo: 'Cargar la foto de portada'
+  group_export_modal:
+    title: Exportar la data grupal
+    body: |
+        <p>
+        Puedes descargar una copia de los datos de tu grupo en cualquier momento
+        <a href="https://help.loomio.org/en/user_manual/groups/data_export/">Descubre más.</a>
+        </p>
+        <p>
+        Se demora unos minutos para completar, dependiendo del tamaño de tu grupo.
+        Cuando está listo recibirás un email con un enlace para descargar el archivo.
+        </p>
+    submit: Iniciar la exportación
+    flash: Iniciada la exportación de datos del grupo
+  membership_requests_card:
+    heading: 'Pedidos de membresía '
+    manage_requests: 'Gestionar peticiones '
+    manage_requests_with_count: Gestionar peticiones ({{count}})
+  membership_requests_page:
+    heading: Solicitudes de ingreso
+    approve: 'Aprobar '
+    ignore: Ignorar
+    no_pending_requests: Actualmente no hay solicitudes de ingreso pendientes para el grupo
+    no_previous_requests: 'Actualmente no hay solicitudes de ingreso para este grupo '
+    previous_requests: Solicitudes anteriores
+    previous_request_response: '{{response}} de {{responder}} '
+    messages:
+      request_approved_success: Solicitud de ingreso aprobada
+      request_ignored_success: Solicitud de ingreso ignorada
+  group_previous_proposals_card:
+    heading: Propuestas previas
+    see_more: Ver más
+  group_decisions_card:
+    see_more: "Ve todas: las ({{count}}) decisiones "
+  invitation_form:
+    group_url: Grupo URL
+    reusable_invitation_link: Enlace de invitación reutilizable
+    error: "Error cuando se intenta copiar en el portapapeles"
+    aria_label: 'Formulario de invitación'
+    invite_people: 'Invitar personas'
+    invite_guests: 'Gente invitada'
+    notify_people: 'Notificar a la gente'
+    invite_people_to_group: 'Invitar a {{name}}'
+    group: 'Grupo'
+    group_placeholder: 'Selecciona un grupo'
+    shareable_link: 'Enlace para compartir'
+    share_group: 'Compartir tu grupo'
+    copy_link: 'Copiar'
+    email_addresses: 'Correo electrónico'
+    email_addresses_placeholder: 'ej. helperbot@loomio.org, friendlybot@loomio.org'
+    secret_group_url_explanation: "Esta es la dirección para vuestro grupo. Solamente los miembros invitados podrán ver al grupo."
+    shareable_group_url_explanation: 'Puedes compartir este enlace de publicidad. La gente puede pedir unirse y vosotros podéis aceptar o ignorar las solicitudes.'
+    shareable_invitation_explanation: 'No compartas este enlace de publicidad. Cualquiera con eso puede unirse a vuestro grupo sin vuestro permiso. Compártelo solamente en comunicaciones privadas para permitir a la gente de tu organización que se conecte.'
+    shareable_link_reset: 'Reiniciar el enlace compartible. El enlace previo no funcionará.'
+    email_explanation: 'Como alternativa, puede añadir las direcciones de correo electrónico y enviar invitaciones por correo electrónico.'
+    add_custom_message: 'Personalice la invitación, '
+    add_custom_message_link: 'agrega un mensaje personalizado '
+    custom_message: 'Mensaje personalizado '
+    custom_message_placeholder: 'Introduzca un mensaje personal para enviarlo junto a la invitación.'
+    team_invitation_message: 'Alternativamente, '
+    team_invitation_link: 'usa un enlace para compartir.'
+    add_members: 'Incluye integrantes'
+    from_parent_group: 'de {{name}}.'
+    send: 'Enviar'
+    done: 'Listo'
+    messages:
+      invitation_sent: 'Invitación enviada.'
+      invitations_sent: '{{count}} invitaciones enviadas.'
+      no_invitations: '¡Uh oh! Comprueba que la dirección de correo electrónico es correcta e inténtalo de nuevo.'
+      max_invitations: 'Si quiere enviar mas de 100 invitaciones, utilice un enlace de grupo.'
+  memberships_page:
+    members: 'Integrantes'
+    name_label: 'Nombre'
+    coordinator_label: 'Administrador'
+    remove_member_label: 'Eliminar'
+    fragment_placeholder: 'Filtrar usuarios por nombre o nombre de usuario...'
+    only_one_admin: Solamente hay un administrador en este grupo. Se recomienda que elijáis al menos otro miembro como administrador.
+    messages:
+      remove_member_success: '{{name}} eliminado'
+      make_admin_success: '{{name}} es ahora un administrador'
+      remove_admin_success: '{{name}} ya no es un administrador'
+    remove_admin_from_self:
+      question: '¿Estás seguro de que ya no quieres ser administrador?'
+  membership_remove_modal:
+    invitation:
+      title: Cancelar la invitación
+      message: ¿Está seguro de que quiere cancelar esta invitación a {{name}}?
+      flash: Invitación cancelada
+      submit: Cancelar invitación
+    membership:
+      title: 'Eliminar miembro '
+      message: ¿Estás seguro de que quieres eliminar a {{name}}?
+      impact_for_group: 'Esto removerá su acceso a todos los hilos y decisiones del grupo.  '
+      impact_for_subgroups: 'Esto también removerá su acceso a todos los subgrupos del grupo.  '
+      flash: Miembro eliminado.
+      submit: 'Eliminar miembro '
+  memberships_panel:
+    add_coordinator: Hacer administrador
+    remove_coordinator: Degradar admin
+  membership_form:
+    modal_title:
+      group: Añadir título del grupo
+    title_helptext:
+      group: Este título será mostrado junto al nombre de {{name}} dentro de este grupo. Úselo para que otros integrantes conozcan su cargo.
+    title_label: Título
+    title_placeholder: ej. ´Coordinadora´o ´Facilitadora´
+    updated: Título del integrante actualizado
+  user_page:
+    contact_user: 'Contactar {{name}}'
+    location_field: 'Ubicación: {{value}}'
+    locale_field: 'Idioma: {{value}}'
+    online_field: 'Online: {{value}}'
+    invited: 'Invitado/a {{value}}'
+    message_user: 'Mensaje {{nombre}}'
+  contact_request_form:
+    modal_title: "Correo electrónico: {{name}}"
+    message_placeholder: Comparte una breve introducción personal y di porqué te quieres contactar.
+    helptext: "A {{name}} se le enviará su nombre, dirección de correo electrónico y mensaje."
+    email_sent: "Correo electrónico enviado a {{name}}"
+  profile_page:
+    messages:
+      updated: 'Perfil actualizado'
+      picture_changed: 'Imagen de perfil actualizada'
+      password_changed: 'Contraseña actualizada'
+      deactivated: 'Cuanta desactivada'
+    merge_accounts: Fusionar cuentas
+    change_picture_link: 'Cambiar imagen'
+    change_password_link: 'Restablece contraseña'
+    delete_account: 'Eliminar cuenta permanentemente '
+    delete_user_link: 'Eliminar cuenta '
+    profile: 'Perfil'
+    edit_profile: 'Editar perfil'
+    picture_label: 'Imagen'
+    name_label: 'Nombre'
+    username_label: 'Nombre de usuario'
+    username_helptext: 'Todo en minúscula, solo letras y números, máximo 30 caracteres. '
+    email_label: 'Correo electrónico'
+    short_bio_label: 'Introducción'
+    locale_label: 'Idioma'
+    short_bio_placeholder: 'Por favor ingresa una introducción personal, incluye áreas de especialización, tópicos de interés, y afiliación con organizaciones.'
+    locale_placeholder: Seleccione su lenguaje preferido
+    location_label: 'Ubicación '
+    location_placeholder: '¿Dónde estas basado?'
+    update_profile: 'Actualizar perfil'
+    deactivate_account: 'Desactivar la cuenta de usuario'
+    help_translate: "Ayúdanos a traducir Loomio"
+  text_editor:
+    select_text_to_link: Primero, selecciona algo de texto para el enlace
+    insert_link: Inserte un enlace
+    insert_embedded_url: Video integrado
+  change_picture_form:
+    aria_label: 'Formulario de la foto de perfil'
+    title: 'Establecer foto de perfil'
+    helptext: 'Puede cargar su propia foto de perfil, o puede usarla la de <href="https://en.gravatar.com/support/whatisgravatar/"> Gravatar </a>, si tiene cuenta.'
+    use_initials: 'Usar iniciales'
+    use_gravatar: 'Usar Gravatar'
+    use_uploaded: 'Cargar nueva foto'
+    use_provider: 'Usa {{provider}} foto'
+  change_password_form:
+    set_password_title: Establece tu contraseña
+    set_password_helptext: Por favor introduce una contraseña - mínimo 8 dígitos
+    set_password: Configura la contraseña
+    password_changed: Su contraseña ha sido actualizada.
+  deactivation_modal:
+    aria_label: 'Desactivar la cuenta de usuario'
+    introduction: 'Cuando desactiva su cuenta:'
+    you_will_be_deleted: "Su cuenta de usuario, incluyendo nombre, correo electrónico y otros datos personales serán eliminados del sistema."
+    name_removed: 'Los comentarios, propuestas e hilos que ha realizado permanecerán, pero su nombre será retirado de los mismos'
+    no_longer_group_member: 'Ya no serás listado como miembro en ningún grupo'
+    no_emails: 'Ya no recibirás notificaciones por correo electrónico'
+    you_can_reactivate: "Podrá reactivar su cuenta si lo desea"
+    submit: 'Si, quiero desactivar mi cuenta'
+    submit_delete: 'Borrar mi cuenta ahora'
+  email_settings_page:
+    header: Ajustes de notificación
+    account_deactivated: Tu cuenta ha sido desactivada. Ya nunca recibirás más emails.
+    deactivate_header: Detén todos los emails para siempre
+    deactivate_description: Si ya no quieres recibir ningún email de nosotros, puedes desactivar tu cuenta de usuario.
+    email_newsletter: Boletín de noticias de Loomio
+    email_newsletter_description: "Consigue actualizaciones acerca de las nuevas características, formación, eventos en tu ciudad y del futuro de Loomio. Generalmente 2 o 3 emails al año."
+    daily_summary_label: Correo electrónico de resumen diario
+    daily_summary_description: "Cada mañana, recibirás un correo electrónico con la actividad no leída el día anterior. Este correo electrónico facilita  el estar al día con la actividad."
+    on_participation_label: 'Suscribirte a la participación '
+    on_participation_description: "Cuando participes en un hilo, inmediatamente se te enviará toda la actividad subsiguiente por correo electrónico. "
+    announcement_label: Anuncios
+    announcement_description: "Recibirá notificaciones por correo electrónico sobre todos los contenido anunciados por personas en sus grupos."
+    mentioned_label: 'Menciones y Respuestas '
+    mentioned_description: "Cuando alguien le mencione o responda directamente a su comentario, recibirás una notificación por correo electrónico"
+    update_settings: Guardar cambios
+    specific_groups: 'Configuración para grupos específicos  '
+    default_settings:
+      loud_description: "Cuando te unas a un nuevo grupo, te enviaremos correo electrónico <strong>siempre que haya actividad</strong>.  "
+      normal_description: "Cuando te unas a un nuevo grupo, te enviaremos correo electrónico sobre <strong>nuevos hilos y propuestas</strong>.  "
+      quiet_description: "Cuando te unas a un nuevo grupo, no <strong>te enviaremos ningún correo electrónico</strong>.  "
+    edit: Editar
+    messages:
+      updated: Configuración del correo electrónico actualizada
+    learn_more: Aprende más sobre la configuración de correo electrónico...
+  thread_preview:
+    replies_count: "{{count}} respuestas"
+    unread_count: "{{count}} no leídos"
+  dashboard_page:
+    aria_label: 'Escritorio'
+    no_groups:
+      show_all: Bienvenido! Todavía no eres miembro de ningún grupo. <a href="/explore"> Explora grupos públicos</a> o <a href="/g/new"> comienza un grupo</a>.
+      show_muted: No tienes ningún hilo silenciado porque no eres miembro de ningún grupo.
+    no_threads:
+      show_all: No tienes ningún hilo reciente.
+      show_proposals: No hay propuestas activas en este momento.
+      show_muted: No tienes ningún hilo silenciado.
+    view_recent: ¿Ver todos los hilos recientes?
+    load_more: Cargar más hilos
+    mark_as_read: Marcar como leído
+    dismiss: Ignorar
+    thread_dismissed: Hilo marcado como leído
+    thread_recalled: 'Hilo recuperado '
+    explain_mute:
+      title: No tienes ningún hilo silenciado.
+      explanation_html: |
+          Silenciar es una forma de esconder hilos en los que no estas interesada.
+          Silenciar significa que no veras el hilo en <strong>Recientes</strong> o <strong>No leído</strong>, y no serás notificado sobre ninguna actividad en ese hilo.
+          Solo serás alertada cuando alguien te <strong>@mencione</strong>.
+      instructions: 'Para silenciar un hilo, pasa el cursor por encima y selecciona el icono para silenciar.'
+      see_muted_html: 'Para ver sus hilos silenciados, seleccione <strong>Silenciado</strong> en la barra lateral. Puedes reactivarlos pasando el cursor encima y seleccionando el mismo icono.'
+    filtering:
+      filter_threads: Filtrar hilos
+      filter_threads_aria_label: 'Filtrar hilos '
+      dropdown_heading: Filtrar Escritorio
+      all: Hilos Recientes
+      all_aria_label: Mostrando hilos recientes
+      all_description: Ver hilos recientes
+      proposals: Propuestas
+      proposals_aria_label: Mostrando hilos con propuestas activas
+      proposals_description: Ver únicamente hilos con propuestas activas
+      muted: 'Hilos silenciados '
+      muted_aria_label: Mostrando hilos silenciados
+      muted_description: Ver únicamente hilos que han sido silenciados
+    aria_thread:
+      unread: '{{count}} elementos no leídos.'
+      current_proposal: 'Propuesta actual: {{name}}.'
+      you_voted: 'Has votado: {{position}}.'
+    thread_preview:
+      you_voted: 'Votaste {{position}}'
+      undecided: 'Estas indeciso '
+    threads_from:
+      group: 'Hilos de'
+      pinned: 'Hilos fijados'
+      proposals: 'Hilos con decisiones activas '
+      starred: 'Hilos destacados'
+      today: 'Hoy'
+      yesterday: 'Ayer'
+      thisweek: 'Esta semana'
+      thismonth: 'Este mes'
+      older: 'De hace más de un mes'
+  threads_page:
+    no_direct_threads: "No tienes hilos directos"
+    no_invite_only_threads: "No tienes hilos sólo con invitación"
+  inbox_page:
+    no_threads: ¡Genial! ¡Ya ha leído todos los hilos de su bandeja de entrada!
+    unread_threads: Hilos sin leer
+    view_more: Ver más
+    no_groups:
+      explanation: 'No tienes ningún hilo no leído porque no eres miembro de ningún grupo. '
+      start: 'Empezar  '
+      or: 'o '
+      join_group: '<a href="/explore">únete</a> a un grupo para ver hilos.   '
+  discussion:
+    invite_only: "Sólo con invitación"
+    private_thread: Hilo privado
+    max_threads_reached: |
+        <p>Has usado todos {{maxThreads}} los hilos disponibles en este grupo.</p>
+        <p>Siguiente paso, <a href="{{upgradeUrl}}" target="_blank">elije un plan</a>para continuar participando en Loomio.</p>
+    subscription_canceled: |
+        <p>Tu subscripción no está activa.</p>
+        <p>Por favor<a href="{{upgradeUrl}}" target="_blank">actualiza</a>para continuar usando Loomio.</p>
+    activity: 'Actividad'
+    activity_placeholder: 'No hay actividad todavía'
+    load_previous: 'Cargar actividad más reciente'
+    started_by: 'Iniciado por <strong>{{name}}</strong>'
+    pin:
+      pinned: 'Hilo fijado'
+      unpinned: 'Hilo liberado'
+    volume:
+      mute_message: 'Hilo silenciado'
+      unmute_message: 'Hilo silenciado '
+    closed:
+      reopened: 'Hilo reabierto'
+      closed: 'Hilo cerrado '
+  discussion_last_seen_by:
+    title: Visto por
+    no_one: Nadie ha visto esto todavía
+  activity_card:
+    aria_label: "Comenta o comienza un sondeo"
+    count_responses: "{{count}} respuestas"
+    event_pinned: "Anclado para cronograma"
+    event_unpinned: "Desanclado de cronograma"
+    beginning: 'Inicio '
+    end: Final
+    unread: "No leídos {{count}"
+    latest: Últimos
+    context: Contexto
+    chronological: 'Cronológico '
+    nested: 'Agrupado '
+    attachment_display:
+      aria_label: 'Archivo adjunto:'
+      image_alt: 'Imagen adjunta'
+    n_previous: 'Mostrar {{count}} respuestas previas'
+    n_more: 'Mostrar {{count}} respuestas'
+    add_comment: Añadir comentario
+    add_poll: Añadir sondeo
+    add_outcome: Añadir resultado
+    comment: Comentario
+    facilitate: Facilitar
+  thread_group:
+    aria_label: 'Nombre del grupo'
+  thread_context:
+    current_poll_type_banner: Actual {{pollType}}
+    item_maybe_deleted: "No se puede encontrar el sitio solicitado dentro de este hilo. Debe haber sido borrado."
+    aria_label: 'Contexto del hilo'
+    thread_options: 'Preferencias del hilo'
+    email_settings: 'Ajustes de notificación'
+    edit: 'Editar'
+    edit_thread: 'Editar'
+    close_thread: 'Cerrar'
+    reopen_thread: 'Reabierto'
+    pin_thread: 'Fijar'
+    unpin_thread: 'Liberar'
+    mute_thread: 'Silenciar'
+    move_thread: 'Mover'
+    print_thread: 'Imprimir '
+    delete_thread: 'Eliminar'
+    add_comment: 'Comentar '
+    seen_by_count: 'Visto por {{count}} '
+    count_notified: 'Avisado {{count}}'
+    forked_from: "Bifurcado de"
+  pin_thread_modal:
+    title: Fijar hilo
+    helptext: "Los hilos fijados siempre aparecen en la parte superior del listado de hilos del grupo. Se pueden usar para informar a los integrantes sobre anuncios importantes, o promover material grupal como el código de conducta u otras guías comunitarias. "
+    helptext_two: "En cualquier momento puedes liberar nuevamente los hilos fijados, seleccionando 'Liberar' desde el menú desplegable del hilo."
+    pin_thread: 'Fijar hilo '
+  thread_arrangement_form:
+    title: Diseño del hilo
+    for_everyone: Esto cambia el diseño para todo el mundo, no solamente el tuyo.
+    sorting: ¿El más viejo o el más nuevo primero?
+    latest: El más nuevo
+    latest_description: Lee primero las cosas más nuevas
+    earliest: El más viejo
+    earliest_description: Leer desde el principio hasta el final
+    replies: ¿Cómo mostrar las respuestas?
+    linear: Lista plana
+    linear_description: Temas se listan según se han desarrollado, uno después de otro.
+    nested_once: 'Agrupado '
+    nested_once_description: Marca las respuestas bajo un comentario original
+    changing_nesting_is_slow: Cambios para anidación pueden llevar un par de minutos para procesarse.
+  delete_thread_form:
+    aria_label: 'Borrar hilo '
+    title: 'Borrar hilo '
+    body: ¿Estás seguro que quieres eliminar este hilo?
+    confirm: 'Eliminar hilo '
+    messages:
+      success: Hilo eliminado
+  move_thread_form:
+    aria_label: Mover hilo
+    title: Mover hilo
+    body: Grupo destino
+    confirm: 'Mover hilo '
+    confirm_change_to_private_thread: '{{groupName}} es un grupo público. Si continuas, este hilo se hará público.'
+    messages:
+      success: El hilo ha sido movido a {{name}}
+  delete_comment_dialog:
+    title: 'Borrar comentario'
+    question: '¿Estás seguro de que quieres borrar este comentario?'
+    confirm: 'Borrar comentario'
+  contact_message_form:
+    title: "¡Hola! ¿Cómo podemos ayudarle?"
+    read_the_manual: |
+        ¿Has visto nuestro <a href="{{link}}" target="_blank">Manual de Ayuda</a>? Lo actualizamos a menudo con preguntas y respuestas más comunes.
+    contact_us_email: "También puedes enviarnos un email: <a href=\"mailto:{{email}}\">{{email}}</a>"
+    contact_us: 'Contáctanos'
+    name_label: 'Su nombre'
+    name_placeholder: 'Introduzca su nombre...'
+    subject_label: "Asunto"
+    subject_placeholder: |
+        Ej: Problemas para iniciar sesión o una sugerencia distintiva
+    email_label: 'Su correo electrónico'
+    email_placeholder: 'Introduzca su correo electrónico...'
+    message_label: 'Su mensaje'
+    message_placeholder: 'Si solicita ayuda, intente dar tanta información como sea posible.'
+    send_message: 'Enviar mensaje'
+    new_contact_message: "Gracias por contactarnos, te responderemos en breve"
+    consent_message: |
+        Al contactar con nosotros autorizas que nuestro personal acceda a tu cuenta si fuera necesario. <br />
+        Nuestro equipo de apoyo habla Inglés y si fuera necesario traducirá tu mensaje con el Traductor de Google. <br />
+        Esperamos responder todos nuestros mensajes en el espacio de 24 horas.
+    success: "Gracias por tu mensaje, {{name}}. Nos pondremos en contacto contigo."
+  hint:
+    context: 'Consejos para usar el panel de contexto'
+    discussion: 'Consejos para empezar una discusión participativa'
+    invitation: 'Consejos para redactar una buena invitación'
+    proposal: 'Consejos para redactar una propuesta clara'
+    vote: 'Puede cambiar de opinión en cualquier momento'
+  explore_page:
+    header: Explorar grupos
+    search_placeholder: Buscar grupos públicos
+    single_search_result: "1 grupo público coincide con <strong>{{searchTerm}}:</strong> "
+    multiple_search_results: "{{resultCount}} grupos públicos coinciden con <strong>{{searchTerm}}:</strong>"
+    no_results_found: "<strong>¿No podéis encontrar el grupo que estáis buscando? Si la privacidad de un grupo se establece como \"secreto\" no aparecerá aquí."
+    newest_first: El más reciente primero
+    biggest_first: El más grande primero
+    order_by: Grupos ordenados por
+  global:
+    messages:
+      app_update: 'Una nueva versión de la app está disponible '
+      reload: 'Actualizar'
+  decision_tools_card:
+    choose_type: Elegir tipo de sondeo
+    title: Facilitar
+    help_text: <a href="https://help.loomio.org/en/user_manual/getting_started/decision_tools/" target="_blank">Ayuda</a>
+    proposal_title: Propuesta
+    count_title: Comprobación
+    poll_title: 'Encuesta '
+    score_title: Encuesta de puntuación
+    dot_vote_title: Voto de Punto
+    meeting_title: Coordinar horario
+    ranked_choice_title: Opción priorizada
+  poll_common:
+    vote_now: Votar ahora
+    review_due: Revisión pendiente
+    have_your_say: Denos su opinión
+    your_response: Su respuesta
+    change_your_response: Editar respuesta
+    reason: Razón
+    reason_placeholder: "Explica brevemente porque votaste de esta manera y luego haz clic en \"presentar voto\"."
+    message: Mensaje
+    results: Resultados
+    responses: Respuestas
+    close_poll_type: Cerrar {{pollType}}
+    totals: Total
+    participate: 'Participar '
+    vote: Votar
+    votes: Votos
+    update_outcome: Actualizar el resultado
+    outcome: Resultado
+    statement: Declaración
+    change_your_stance: Editar respuesta
+    load_more: Carga más
+    details: Detalles
+    participant_name: Su nombre
+    participant_email: Dirección de correo electrónico
+    submit_vote: Presentar el voto
+    update_vote: Actualizar el voto
+    share_poll: Compartir encuesta
+    share_proposal: Compartir propuesta
+    share_count: 'Compartir Comprobación '
+    start_poll: 'Iniciar una decisión '
+    publish_poll: Compartir encuesta
+    view_all: Ver todo
+    save_changes: Guardar
+    change_vote: Cambiar tu voto
+    max_score: Máximo marcador
+    min_score: Mínimo Marcador
+    too_long: Demasiado largo
+    edit_warning: Solamente se recomienda editar para cambios menores o arreglar errores ortográficos. Para cambios significantes, cierra este {{pollType}} y empieza uno nuevo.
+    no_voting: 'Para discusión solamente, el voto deshabilitado '
+  poll_common_attachment_form:
+    label: Adjuntos
+  poll_common_add_option:
+    button:
+      add_option: Añadir otra opción
+    modal:
+      title: Añadir opción
+    form:
+      add_options: 'Añadir opciones '
+      options_added: Nuevas opciones añadidas
+  poll_common_card:
+    show_results: Mostrar resultados
+    hide_results: Ocultar resultados
+    deleted: Este sondeo ha sido eliminado
+  poll_common_index_card:
+    title: Decisiones anteriores
+    no_polls: No se encontraron decisiones previas
+    count: "Ve todas: las ({{count}}) decisiones"
+  discussions_panel:
+    open: Abierto
+    all: Todos/as
+    unread: No leídos ({{count}})
+    closed: 'Cerrado '
+    include_subgroups_mine: '{{name}} y mis subgrupos'
+    include_subgroups_all: '{{name}} y todos los subgrupos'
+    no_results_found: No hay resultados para "{{search}}""
+  members_panel:
+    no_results: 'No se han encontrado miembros'
+    everyone: 'Todos'
+    sort: 'Orden'
+    order_label: "Orden"
+    order_by_name: 'Nombre'
+    order_by_created: 'El más viejo'
+    show_users_in_subgroups: Muestra a los usuarios en los subgrupos también
+    order_by_created_desc: 'El más nuevo'
+    order_by_admin_desc: 'Administradores'
+    loaded_of_total: '{{loaded}} de {{total}}'
+    view_requests: Vista solicitudes
+    header_name: 'Nombre'
+    header_username: 'Nombre de usuario'
+    header_role: 'Función'
+    header_invited_by: 'Invitado por'
+    header_invited: 'Invitado'
+    header_actions: 'Acciones'
+    directory: 'Directorio'
+    invitations: 'Invitaciones'
+    requests: 'Solicitudes'
+    admin: 'Administrador'
+    guest: 'Invitado'
+    sharable_link: 'Enlace compartible'
+    last_seen: 'Último visto {{date}}'
+    invited_by_name: 'Invitado por {{name}}'
+    accepted: 'Integrantes'
+  polls_panel:
+    new_poll: Nuevo sondeo
+    any_type: 'Todos los tipos'
+    any_status: 'Cualquier estado'
+    all: 'Todos/as'
+    open: 'Abierto'
+    closed: 'Cerrado '
+    no_polls: 'No se encontraron encuestas'
+  group_files_panel:
+    no_files: No se encontraron archivos
+    filename: Nombre de archivo
+    uploaded_by: Cargado por
+    uploaded_at: Cargado en
+    delete_confirmation: |
+        ¿Estás seguro de que quieres eliminar este adjunto? Se borrará de cualquier comentario o hilo asociado. Esto no puede deshacerse.
+  subgroups_panel:
+    search_subgroups_of_name: 'Subgrupos de búsqueda de {{name}}'
+    group_without_subgroups: '{{name}} sin subgrupos'
+  poll_common_action_panel:
+    anonymous: Los votos son anónimos
+    results_hidden_until_closed: Los resultados se esconden hasta que el %{poll_type} ha cerrado
+    unable_to_vote: No has sido invitado a votar en este %{poll_type}.
+    draft_mode: Este%{poll_type}es un trabajo en proceso. El voto está deshabilitado.
+  current_polls_card:
+    title: Decisiones actuales
+    start_poll: 'Nueva decisión  '
+    no_polls: No hay decisiones activas en este momento.
+  poll_common_collapsed:
+    by_who: "por {{name}}"
+  poll_common_select_group:
+    loomio_group: Grupo
+    loomio_group_placeholder: (ningún grupo seleccionado)
+  poll_common_calendar_invite:
+    calendar_invite: Incluir una invitación al calendario con este resultado
+    poll_option_id: 'Horario de reunión '
+    helptext_on: Los usuarios podrán añadir esta reunión a sus calendarios
+    helptext_off: No se enviara ninguna invitación a la reunión
+    event_duration: Duración
+    event_summary: Nombre de la reunión
+    event_summary_placeholder: ¿Cómo te gustaría llamar esta reunión?
+    event_description: Descripción de la reunión
+    event_description_placeholder: ¿Cuál es la agenda para esta reunión?
+    location: 'Locación '
+    location_placeholder: ¿Dónde tomara lugar esta reunión?
+  poll_common_settings:
+    who_can_vote: '¿Quién puede votar?'
+    specified_voters_only_true: Solamente personas invitadas
+    specified_voters_only_false_group: Cualquiera en el grupo
+    specified_voters_only_false_discussion: Cualquiera en el hilo
+    invite_people_next: Puedes elegir a quien se le invita a votar después de empezar {{poll_type}}
+    multiple_choice:
+      title: Opción multiple
+      helptext_on: Si es seleccionado, los participantes podrán seleccionar múltiples opciones
+    anyone_can_participate:
+      title: Cualquiera con el enlace puede paticipar
+      helptext_on: Si es seleccionado, cualquiera con el enlace a la encuesta podrá participar
+    notify_on_closing_soon:
+      closes_too_soon: Porque este {{pollType}} cierra en 24 horas no se enviarán recordatorios de que cerrará pronto.
+      title: 24 horas antes {{pollType}} cierre, enviar un recordatorio a
+      nobody: Nadie
+      author: Autor (yo)
+      undecided_voters: Votantes indecisos
+      voters: Todos los votantes
+    notify_on_participate:
+      title: Notificarme cuando participe gente
+      helptext_on: Si es seleccionado, se te notificará cuando alguien participe
+    anonymous:
+      title: Votantes anónimos
+      helptext_on: Si es seleccionado, la información del participante no será mostrada con cada respuesta
+    voter_can_add_options:
+      title: Los votantes pueden añadir opciones
+      helptext_on: 'Si es seleccionado, los participantes podrán añadir sus propias opciones al votar '
+    can_respond_maybe:
+      title: Los votantes pueden responder 'de ser necesario'
+      helptext_on: Los votantes pueden indicar tiempos como 'de ser necesario'
+    hide_results_until_closed:
+      title: Oculta resultados hasta el cierre
+      helptext_on: No muestra como la gente ha votado hasta que se cierre el sondeo
+  poll_common_close_form:
+    title: Cerrar una encuesta antes
+    helptext: ¿Estás seguro de que quieres cerrar este %{poll_type}pronto?
+    close_proposal: Cerrar la propuesta
+    close_poll: Cerrar la encuesta
+    close_count: Cerrar comprobación
+    close_dot_vote: Cerrar voto de puntos
+    close_meeting: Cerrar coordinación de horario
+    close_ranked_choice: 'Cerrar encuesta de opción priorizada '
+    proposal_closed: Propuesta cerrada
+    poll_closed: Encuesta cerrada
+    count_closed: Comprobación cerrada
+    dot_vote_closed: Voto por puntos cerrado
+    meeting_closed: Coordinación de horario cerrada
+    ranked_choice_closed: Encuesta de opción priorizada ha cerrado
+  poll_common_reopen_form:
+    title: "Volver a abrir {{poll-type}}"
+    helptext: "Vuelve a abrir el {{poll_type}} si la gente necesita más tiempo para participar"
+    success: "{{poll_type}} reabierto"
+  poll_common_move_form:
+    title: "Mover {{poll_type}}"
+    success: "{{poll_type}} se ha movido a {{group}}"
+  poll_common_wip_field:
+    title: Trabajo en proceso
+    helptext: 'Usar "Trabajo en progreso" para colaborar en el %{poll_type}antes de votar'
+  poll_common_closing_at_field:
+    closing: Cerrando
+    no_closing_date: Sin fecha de cierre
+    closing_date: Fecha de cierre
+    closing_hour: Hora de clausura
+    invalid_date: Fecha inválida
+  poll_card:
+    started_by: Iniciado por {{name}}
+  poll_common_votes_panel:
+    undecided: No resuelto
+    newest_first: El más reciente primero
+    oldest_first: Los más viejos primero
+    priority_first: De acuerdo primero
+    priority_last: Bloqueados primero
+    undecided_first: Primero el no resuelto
+    no_votes_yet: Todavía no se han realizado votos.
+    change_results_order: Cambiar orden de resultados
+    none_of_the_above: '(Ninguno de los mencionados) '
+  poll_common_undecided_panel:
+    show_undecided: "Mostrar {{count}} indecisos"
+    show_invitations: Mostrar invitaciones pendientes
+    undecided_users: "Indecisos ({{count}})  "
+    invitation_count_singular: "Una persona más ha sido invitada a participar vía correo electrónico "
+    invitation_count_plural: "{{count}} personas adicionales han sido invitadas a participar vía correo electrónico"
+  poll_common_undecided_user:
+    reminded: 'Recordatorio enviado '
+    reminder_sent: 'Recordatorio de notificación enviado '
+  poll_common_set_outcome_panel:
+    enter_outcome: Poner el resultado
+    share_outcome: Compartr resultado
+    poll: 'Esta encuesta ha cerrado. <strong>Comparta el resultado</strong> con el grupo.'
+    proposal: 'Esta propuesta se ha cerrado. Por favor, considere lo que se ha expresado y <strong> comparta un resultado</strong>, así todos sabrán lo que ocurrirá a continuación.'
+    count: 'Esta comprobación ha cerrado. <strong>Comparta el resultado</strong> para completar el proceso. '
+    meeting: 'Esta coordinación de horario ha cerrado. <strong>Comparte un resultado</strong> para que otros sepan el mejor horario.'
+    dot_vote: 'Este voto por puntos ha cerrado. <strong>Comparte un resultado</strong> con el grupo.'
+    ranked_choice: 'Esta encuesta de opción priorizada ha cerrado. <strong>Comparte el resultado</strong> con el grupo.'
+    score: 'Este resultado de la encuesta ha cerrado. <strong>Comparte un resultado</strong>con el grupo.'
+  poll_common_outcome_form:
+    who_to_notify: ¿A quién quieres notificar sobre este resultado?
+    new_title: Introducir un resultado
+    update_title: Actualizar el resultado
+    outcome_created: Resultado creado
+    outcome_updated: Resultado actualizado
+    statement_placeholder: Resuma las respuestas y explique lo que ocurrirá a continuación.
+    you_will_be_notified: Se te notificará en la fecha de revisión
+    submit: Compartr resultado
+  poll_common_outcome_panel:
+    authored_by: 'Por {{name}}'
+  poll_common_delete_modal:
+    question: ¿Estás seguro que quieres eliminar esto?
+    title: Eliminar {{pollType}}
+    success: Eliminada con éxito.
+  poll_common_form:
+    title: Título
+    details: Detalles
+    options: Opciones
+    options_placeholder: Enumera las opciones disponibles
+    no_options: No has añadido ninguna opción aún
+    closing: Cerrando
+    closed: 'Cerrado '
+    start: Iniciar
+    start_poll_type: Comenzar {{poll_type}}
+    share_poll_type: Compartir {{poll-type}}
+    update: Actualizar
+    loomio_school_link: |
+        <p>Descubre más en <a href="https://help.loomio.org/en/user_manual/getting_started/decision_tools/" target="_blank">Ayuda Loomio</a>.</p>
+  poll_proposal_form:
+    tool_tip_expanded: |
+        <p>Una propuesta es una herramienta para buscar el acuerdo colectivo sobre una declaración o curso de acción</p>
+        <p>Los participantes pueden estar de acuerdo, abstenerse, estar en desacuerdo o bloquear, y dar una explicación, o fundamento de su posición</p>
+        <p>Un gráfico circular, permite tener una visión general de las posiciones del grupo, mientras que las explicaciones o fundamentos, permiten que todas las voces sean escuchadas. </p>
+        <p>No te desanimes si al comienzo no ves que haya acuerdo, las propuestas están diseñadas para hacer visibles los problemas que necesitan resolución..</p>
+        <p>Si hay buena participación, una propuesta es un poderoso mandato para pasar a la acción.</p>
+    tool_tip_collapsed: Obtener el permiso o comentarios de los otros.
+    start_header: Inicia una propuesta
+    edit_header: Edita una propuesta
+    tip: Busque acuerdos colectivos a través de un proceso que permite que todas las voces sean escuchadas <a href="https://help.loomio.org/en/user_manual/getting_started/decision_tools/#proposal" target="_blank">Aprender más</a>
+    title_placeholder: P.ej. ¡Vamos a la luna!
+    details_placeholder: Dé suficiente información para que todos sepan lo que significa estar de acuerdo o en desacuerdo
+    proposal_created: Propuesta iniciada
+    proposal_updated: Propuesta actualizada
+  poll_poll_form:
+    tool_tip_expanded: |
+        <p>Usa una encuesta para medir popularidad u ofrecer alternativas.</p>
+        <p>Proporciona algunas opciones de dónde elegir. Decide si los participantes eligen opciones individuales o múltiples en su respuesta.</p>
+        <p>Todos votan y pueden incluir una fundamentación si lo desean. Los resultados se visualizan en un gráfico de barras.</p>
+    tool_tip_collapsed: Elige desde una lista de opciones
+    start_header: Iniciar encuesta
+    edit_header: Editar encuesta
+    tip: Ofrecer una elección entre las opciones
+    title_placeholder: 'Ej. ¿A dónde quieres ir de vacaciones? '
+    details_placeholder: Proporcione cualquier detalle aclaratorio que la gente pueda necesitar para contestar la pregunta.
+    add_option_placeholder: Agregar opción
+    remove_option: Quitar opción
+    poll_created: Encuesta creada
+    poll_updated: Encuesta actualizada
+  poll_count_form:
+    tool_tip_expanded: |
+        <p>Una <em>comprobación</em> es una herramienta que tiene muchos usos posibles pero solo 2 respuestas: visto (✔) o anulación (✘). Los participantes usarán el visto (✔) para decir sí y la anulación (✘) para decir no o inseguro. </p>
+        <p>Úsalo para comprometer a la gente, como al pedir confirmación: "asistiré al evento" o "me apuntaré al grupo de trabajo".</p>
+        <p>O úsalo para hacer seguimiento a una tarea: "confirmé que mis datos de contacto están correctos", o "leí el documento y dejé mis comentarios".</p>
+        <p>Una comprobación tiene un <em>objetivo</em>, que es el número de participantes que quisieras. La meta indica al grupo que algo requiere más atención o cuenta con amplio acuerdo.</p>
+        <p>Un día antes de que se cierre la comprobación, se le recordará a quienes no han participado todavía.</p>
+    tool_tip_collapsed: Cuenta cuanta gente ha completado la tarea o pide voluntarios.
+    start_header: 'Iniciar Comprobación '
+    edit_header: 'Editar Comprobación '
+    tip: Pregunta quien ha completado una tarea o desea ser voluntario
+    title_placeholder: P.ej. ¿Quién quiere unirse al grupo de trabajo?
+    details_placeholder: Explica lo que implica participar o brinda detalles sobre cómo participar.
+    count_created: 'Comprobación iniciada '
+    count_updated: 'Comprobación actualizada '
+  poll_dot_vote_form:
+    tool_tip_expanded: |
+        <p>El voto de puntos es una manera de priorizar un listado de alternativas.</p>
+        <p>Los participantes tienen un número limitado de ‘puntos’ que pueden distribuir del modo que quieran entre las opciones que representen sus preferencias.</p>
+        <p>El proceso da como resultado un gráfico de barras acumulativas además de las asignaciones individuales, con lo que se pueden considerar los distintos puntos de vista.</p>
+    tool_tip_collapsed: Asignar un presupuesto de puntos
+    start_header: Iniciar voto de puntos
+    edit_header: Editar voto de puntos
+    tip: Asignar un presupuesto de puntos
+    title_placeholder: Ej. ¿Cómo debemos asignar el presupuesto?
+    details_placeholder: Proporcione cualquier detalle aclaratorio que la gente pueda necesitar para participar
+    add_option_placeholder: Agregar opción
+    dots_per_person: Puntos por persona
+    dots_per_person_helptext: El número total de puntos que a cada persona se le pide asignar
+    dot_vote_created: Voto de punto creado
+    dot_vote_updated: Voto de punto actualizado
+  poll_score_form:
+    tool_tip_expanded: |
+        <p>La encuesta de puntuación permite a la gente expresar su grado de preferencia para cada opción.</p>
+        <p>La puntuación total de cada opción se muestra como parte de los resultados.</p>
+    tool_tip_collapsed: Opciones de puntuación en una escala
+    start_header: Comienza la encuesta de puntuación
+    edit_header: Edita la encuesta de puntuación
+    tip: Puntúa cada opción en una escala variable
+    title_placeholder: 'Ej: Puntúa los candidatos en una escala del 0 al 9'
+    details_placeholder: Proporcione cualquier detalle aclaratorio que la gente pueda necesitar para participar
+    add_option_placeholder: Agregar opción
+    score_created: Se ha creado la encuesta de puntuación
+    score_updated: Se ha actualizado la encuesta de puntuación
+  poll_meeting_form:
+    tool_tip_expanded: |
+        <p>Usa una coordinación de horario para saber cuándo hay disponibilidad de la gente para reunirse.</p>
+        <p>Ingresa un listado de fechas u horas en que podrías hacer la reunión.</p>
+        <p>Los participantes marcan aquellas en que pueden asistir o pueden indicar sus circunstancias en el cuadro para que puedas actualizar las alternativas de ser necesario.</p>
+        <p>Si agregas nuevos horarios durante la coordinación de horario, se le pedirá a la gente que ya ha votado que actualice su respuesta.</p>
+        <p>Así puedes saber cuándo está disponible cada uno y decidir el momento de la reunión.</p>
+        <p>Las horas se convierten automáticamente a la zona horaria del participante.</p>
+    tool_tip_collapsed: Descubre cuando la gente está disponibles para reunirse
+    start_header: Iniciar coordinación horaria
+    edit_header: Editar coordinación horaria
+    tip: Descubre cuando la gente está disponibles para reunirse
+    title_placeholder: Ej. ¿Cuándo debemos tener nuestra próxima reunión?
+    details_placeholder: Proporcione cualquier detalle aclaratorio que la gente pueda necesitar para participar
+    meeting_created: Coordinación horaria iniciada
+    meeting_updated: Coordinación horaria editada
+    timeslots: Horarios
+    no_options: Introduzca los horarios en su zona horaria actual ({{zone}}). Los integrantes verán los horarios adaptados a su zona horaria local.
+    meeting_duration: Duración de reunión
+    add_option_placeholder: Añadir hora nueva
+    time_slot_added: Franja horaria añadida
+    time_slot_already_added: Franja horaria ya añadida
+  poll_ranked_choice_form:
+    tool_tip_expanded: |
+        <p>La opción priorizada es un método de votación que permite a cada persona responder con un orden de preferencia.</p>
+        <p>Es preferente cuando el 'robo de votos' es una preocupación (ej. dos opciones bastante populares son tan similares
+        que los votos terminan siendo compartidos entre ambas), y pueden ser usadas para implementar un Condorcet o  una sistema de elección de segunda vuelta instantáneas (Instant Runoff Voting).
+        </p>
+    tool_tip_collapsed: Clasifica las opciones desde la primera a la última
+    start_header: 'Inicia una opción priorizada '
+    edit_header: 'Editar opción priorizada '
+    tip: Clasifica las opciones desde la primera a la última
+    title_placeholder: Ej, ¿Quién debe ser el próximo alcalde?
+    details_placeholder: Proporcione cualquier detalle aclaratorio que la gente pueda necesitar para participar
+    meeting_created: Opción priorizada creada
+    meeting_updated: Opción priorizada actualizada
+    no_options: "No has añadido ninguna opción aún"
+    add_option_placeholder: Ingresa una nueva opción
+    minimum_stance_choices: Opciones para priorizar
+    minimum_stance_choices_helptext: 'Número de opciones que cada persona puede priorizar '
+    ranked_choice_created: 'Opción priorizada creada '
+    ranked_choice_updated: 'Opción priorizada actualizada '
+    rank: Rango
+    points: Puntos
+  poll_meeting_time_field:
+    add_time_slot: Añadir intervalo de tiempo
+    new_time_slot: Nuevo horario
+    closing_hour: Hora de finalización
+  poll_proposal_vote_form:
+    default_reason_placeholder: Por favor explique su razonamiento
+    abstain_reason_placeholder: Deje a la gente saber porqué usted se está omitiendo de esta decisión
+    agree_reason_placeholder: ¿Qué te gusta de la propuesta y cómo va a beneficiar al grupo?
+    disagree_reason_placeholder: ¿Cómo podría mejorarse esta propuesta para que pueda apoyarla?
+    block_reason_placeholder: Explique su objeción a esta propuesta y por qué no debe seguir adelante
+    stance_created: Voto creado
+    stance_updated: Voto actualizado
+    vote: Votar
+  poll_proposal_options:
+    agree: De acuerdo
+    consent: Consentimiento
+    agree_verb: "acordado"
+    agree_meaning: Esta propuesta es suficientemente buena para ser adoptada por el grupo
+    abstain: Abstenerse
+    abstain_verb: "Se abstuvo"
+    abstain_meaning: No estoy seguro, no sé o no me importa. Apoyaré el resultado de cualquier manera
+    disagree: Desacuerdo
+    disagree_verb: "en desacuerdo"
+    disagree_meaning: 'No apoyo la propuesta. No debería seguir adelante. '
+    objection: Objeción
+    block: Bloquear
+    block_verb: "Bloqueado "
+    block_meaning: La atención urgente del grupo es necesaria para abordar una profunda preocupación
+    agree_abstain_disagree_block: 'estar de acuerdo, abstenerse, estar en desacuerdo, bloquear'
+    agree_disagree: 'De acuerdo, en desacuerdo'
+    agree_abstain_disagree: 'De acuerdo, abstenerse, en desacuerdo'
+    consent_abstain_object: 'Consentir, abstenerse, objeción'
+    no_voting: 'No votar'
+  poll_count_options:
+    'yes': 'Si'
+    'no': 'No'
+  poll_count_vote_form:
+    reason_label: Mensaje
+    reason_placeholder: 'Deja un mensaje si quieres '
+    stance_created: Voto creado
+    stance_updated: Voto actualizado
+  poll_common_percent_voted:
+    sentence: "{{numerator}} de {{denominator}} gente ha votado ({{percent}}%))"
+  poll_count_chart_panel:
+    out_of: de {{goal}}
+  poll_meeting_chart_panel:
+    total: Total
+  poll_poll_vote_form:
+    stance_created: Voto creado
+    stance_updated: Voto actualizado
+  poll_score_vote_form:
+    stance_created: Voto creado
+    stance_updated: Voto actualizado
+  poll_meeting_vote_form:
+    local_time_zone: Hora local - {{zone}}
+    can_attend: "Puedo ir"
+    unable: "No puedo ir"
+    if_need_be: De ser necesario
+    your_response: ¿Cuándo puedes?
+    stance_created: Disponibilidad salvada
+    stance_updated: Disponibilidad actualizada
+    reason_placeholder: Explica cuando estarás libre (u ocupado), para el caso de que el autor quiera agregar opciones.
+  poll_dot_vote_vote_form:
+    dots_remaining: "{{count}} puntos restantes"
+    too_many_dots: Has usado demasiados puntos
+    stance_created: Voto creado
+    stance_updated: Voto actualizado
+  poll_ranked_choice_vote_form:
+    helptext: Arrastre y suelte las opciones en orden de preferencia (1 la opción preferida). Sus {{count}} opciones preferidas serán registradas.
+    stance_created: 'Opción registrada '
+    stance_updated: Opción actualizada
+  thread_item:
+    aria:
+      deleted: Elemento eliminado
+      new_comment: "{{actor}} comentado. {{when}}"
+      poll_created: "{{actor}} ha iniciado un {{pollType}}. {{when}}"
+      stance_created: "{{actor}} ha votado. {{when}}"
+      outcome_created: "{{actor}} ha compartido un  resultado.{{when}}"
+      poll_expired: "{{pollType}} cerrado. {{when}}"
+    removed: "Elemento eliminado"
+    deleted_group: "Grupo eliminado"
+    comment_replied_to: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>en respuesta a <strong>{{título}}</strong>"
+    discussion_title_edited: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>editó el título del hilo"
+    discussion_context_edited: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>editó el contexto del hilo"
+    discussion_attachments_edited: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>editó los adjuntos del hilo"
+    discussion_privacy_edited: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>cambió la política de privacidad "
+    discussion_edited: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>editó el hilo"
+    discussion_moved: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>movió el hilo desde <strong>{{título}}</strong> "
+    discussion_closed: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>cerró el hilo"
+    discussion_reopened: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>reabrió el hilo"
+    discussion_forked: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>creó un tenedor de este hilo:<strong><a href='d/{{key}}'>{{title}}</a></strong>"
+    new_comment: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>"
+    outcome_created: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>compartió un resultado"
+    poll_reopened: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>reabrió el {{polltype}}"
+    poll_closed_by_user: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>cerró el {{polltype}}"
+    poll_created: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>comenzó un {{polltype}}"
+    poll_created_no_title: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>comenzó un {{polltype}}"
+    poll_edited: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>editó un {{polltype}}"
+    poll_option_added: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>editó opciones al {{polltype}}"
+    poll_expired: "{{polltype}} cerrado"
+    stance_created: "<a class='actor-link' href='/u/{{username}}'>{{author}}</a>votó en: <strong>{{title}}</strong>"
+    event_removed: "Eliminado del hilo"
+  poll_common_subscribe_form:
+    receive_updates_title: Su voto ha sido enviado
+    receive_updates_helptext: Si desea recibir un correo con los resultados de esta encuesta, introduzca su dirección de correo electrónico debajo
+    email_saved: 'Recibirás un correo electrónico sobre el resultado de esta encuesta '
+    subscribe: Suscribir
+    no_thanks: No, gracias
+  poll_common_example_card:
+    what_is_this: "Este es un ejemplo en vivo de {{type}}. Usted es un participante - ¡Inténtelo!"
+  share_poll_page:
+    title: Compartir encuesta - {{title}}
+  add_poll_to_thread_modal:
+    success: "Éxito, {{poll_type}} añadido al hilo"
+  auth_form:
+    code: '000000'
+    youre_invited: Te han invitado a unirte al grupo {{group_name}}.
+    youre_invited_discussion: Te han invitado a unirte a la conversación.
+    youre_invited_poll: Te han invitado a votar.
+    existing_account_can_sign_in: Si ya eres un usuario {{site_name}}, inicia sesión con tu cuenta existente
+    sign_in_to_loomio: Registrarse en {{site_name}}
+    sign_in_help: ¿Problemas para iniciar sesión?
+    sign_in: Entrar
+    continue: 'Continua '
+    create_account: Crear una cuenta
+    sign_up_as: Registrarse como {{email}}
+    sign_in_as: Ingresa como {{name}}
+    continue_with_provider: Iniziar sesión con {{provider}}
+    continue_with_email: Continuar con email
+    or_enter_your_email: O, introduzca su dirección de correo electrónico
+    enter_your_name: Ingresa tu nombre
+    invitation_required: Necesitas una invitación para crear una cuenta
+    more_providers: Más
+    email_not_present: Se necesita una dirección de correo
+    invalid_email: "Lo lamentamos, eso no parece una dirección de correo electrónico válida"
+    invalid_password: "Lo lamentamos, esa contraseña no coincide con la que tenemos archivada"
+    invalid_token: "Perdón pero no pudimos usar ese enlace para que ingreses. Haz clic debajo para que te enviemos uno nuevo"
+    account_locked: "Tu cuenta se ha bloqueado después de demasiados intentos fallidos para acceder. Consulta tu email para un enlace de desbloqueo."
+    email_not_found: "Lo lamentamos, no pudimos encontrar una cuenta con esa dirección de correo electrónico"
+    email_taken: El correo electrónico ya ha sido registrado
+    email_placeholder: correo@dominio.com
+    login_with_token: Ya está todo listo! Haz click en el enlace de abajo para continuar
+    login_link_helptext: Haz click en el botón de abajo y te enviaremos un enlace para iniciar sesión.
+    enter_your_password: "Introduce tu contraseña para continuar"
+    check_spam_folder: Si no te llega el email pronto consulta la carpeta de correo spam.
+    sign_up_helptext: Porfavor completa este formulario para crear una cuenta de usuario
+    i_accept: "Acepto los <a href='{{termsUrl}}' target='_blank'>Términos del servicio</a> y la <a href='{{privacyUrl}}' target='_blank'>Política de privacidad</a>"
+    newsletter_label: "Quiero recibir la <a href='https://help.loomio.org/en/newsletter/' target='_blank'>Loomio newsletter</a>"
+    name_placeholder: Su nombre
+    name_required: Por favor ingresa un nombre
+    terms_required: 'Debes aceptar los Términos del Servicio '
+    account_inactive: '¡Vaya! parece que la cuenta de {{email}} está desactivada. '
+    privacy_notice: "Nunca venderemos sus datos. <br><a href='{{privacyUrl}}' target='_blank'>Privacy policy</a>"
+    welcome: ¿Es nuevo en {{siteName}}?
+    welcome_back: Bienvenido nuevamente, {{name}}!
+    forgot_password: Olvidó contraseña
+    login_link: Enviar email para iniciar sesión
+    sign_in_via_email: regístrate a través del email
+    set_password: Configura la contraseña
+    set_password_helptext: ¿Quieres usar una contraseña la próxima vez?
+    hello: "Hola, {{name}}!"
+    new_to_loomio: Primera vez en {{site_name}}
+    already_a_user: ¿Ya tienes una cuenta?
+    email_address_of_existing_account: Introduce la dirección de correo electrónico de tu cuenta existente.
+    link_accounts: Enlazar cuentas
+    check_your_email: ¡Revise su correo electrónico!
+    login_link_sent: "Enviamos un correo electrónico a {{email}}"
+    instructions: "Haz clic en el enlace para entrar, o ingresa el siguiente código:"
+    too_many_attempts: "Demasiados intentos, haz clic en el enlace en el correo electrónico para entrar. "
+    invalid_code: "Lo lamentamos, ese código no coincide. Mira el correo electrónico e intenta de nuevo"
+    password_link_sent: "Le hemos enviado un correo electrónico a {{email}}, con instrucciones para configurar su contraseña."
+    reactivate_link_sent: "Te hemos enviado un email con instrucciones para reactivar tu cuenta"
+    signed_in: Entraste exitosamente
+    email_verified: Correo electrónico verificado
+    name: Nombre
+    email: Correo Electrónico
+    password: Contraseña
+    reactivate: 'Reactiva la cuenta '
+  webhook:
+    integrations: Incorporaciones
+    webhooks: Webhooks
+    webhook: Sistema de comunicación entre aplicaciones
+    api: 'API - Interfaz de Programación de Aplicaciones '
+    format: Formato
+    formats:
+      markdown: Reducción (para Mattermost, Zapier y otros)
+      microsoft: Equipos Microsoft
+      slack: Aflojar
+    subtitle: Conectar con Loomio al resto de tus herramientas con nuestro API de integración y webhook (sistema de comunicación entre aplicaciones)
+    we_have_guides: |
+        Ver nuestros <a href="{{url}}" target="_blank">webhook guías de configuración</a>para ayudar tu servicio.
+    add_webhook: Añadir webhook
+    show_docs: 'Ver el uso de API '
+    edit_integration: Editar integración
+    add_integration: Añadir integración
+    success: Integración añadida!
+    remove: Eliminar integración
+    confirm_remove: "¿Estás seguro de que quieres quitar la integración: {{name}}?"
+    removed: 'Integración eliminada '
+    url_label: Webhook URL
+    url_placeholder: https://hooks.example.com/...
+    name_label: Nombre
+    name_placeholder: Dar a esta inserción un nombre para poder identificarla
+    event_kind_helptext: ¿Qué eventos quieres que se le notifiquen al webhook?
+    event_kinds:
+      new_discussion: Ha comenzado un hilo
+      discussion_edited: Se ha editado un hilo
+      poll_edited: 'Se ha editado una encuesta '
+      new_comment: Se ha hecho un comentario
+      poll_created: Se ha iniciado una encuesta
+      stance_created: Se ha emitido un voto
+      poll_closing_soon: Una encuesta está próxima a expirar
+      poll_expired: Una encuesta caduca
+      poll_closed_by_user: Una encuesta se ha cerrado manualmente
+      poll_reopened: Se ha reabierto una encuesta para votar
+      outcome_created: Se ha compartido un resultado
+    permissions_explaination: Selecciona que acciones pueden desarrollarse por esta integración
+    permissions:
+      show_discussion: muestra debate
+      create_discussion: crear debate
+      create_poll: crear sondeo
+      show_poll: muestra encuesta
+      read_memberships: leer membresías
+    include_body_label: Incluye el cuerpo del mensaje con notificación
+    include_subgroups_label: Pasar eventos desde subgrupos
+  configure_sso:
+    redirecting: Por favor espere, redirigiendo al registro del proveedor
+    title: Entrada de validación única
+    enabled: Se permite registro individual
+    helptext: Integrar con OneLogin, Auth0, Directorio Activo de Microsoft o cualquier otro proveedor de SAML. <a href="https://help.loomio.org/en/user_manual/groups/integrations#single-sign-on-saml" target="_blank">Conoce más</a>.
+    warning_helptext: "Advertencia: Se te requerirá autentificar con tu proveedor después de clicar guardar"
+    idp_metadata_url: IDP Metadatos URL
+    idp_metadata_url_placeholder: https://app.myprovider.com/saml/metadata/abc123
+    success: Registro individual se ha configurado con éxito
+    destroyed: Se ha eliminado el registro individual
+    invalid_idp_metadata_url: IDP Metadatos URL inválida
+    sp_metadata_url: SP Metadatos URL
+  browser_warning:
+    message: "IMPORTANTE: estas usando un navegador anticuado ({{name}} {{version}}) que no es soportado por {{site}}."
+    link: 'Por favor intenta con otro navegador '
+  powered_by:
+    slogan: Mejor decisiones juntos
+    powered_by_loomio: Creado por Loomio
+    privacy_policy: Política de privacidad
+    terms_of_service: Términos de servicio
+    front_page: Portada
+  group_survey:
+    title: Exito! Tan sólo unos pocos más de detalles.
+    subtitle: Por favor ayúdanos a conocerte mejor. No compartiremos nada la información que has proporcionado en este formulario sin tu permiso.
+    validation_error: Por favor rellena todos los campos requeridos.
+    success: Gracias!
+    categories:
+      member: Servicios para miembros de las organizaciones (ej. partidos, Co-ops, uniones)
+      nonprofit: Grupos comunitarios sin ánimo de lucro, ONG
+      professional: Equipos y empresas de servicios profesionales
+      board: Consejos y comités
+      government: Gobierno/Gobierno local
+      other: Otro
+    sizes:
+      ten: "< 10"
+      twenty: "11 - 20"
+      fifty: "21 - 50"
+      two_hundred: "51 - 200"
+      five_hundred: "201 - 500"
+      two_thousand: "501 - 2000"
+      else: "> 2000"
+    uses:
+      governance: Gobierno para la Junta, Comité y Fiduciario
+      collaboration: Grupo de trabajo colaborativo
+      engagement: Compromiso del accionista o miembro
+      self_management: Auto-gestión (Lugar de trabajo colaborativo)
+      remote: Trabajo remoto
+      document: Desarrollo del documento colaborativo, ej. un plan estratégico.
+      decision_making: Procesos de toma de decisiones (Asesoramiento, Consentimiento)
+      funding: Decisión de financiamiento o subvención
+      project: Equipo de proyecto
+      forum: Foro
+      other: Otro
+    desired_features:
+      polls: Organizar sondeos para que mi equipo voten en
+      discussions: Mantener discusiones en linea y obtener comentarios
+      archive: Grabar decisiones que hacemos o archivar información
+    referrers:
+      google: Búsqueda Google
+      invitation: Invitado a un grupo de Loomio
+      referral: Referencias
+      social: Medios sociales (Facebook, Twitter, Linkedln)
+      capterra: Capterra
+      other: Otro
+    location: ¿Dónde está establecido tu grupo?
+    purpose: "¿Cuál es el propósito de vuestro grupo?"
+    category_question: "Selecciona que categoría describe mejor a tu grupo"
+    anything_else: "¿Hay algo más que te gustaría decirnos?"
+    size_question: "¿Cuánta gente hay en su grupo?"
+    role: "¿Cuál es tu función en el grupo?"
+    website: "Página web URL"
+    usage: "¿Cómo has planeado usar Loomio? Elige lo que más encaja."
+    desired_feature: "¿Cuál es lo principal para lo que esperas usar Loomio?"
+    referrer: "¿Cómo supiste de Loomio?"

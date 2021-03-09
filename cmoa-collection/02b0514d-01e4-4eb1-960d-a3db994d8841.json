@@ -1,0 +1,39 @@
+{
+  "title": "Woman with Sunflower",
+  "creation_date": "1951",
+  "creation_date_earliest": "1951-01-01",
+  "creation_date_latest": "1951-01-01",
+  "medium": "oil on cardboard",
+  "accession_number": "60.6",
+  "id": "cmoa:things/02b0514d-01e4-4eb1-960d-a3db994d8841",
+  "credit_line": "Gift of Mr. and Mrs. Charles J. Rosenbloom",
+  "date_acquired": "1960-02-08",
+  "department": "Contemporary Art",
+  "physical_location": "Not on View",
+  "item_width": 26.625,
+  "item_height": 35.625,
+  "item_depth": 1.5,
+  "item_diameter": 0.0,
+  "web_url": "http://collection.cmoa.org/CollectionDetail.aspx?item=1011346",
+  "provenance_text": "Fausto Pirandello [1899-1975], Rome, Italy, until November 1952 [1]; purchased from the artist by Charles Rosenbloom [1898-1973], Pittsburgh, PA (Lugt Suppl. 633b), November 1952; Charles Rosenbloom, Pittsburgh, PA, November 1952 until February 8, 1960 [2]; gift of Mr. and Mrs. Charles Rosenbloom to Department of Fine Arts, Carnegie Institute, Pittsburgh, PA, February 1960. \n\nNotes:\n[1]. The painting was no. 214 in \"The 1952 Pittsburgh International Exhibition of Contemporary Paintings\" held at Carnegie Institute, October-December 1952.\n[2]. Mr. Rosenbloom purchased the painting from the exhibition for $400 in November 1952. Receipt of his check payable to the artist was acknowledged by the Institute's Italian representative on November 21, 1952. See copies of correspondence with Mr. Rosenbloom in curatorial file.",
+  "classification": "paintings",
+  "images": [
+    {
+      "image_url": "http://collection.cmoa.org/CollectionImage.aspx?irn=150686&size=Medium"
+    }
+  ],
+  "creator": [
+    {
+      "artist_id": "cmoa:parties/6531ba7d-fde9-4993-acfd-1670c0747296",
+      "party_type": "Person",
+      "full_name": "Fausto Pirandello",
+      "cited_name": "Pirandello, Fausto",
+      "role": null,
+      "nationality": "Italian",
+      "birth_date": "1899-01-01",
+      "death_date": "1975-01-01",
+      "birth_place": "Rome (Roma province, Lazio, Italy)",
+      "death_place": "Rome (Roma province, Lazio, Italy)"
+    }
+  ]
+}

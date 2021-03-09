@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <name>Common Code</name>
+  
+  <groupId>org.openrtb.common</groupId>
+  <artifactId>common</artifactId>
+
+  <parent>
+    <groupId>org.openrtb</groupId>
+    <artifactId>project</artifactId>
+    <version>2.0.0</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+    </dependency>
+
+	<dependency>
+	  <groupId>org.apache.avro</groupId>
+	  <artifactId>avro</artifactId>
+	</dependency>
+
+	<dependency>
+	  <groupId>org.apache.avro</groupId>
+	  <artifactId>avro-ipc</artifactId>
+	</dependency>
+
+  </dependencies>
+ <build> 
+    <plugins>
+        <plugin>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-maven-plugin</artifactId>
+            <version>1.7.4</version>
+            <executions>
+                <execution>
+                    <id>schemas</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>schema</goal>
+                        <goal>protocol</goal>
+                        <goal>idl-protocol</goal>
+                    </goals>
+                    <configuration>
+                        <excludes>
+                            <exclude>**/mapred/tether/**</exclude>
+                        </excludes>
+                        <sourceDirectory>src/main/avro/</sourceDirectory>
+                        <outputDirectory>target/generated-sources/avro</outputDirectory>
+                        <testSourceDirectory>src/test/avro/</testSourceDirectory>
+                        <testOutputDirectory>src/test/java/</testOutputDirectory>
+                        <fieldVisibility>public</fieldVisibility>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.9</version>
+            <executions>
+                <execution>
+                    <id>add-sources</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>add-source</goal>
+                    </goals>
+                    <configuration>
+                        <sources>
+                            <source>target/generated-sources/avro</source>
+                        </sources>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>
+   
+  </build>
+</project>

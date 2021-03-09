@@ -1,0 +1,14 @@
+{
+    "source": {
+        "include": [ "./src", "./finders"],
+        "includePattern": ".+\\.js$"
+    },
+    "opts": {
+        "destination": "./docs/",
+        "recurse": true,
+        "verbose": true
+    },
+    "templates": {
+        "cleverLinks": true
+    }
+}

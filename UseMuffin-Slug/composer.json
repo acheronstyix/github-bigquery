@@ -1,0 +1,51 @@
+{
+    "name": "muffin/slug",
+    "description": "Slugging support for CakePHP ORM",
+    "type": "cakephp-plugin",
+    "keywords": [
+        "cakephp",
+        "muffin",
+        "slug",
+        "orm"
+    ],
+    "homepage": "https://github.com/usemuffin/slug",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jad Bitar",
+            "homepage": "http://jadb.io",
+            "role": "Author"
+        },
+        {
+            "name": "ADmad",
+            "homepage": "https://github.com/ADmad",
+            "role": "Author"
+        },
+        {
+            "name": "Others",
+            "homepage": "https://github.com/usemuffin/slug/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/usemuffin/slug/issues",
+        "source": "https://github.com/usemuffin/slug"
+    },
+    "require": {
+        "cakephp/orm": "^4.0"
+    },
+    "require-dev": {
+        "cakephp/cakephp": "^4.0",
+        "phpunit/phpunit": "~8.5.0",
+        "cocur/slugify": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Muffin\\Slug\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Muffin\\Slug\\Test\\": "tests"
+        }
+    }
+}

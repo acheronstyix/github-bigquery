@@ -1,0 +1,85 @@
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+  Exclude:
+    - files/**/*
+    - templates/**/*
+    - etc/**/*
+    - vendor/**/*
+
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - test/**/*
+Metrics/ParameterLists:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/BlockNesting:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+
+Naming/PredicateName:
+  Exclude:
+    - lib/fakefs/file.rb
+Naming/MethodName:
+  Enabled: false
+
+# TODO: only test ?
+Security/Eval:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+Style/ModuleFunction:
+  Enabled: false
+Style/SymbolProc:
+  Enabled: false
+Style/TrivialAccessors:
+  ExactNameMatch: true
+Style/GuardClause:
+  Enabled: false
+Style/WordArray:
+  EnforcedStyle: brackets
+Style/NumericPredicate:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_perl_names
+Style/FrozenStringLiteralComment:
+  Enabled: false # TODO: enable
+Style/CommentedKeyword:
+  Enabled: false # TODO: enable
+Style/ExponentialNotation:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Style/SymbolArray:
+  EnforcedStyle: brackets
+Style/StringLiterals:
+  Enabled: false

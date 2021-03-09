@@ -1,0 +1,57 @@
+# sudo -i 
+# curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+
+cassandra-lucene-index:
+  image: stratio/cassandra-lucene-index:2.2.5.3
+  container_name: cassandra
+  ports: 
+    - "9042:9042"
+  environment:
+   CLUSTER_NAME: DemoCluster
+   MAX_HEAP: 256M
+   MAX_NEW: 64M
+
+waitcassandra:
+  image: aanand/wait
+  container_name: waitcassandra
+  links:
+    - cassandra-lucene-index
+
+mongo:
+  image: stratio/mongo:3.0.4
+  container_name: mongo
+  ports: 
+    - "27017:27017"
+
+waitmongo:
+  image: aanand/wait
+  container_name: waitmongo
+  links:
+    - mongo
+
+elasticsearch:
+  image: stratio/elasticsearch:1.7.1
+  container_name: elasticsearch
+  ports: 
+    - "9300:9300"
+    - "9200:9200"
+
+waitelastic:
+  image: aanand/wait
+  container_name: waitelasticsearch
+  links:
+    - elasticsearch
+
+ingestion:
+  image: stratio/ingestion:latest
+  container_name: ingestion
+  ports:
+    - "34545:34545"
+  links:
+    - cassandra-lucene-index
+    - waitcassandra
+    - mongo
+    - waitmongo
+    - elasticsearch
+    - waitelastic   

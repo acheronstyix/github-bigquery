@@ -1,0 +1,282 @@
+{
+  "alexa": 73,
+  "class": "B",
+  "links": {
+    "Privacy Policy": {
+      "name": "Privacy Policy",
+      "url": "https://help.github.com/en/articles/github-privacy-statement"
+    },
+    "Security": {
+      "name": "Security",
+      "url": "https://help.github.com/articles/github-security/"
+    },
+    "Terms of Service": {
+      "name": "Terms of Service",
+      "url": "https://help.github.com/en/articles/github-terms-of-service"
+    }
+  },
+  "points": [
+    "10050",
+    "10053",
+    "10054",
+    "4589",
+    "5971",
+    "5972",
+    "652",
+    "8861",
+    "8862",
+    "8863",
+    "915"
+  ],
+  "pointsData": {
+    "652": {
+      "discussion": "https://groups.google.com/d/topic/tosdr/hI5Too_uDVk/discussion",
+      "id": "652",
+      "meta": {
+        "author": "ToS;DR by Unhosted",
+        "contributors": [
+          "Hugo Roy <hugo@unhosted.org>"
+        ],
+        "license-for-this-file": "This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, .USA",
+        "spec-version": "1.1"
+      },
+      "needModeration": false,
+      "quoteDoc": "Terms of Service",
+      "quoteEnd": 33083,
+      "quoteStart": 32824,
+      "quoteText": "GitHub has the right to suspend or terminate your access to all or any part of the Website at any time, with or without cause, with or without notice, effective immediately.\nGitHub reserves the right to refuse service to anyone for any reason at any time.</p>",
+      "services": [
+        "github"
+      ],
+      "slug": "hI5Too_uDVk",
+      "source": {
+        "terms": "https://github.com/site/terms"
+      },
+      "title": "Your account can be suspended and your data deleted any time for any reason",
+      "topics": [
+        "suspension"
+      ],
+      "tosdr": {
+        "binding": true,
+        "case": "The service can delete your account without prior notice and without a reason",
+        "point": "bad",
+        "score": 60,
+        "tldr": "“GitHub, in its sole discretion, has the right to suspend or terminate your account and refuse any and all current or future use of the Service, or any other GitHub service, for any reason at any time. Such termination of the Service will result in the deactivation or deletion of your Account or your access to your Account, and the forfeiture and relinquishment of all Content in your Account. GitHub reserves the right to refuse service to anyone for any reason at any time. ” However, most of your data at GitHub can be exported with 'git clone' (for the wiki) and with the API (for the issues)."
+      }
+    },
+    "915": {
+      "discussion": "https://groups.google.com/d/topic/tosdr/EpPNnYXBW_w/discussion",
+      "id": "915",
+      "meta": {
+        "author": "ToS;DR by Unhosted",
+        "contributors": [
+          "Hugo Roy <hugo@unhosted.org>"
+        ],
+        "license-for-this-file": "This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, .USA",
+        "spec-version": "1.1"
+      },
+      "needModeration": false,
+      "quoteDoc": "Terms of Service",
+      "quoteEnd": 38349,
+      "quoteStart": 37665,
+      "quoteText": "You agree to indemnify us, defend us, and hold us harmless from and against any and all claims, liabilities, and expenses, including attorneys’ fees, arising out of your use of the Website and the Service, including but not limited to your violation of this Agreement, provided that GitHub (1) promptly gives you written notice of the claim, demand, suit or proceeding.\n(2) gives you sole control of the defense and settlement of the claim, demand, suit or proceeding (provided that you may not settle any claim, demand, suit or proceeding unless the settlement unconditionally releases GitHub of all liability).\nand (3) provides to you all reasonable assistance, at your expense.</p>",
+      "services": [
+        "github"
+      ],
+      "slug": "EpPNnYXBW_w",
+      "source": {
+        "privacy": "https://github.com/site/terms"
+      },
+      "title": "You shall defend and indemnify GitHub",
+      "topics": [
+        "governance"
+      ],
+      "tosdr": {
+        "binding": true,
+        "case": "You agree to defend, indemnify, and hold the service harmless in case of a claim related to your use of the service",
+        "point": "bad",
+        "score": 60,
+        "tldr": ""
+      }
+    },
+    "4589": {
+      "id": "4589",
+      "services": [
+        "github"
+      ],
+      "title": "This service provides archives of their terms of service so that changes can be viewed over time",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "This service provides archives of their Terms of Service so that changes can be viewed over time",
+        "point": "good",
+        "score": 50,
+        "tldr": "History can be found via the source link."
+      }
+    },
+    "5971": {
+      "id": "5971",
+      "quoteDoc": "Privacy Policy",
+      "quoteEnd": 32180,
+      "quoteStart": 31619,
+      "quoteText": "Some browsers have incorporated \"Do Not Track\" (DNT) features that can send a signal to the websites you visit indicating you do not wish to be tracked.\nGitHub responds to browser DNT signals and follows the W3C standard for responding to DNT signals.\nIf you have not enabled DNT on a browser that supports it, cookies on some parts of our Website will track your online browsing activity on other online services over time, though we do not permit third parties other than our analytics and service providers to track GitHub Users' activity over time on GitHub",
+      "services": [
+        "github"
+      ],
+      "title": "This service respects your browser's Do Not Track (DNT) headers",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "This service respects your browser's Do Not Track (DNT) headers",
+        "point": "good",
+        "privacyRelated": true,
+        "score": 30,
+        "tldr": "Generated through the annotate view"
+      }
+    },
+    "5972": {
+      "id": "5972",
+      "needModeration": false,
+      "quoteDoc": "Terms of Service",
+      "quoteEnd": 11076,
+      "quoteStart": 10983,
+      "quoteText": "We offer tools such as two-factor authentication to help you maintain your Account's security",
+      "services": [
+        "github"
+      ],
+      "title": "The service provides two factor authentification for your account",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "The service provides two factor authentification for your account",
+        "point": "good",
+        "score": 25,
+        "tldr": "Generated through the annotate view"
+      }
+    },
+    "8861": {
+      "id": "8861",
+      "needModeration": false,
+      "quoteDoc": "Terms of Service",
+      "quoteEnd": 3123,
+      "quoteStart": 3037,
+      "quoteText": "We provide our service as is, and we make no promises or guarantees about this service",
+      "services": [
+        "github"
+      ],
+      "title": "The service is provided 'as is' and to be used at the users' sole risk",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "The service is provided 'as is' and to be used at the users' sole risk",
+        "point": "bad",
+        "score": 20,
+        "tldr": "Generated through the annotate view"
+      }
+    },
+    "8862": {
+      "id": "8862",
+      "needModeration": false,
+      "quoteDoc": "Terms of Service",
+      "quoteEnd": 9912,
+      "quoteStart": 9548,
+      "quoteText": "You must be age 13 or older.\nWhile we are thrilled to see brilliant young coders get excited by learning to program, we must comply with United States law.\nGitHub does not target our Service to children under 13, and we do not permit any Users under 13 on our Service.\nIf we learn of any User under the age of 13, we will terminate that User’s Account immediately.",
+      "services": [
+        "github"
+      ],
+      "title": "This service is only available to users of a certain age",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "This service is only available to users over a certain age",
+        "point": "neutral",
+        "score": 15,
+        "tldr": "Generated through the annotate view"
+      }
+    },
+    "8863": {
+      "id": "8863",
+      "needModeration": false,
+      "quoteDoc": "Terms of Service",
+      "quoteEnd": 7258,
+      "quoteStart": 7215,
+      "quoteText": "you may not have more than one free Account",
+      "services": [
+        "github"
+      ],
+      "title": "Service does not allow alternative accounts",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "Service does not allow alternative accounts",
+        "point": "neutral",
+        "score": 30,
+        "tldr": "Generated through the annotate view"
+      }
+    },
+    "10050": {
+      "id": "10050",
+      "needModeration": false,
+      "quoteDoc": "Privacy Policy",
+      "quoteEnd": 3369,
+      "quoteStart": 3329,
+      "quoteText": "We do not sell your personal information",
+      "services": [
+        "github"
+      ],
+      "title": "This service does not sell your personal data",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "This service does not sell your personal data",
+        "point": "good",
+        "privacyRelated": true,
+        "score": 25,
+        "tldr": "Generated through the annotate view"
+      }
+    },
+    "10053": {
+      "id": "10053",
+      "needModeration": false,
+      "quoteDoc": "Privacy Policy",
+      "quoteEnd": 5033,
+      "quoteStart": 4975,
+      "quoteText": "\nYou may also track changes in our Site Policy repository.",
+      "services": [
+        "github"
+      ],
+      "title": "This service provides archives of their terms of service so that changes can be viewed over time",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "This service provides archives of their Terms of Service so that changes can be viewed over time",
+        "point": "good",
+        "score": 50,
+        "tldr": "Generated through the annotate view"
+      }
+    },
+    "10054": {
+      "id": "10054",
+      "needModeration": false,
+      "quoteDoc": "Privacy Policy",
+      "quoteEnd": 10051,
+      "quoteStart": 9968,
+      "quoteText": "p>\n<p>If you are a child under the age of 13, you may not have an Account on GitHub",
+      "services": [
+        "github"
+      ],
+      "title": "This service is only available to users of a certain age",
+      "topics": [],
+      "tosdr": {
+        "binding": true,
+        "case": "This service is only available to users over a certain age",
+        "point": "neutral",
+        "score": 15,
+        "tldr": "Generated through the annotate view"
+      }
+    }
+  },
+  "urls": [
+    "github.com"
+  ]
+}

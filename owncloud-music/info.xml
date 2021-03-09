@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<info>
+	<id>music</id>
+	<name>Music</name>
+	<summary>Music player, library viewer, and server</summary>
+	<description>Plays audio files directly in the Files view or in a stand-alone library view. Depending on the browser, supports playing file types mp3, ogg, m4a, m4b, flac, wav. All browsers should be able to play at least mp3. Also playlist formats m3u, m3u8, and pls are supported.
+
+In the library view, you can play tracks by album, artist, genre, or folder, create custom playlists, search tracks by keywords, or shuffle play over your whole library. In the Files view, an audio file can be played with one click and the playback continues to the next files of the folder or playlist until stopped. The app includes also a server compatible with Ampache and Subsonic clients, allowing playback and browsing of the library on various external applications e.g. on Android or iPhone.
+
+When browser and OS support available, the Music app can be controlled with the media keys (play/pause/stop/next/prev) on the keyboard or the OS notification center even when the browser is not focused.
+
+The admin may set up connection to the Last.fm service, allowing the Music app to show biography and background information of the artists, albums, and tracks.
+
+Limitations: The app can handle libraries of more than 50´000 tracks on modern desktop browsers, but the user experience is optimized for somewhat smaller collections. Libraries significantly larger than this may fail to function altogether. The playback from Files works regardless of the collection size.</description>
+	<licence>AGPL</licence>
+	<author>Pauli Järvinen (current author)</author>
+	<author>Morris Jobke (original author)</author>
+	<author>Jan-Christoph Borchardt (original design)</author>
+	<version>1.0.3</version>
+	<category>multimedia</category>
+	<screenshot>https://user-images.githubusercontent.com/8565946/107080070-6b523780-67f9-11eb-8adc-314059b04c1d.png</screenshot>
+	<screenshot>https://user-images.githubusercontent.com/8565946/107083303-17961d00-67fe-11eb-8b1c-5ad94b08a7bb.png</screenshot>
+	<screenshot>https://user-images.githubusercontent.com/8565946/43827491-9ae81a8a-9b02-11e8-8b8a-3e8dce76107a.png</screenshot>
+	<screenshot>https://user-images.githubusercontent.com/8565946/43827500-9f45beb6-9b02-11e8-8884-39ed2f0daa54.png</screenshot>
+	<website>https://github.com/owncloud/music</website>
+	<bugs>https://github.com/owncloud/music/issues</bugs>
+	<repository type="git">https://github.com/owncloud/music.git</repository>
+	<dependencies>
+		<php min-version="7.1" max-version="8.0"/>
+		<owncloud min-version="10" max-version="10" />
+		<nextcloud min-version="13" max-version="21" />
+	</dependencies>
+	<types>
+		<!-- update metadata cache when create/update/delete a file -->
+		<filesystem/>
+	</types>
+	<repair-steps>
+		<pre-migration>
+			<step>OCA\Music\Migration\PreMigration</step>
+		</pre-migration>
+		<post-migration>
+			<step>OCA\Music\Migration\BogusTrackRemoval</step>
+			<step>OCA\Music\Migration\DiskNumberMigration</step>
+			<step>OCA\Music\Migration\TimestampInit</step>
+		</post-migration>
+	</repair-steps>
+</info>

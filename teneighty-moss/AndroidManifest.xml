@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.mosspaper">
+
+    <uses-sdk android:minSdkVersion="8" />
+    <uses-feature android:name="android.software.live_wallpaper" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application 
+        android:icon="@drawable/icon" 
+        android:label="@string/moss"
+        tools:replace="icon, label">
+
+        <service
+            android:label="@string/moss"
+            android:name=".WallPaper"
+            android:configChanges="keyboardHidden|orientation"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/mosspaper" />
+        </service>
+
+        <activity
+            android:label="@string/settings"
+            android:name=".SettingsActivity"
+            android:exported="true" />
+
+        <activity android:label="@string/moss" android:name=".PackageListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="*"
+                      android:pathPattern=".*\\.mpk"
+                      android:mimeType="application/zip" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="file"
+                      android:pathPattern=".*\\.mpk"
+                      android:mimeType="application/zip" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="content" />
+                <data android:pathPattern=".*\\.mpk" />
+                <data android:mimeType="application/zip" />
+            </intent-filter>
+        </activity>
+
+        <activity android:label="@string/overrides"
+                  android:name=".OverridesActivity" />
+
+        <activity android:label="@string/help"
+                  android:name=".HelpActivity" />
+
+        <service 
+            android:name=".DataService"
+            android:label="@string/data_service"
+            android:configChanges="keyboardHidden|orientation"
+            android:description="@string/service_desc" />
+
+    </application>
+</manifest>

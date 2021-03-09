@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<buzztrax
+  xmlns="http://www.buzztrax.org/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+  xsd:noNamespaceSchemaLocation="buzztrax.xsd">
+
+  <meta>
+    <info>one buzz generator</info>
+    <name>buzz 1</name>
+    <genre>chip</genre>
+    <create-dts>2005-09-20T22:10:56Z</create-dts>
+    <change-dts>2005-09-20T22:10:56Z</change-dts>
+    <bpm>120</bpm>
+    <tpb>4</tpb>
+    <bars>16</bars>
+  </meta>
+  
+  <setup>
+    <machines>
+      <machine type="sink" id="audio_sink">
+        <properties>
+         <property key="xpos" value="0.7" />
+         <property key="ypos" value="0.0" />
+        </properties>
+      </machine>
+      
+      <machine type="source" id="gen" plugin-name="bml-CyanPhase-DTMF-1" voices="0">
+        <properties>
+         <property key="xpos" value="-0.7" />
+         <property key="ypos" value="0.0" />
+        </properties>
+        <patterns>
+          <pattern name="beeps" length="16">
+            <tick time="0">
+              <globaldata name="Dial-Number" value="1"/>
+              <globaldata name="Sustain" value="200"/>
+              <globaldata name="Volume" value="200"/>
+            </tick>
+            <tick time="4">
+              <globaldata name="Dial-Number" value="2"/>
+            </tick>
+            <tick time="8">
+              <globaldata name="Dial-Number" value="3"/>
+            </tick>
+          </pattern>
+        </patterns>
+      </machine>
+    </machines>
+    
+    <wires>
+      <wire src="gen" dst="audio_sink" gain="1.0" panorama="-0.5"/>
+    </wires>    
+  </setup>
+    
+  <sequence loop="off" length="64" tracks="1">
+    <labels>
+      <label time="0" name="start"/>
+      <label time="63" name="end"/>
+    </labels>
+    <tracks>
+      <track index="0" machine="gen">
+        <position time="0" pattern="beeps"/>
+        <position time="32" pattern="beeps"/>
+      </track>
+    </tracks>
+  </sequence>
+  
+
+</buzztrax>

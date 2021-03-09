@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx: |
+    #!/bin/bash
+
+    # settings
+    export ENABLE_SSL="true"
+    export SERVER_NAME="stage.corekube.com"
+
+    # letsencrypt paths
+    export LETSENCRYPT_DIR="/srv/etc/letsencrypt"
+    export LETSENCRYPT_ACME_DIR="$LETSENCRYPT_DIR/webrootauth/.well-known/acme-challenge"
+
+    ## nginx paths
+    export ROOT_DIR="/srv/data/stage/dest"
+    export SSL_CERTS_DIR="$LETSENCRYPT_DIR/live/$SERVER_NAME"

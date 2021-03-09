@@ -1,0 +1,2098 @@
+#--
+# Copyright protects this work.
+# See LICENSE file for details.
+#++
+
+desc: web page for the Internet
+
+code: |
+  ICONS_DIR  = File.join(ERBook::FORMATS_DIR, 'xhtml', 'icons')
+  JQUERY_DIR = File.join(ERBook::FORMATS_DIR, 'xhtml', 'jquery')
+
+  TEXT_ONLY_DIVIDER = %{<div style="display: none"><br/><hr/><br/></div>}
+
+  # load the String#to_xhtml methods
+  require 'erbook/to_xhtml'
+
+  class String
+    ##
+    # Transforms this UTF-8 string into XML entities.
+    #
+    def to_xml_entities
+      unpack('U*').map! {|c| "&##{c};"}.join
+    end
+
+    ##
+    # Transforms this string into a valid URI fragment.
+    # See http://www.w3.org/TR/REC-html40/types.html#type-name
+    #
+    def to_uri_fragment
+      # remove XML tags from the input
+      buf = gsub(/<.*?>/, '')
+
+      # The first or only character must be a letter or an underscore (_).
+      buf.insert(0, 'a') unless buf[0,1] =~ /[[:alpha:]_]/
+
+      # The remaining characters must be letters, digits, hyphens (-),
+      # underscores (_), colons (:), or periods (.) or Unicode characters
+      #
+      # However, colons (:) and periods (.) are special characters
+      # in jQuery CSS selector syntax, so we sanitize them as well.
+      #
+      buf.unpack('U*').map! do |code|
+        if code > 0xFF or code.chr =~ /[[:alnum:]\-_]/
+          code
+        else
+          32 # ASCII character code for a single space
+        end
+      end.pack('U*').strip.gsub(/[[:space:]-]+/, '-')
+    end
+
+    ##
+    # Evaluates this string as an Ember
+    # template (created with the given
+    # options) inside the given binding.
+    #
+    def thru_ember binding, options = {}
+      ::Ember::Template.new(self, options).render(binding)
+    end
+  end
+
+  class Hash
+    ##
+    # Transforms this hash into a string of XML attribute key="value" pairs.
+    #
+    def to_xml_atts
+      inject([]) {|s,(k,v)| s << %( #{k}="#{v}") }.join
+    end
+  end
+
+  require 'erb'
+
+  module ERBook
+    ##
+    # Encodes the given input in base64 format.
+    #
+    def ERBook.base_64_encode input #:nodoc:
+      [input].pack('m')
+    end
+
+    ##
+    # Encodes the contents of the given file in base64 format.
+    #
+    def ERBook.base_64_encode_file path #:nodoc:
+      base_64_encode open(path, 'rb') {|f| f.read }
+    end
+
+    ##
+    # Returns a string denoting embedded, base64 encoded data.
+    #
+    def ERBook.base_64_embed data, mime #:nodoc:
+      "data:#{mime.to_s.downcase};base64,#{data.tr("\n", '')}"
+    end
+
+    def ERBook.base_64_embed_file path # :nodoc:
+      data = base_64_encode_file(path)
+
+      require 'mime/types'
+      mime = MIME::Types.of(path).to_a.join(',')
+
+      base_64_embed data, mime
+    end
+
+    ##
+    # Returns a string denoting embedded, base64 encoded image data.
+    #
+    # [format]
+    #   type of image data (e.g. PNG, JPEG, GIF, etc.)
+    #
+    def ERBook.base_64_embed_image_data data, format #:nodoc:
+      base_64_embed data, "image/#{format}"
+    end
+
+    # admonition icons
+
+      ICON_DEFS = YAML.load_file File.join(ICONS_DIR, 'index.yaml')
+
+      class Icon < Struct.new(:origin, :path, :name, :format, :data) #:nodoc:
+        ##
+        # Returns a data URI containing embedded image data.
+        #
+        def data_uri
+          ERBook.base_64_embed_image_data self.data, self.format
+        end
+
+        ##
+        # Returns a CSS url() containing embedded image data.
+        #
+        def data_css
+          %{url(#{embed_uri})}
+        end
+
+        ##
+        # Returns a temporary data URI that will be replaced
+        # with the actual data URI at runtime by javascript.
+        #
+        def embed_uri
+          "cid:#{object_id}"
+        end
+
+        ##
+        # Returns an image tag that renders an embedded data URI.
+        #
+        def to_xhtml atts = {}
+          atts[:alt] ||= name
+          atts[:src] = embed_uri
+          atts[:class] = :icon
+          "<img#{atts.to_xml_atts}/>"
+        end
+      end
+
+      ICON_BY_NAME = {}
+
+      ICON_DEFS.each_pair do |name, path|
+        format = File.extname(path).sub('.', '')
+        origin = path[/^\w+/]
+
+        path = File.join(ICONS_DIR, path) # make the path absolute
+        data = base_64_encode_file(path)
+
+        ICON_BY_NAME[name] = Icon.new(origin, path, name, format, data)
+      end
+
+      ICONS = ICON_BY_NAME.values
+
+    class Template::Sandbox
+      ##
+      # Protects the given content from the text-to-XHTML conversion process.
+      #
+      def verbatim content
+        ::ERB::Util.html_escape content
+      end
+
+      ##
+      # Returns XHTML for a hyperlink to the given
+      # URL of the given label and mouse-hover title.
+      #
+      def hyperlink url, label = url, title = nil
+        %{<a href="#{url}"#{%{ title="#{title}"} if title}>#{label}</a>}
+      end
+
+      ##
+      # Returns an image tag that embeds the given image file.
+      #
+      # [path]
+      #   path to the image file
+      #
+      # [format]
+      #   format of the image file (e.g. PNG, JPEG, GIF, etc.)
+      #
+      # [atts]
+      #   additional attributes for the image tag
+      #
+      def embed_image_file path, format = path[/\w+/], atts = {}
+        data = ERBook.base_64_encode File.read(path)
+        embed_image_data data, format, atts
+      end
+
+      ##
+      # Returns an image tag that embeds the given raw image data.
+      #
+      # [data]
+      #   raw image data
+      #
+      # [format]
+      #   format of the image file (e.g. PNG, JPEG, GIF, etc.)
+      #
+      # [atts]
+      #   additional attributes for the image tag
+      #
+      def embed_image_data data, format, atts = {}
+        atts[:src] = ERBook.base_64_embed_image_data(data, format)
+        "<img#{atts.to_xml_atts}/>"
+      end
+
+      ##
+      # Allows float nodes to be instantiated implicitly by name.
+      #
+      def method_missing name, *args, &block
+        if name.to_s =~ /!$/
+          args[2] = $` # the type of this float node
+          float(*args, &block)
+        else
+          super
+        end
+      end
+    end
+
+    class Document::Node
+      def index?
+        definition['index']
+      end
+
+      def index_toc?
+        Array(definition['index']).include? 'tree'
+      end
+
+      def index_lof?
+        Array(definition['index']).include? 'list'
+      end
+
+      # utility methods
+
+        def type_frag #:nodoc:
+          "__#{type}__"
+        end
+
+        def type_label #:nodoc:
+          ERBook::PHRASES[type.to_s.capitalize]
+        end
+
+        ##
+        # Returns the title of this node as XHTML.
+        #
+        def title_xhtml
+          title.to_s.to_xhtml
+        end
+
+        ##
+        # Returns the content of this node as XHTML.
+        #
+        def content_xhtml
+          content.join.to_xhtml
+        end
+
+        ##
+        # Returns the result of wrapping
+        # this node's content in the given
+        # tag and converting it into XHTML.
+        #
+        def wrap_content_xhtml tag, atts = {}
+          %{<#{tag}#{atts.to_xml_atts}>#{content.join}</#{tag}>}.to_xhtml
+        end
+
+        ##
+        # Returns the content of this node as XHTML inside a <div/>.
+        #
+        def content_xhtml_div #:nodoc:
+          %{<div class="content">#{content_xhtml}</div>}
+        end
+
+        ##
+        # Returns a label for this node containing its title.
+        #
+        def title_label title = nil
+          title || title_xhtml
+        end
+
+        ##
+        # Returns a label for this node containing its section number.
+        #
+        def section_number_label
+          section_number
+        end
+
+        ##
+        # Returns a label for this node containing its ordinal number.
+        #
+        def ordinal_number_label
+          [type_label, ordinal_number].compact.join(' ')
+        end
+
+        ##
+        # Returns a label for this node containing
+        # its ocurrence number and its title.
+        #
+        def ordinal_number_and_title_label #:nodoc:
+          %{<span class="section_number">#{ordinal_number_label}.&nbsp;&nbsp;</span>#{title_label}}
+        end
+
+        ##
+        # Returns a label for this node containing
+        # its section number and its title.
+        #
+        def section_number_and_title_label #:nodoc:
+          %{<span class="section_number">#{section_number_label}&nbsp;&nbsp;</span>#{title_label}}
+        end
+
+        ##
+        # Returns a navigation menu for this node.
+        #
+        def navigation
+          self.class.navigation(
+            here_frag,
+            (list_frag if index?),
+            (prev_node.here_frag if prev_node),
+            (next_node.here_frag if next_node)
+          )
+        end
+
+        def parent_tabs_begin #:nodoc:
+          if p = parent and pc = p.toc_children and self == pc.first
+            TEXT_ONLY_DIVIDER + %{<div class="tabs"><ul>} +
+
+            pc.map do |c|
+              %{<li><a href="##{c.here_frag}">#{c.section_number_and_title_label}</a></li>}
+            end.join +
+
+            %{</ul>}
+          end
+        end
+
+        def parent_tabs_end #:nodoc:
+          if p = parent and self == p.toc_children.last
+            '</div>'
+          end
+        end
+
+        ##
+        # Returns all children of this node which are
+        # configured to appear in the table of contents.
+        #
+        def toc_children
+          children.select {|c| c.index_toc? }
+        end
+
+        HERE_TEXT = ERBook::PHRASES['Here']
+        PREV_TEXT = ERBook::PHRASES['Previous']
+        NEXT_TEXT = ERBook::PHRASES['Next']
+        LIST_TEXT = ERBook::PHRASES['Contents']
+
+        HERE_SIGN = ICON_BY_NAME['nav_here'].to_xhtml(:alt => "[#{HERE_TEXT}]")
+        PREV_SIGN = ICON_BY_NAME['nav_prev'].to_xhtml(:alt => "[#{PREV_TEXT}]")
+        NEXT_SIGN = ICON_BY_NAME['nav_next'].to_xhtml(:alt => "[#{NEXT_TEXT}]")
+        LIST_SIGN = ICON_BY_NAME['nav_list'].to_xhtml(:alt => "[#{LIST_TEXT}]")
+
+        ##
+        # Calculates a local navigation menu containing links
+        # to the given URI fragments (which can be nil).
+        #
+        def self.navigation here_frag, list_frag, prev_frag, next_frag
+          here_link = %{<a title="#{HERE_TEXT}" href="##{here_frag}">#{HERE_SIGN}</a>} if here_frag
+          prev_link = %{<a title="#{PREV_TEXT}" href="##{prev_frag}">#{PREV_SIGN}</a>} if prev_frag
+          next_link = %{<a title="#{NEXT_TEXT}" href="##{next_frag}">#{NEXT_SIGN}</a>} if next_frag
+          list_link = %{<a title="#{LIST_TEXT}" href="##{list_frag}">#{LIST_SIGN}</a>} if list_frag
+
+          TEXT_ONLY_DIVIDER + %{<a name="#{here_frag}"/><div class="nav">#{here_link} #{prev_link} #{next_link} #{list_link}</div>}
+        end
+
+        ##
+        # Returns a hyperlink to this node.
+        #
+        # [label]
+        #   Optional label (may contain XHTML) for the hyperlink.
+        #
+        #   If not specified, the title and designation of
+        #   this node will be used as the label instead.
+        #
+        def xref_link label = nil
+          prefix = [type_label, section_number || ordinal_number].
+                   compact.join(' ')
+
+          caption =
+            if type == 'reference'
+              prefix
+            else
+              [prefix, (%{"#{title}"} if label && title)].compact.join('. ')
+            end
+
+          label_xhtml = (label || title).to_s.to_xhtml
+
+          %{<a class="xref" href="##{here_frag}" title="#{::ERB::Util.h caption}">#{label_xhtml}</a>}
+        end
+
+      # URI fragments
+
+        @@frags = []
+
+        ##
+        # Returns a unique URI fragment for this node.
+        #
+        def here_frag #:nodoc:
+          unless defined? @here_frag
+            salt = object_id.abs
+            frag = (id || title || salt).to_s.to_uri_fragment
+
+            # make it unique
+            while @@frags.include? frag
+              frag = [frag, section_number || ordinal_number || salt].
+                     join(' ').to_uri_fragment
+            end
+
+            @@frags << frag
+            @here_frag = frag
+          end
+
+          @here_frag
+        end
+
+        ##
+        # Returns the URI fragment for the location in the table
+        # of contents / list of figures that points this node.
+        #
+        def list_frag #:nodoc:
+          @list_frag ||= "_contents:#{here_frag}".to_uri_fragment
+        end
+    end
+  end
+
+
+nodes:
+  # theory
+
+    node: &node
+      index:  false
+      chain:  false
+      number: false
+      silent: false
+      inline: true
+      output: <%= @node.content_xhtml %>
+
+    text: &text
+      <<: *node
+      inline: false
+      output: <%= @node.wrap_content_xhtml :pre %>
+
+    code:
+      <<: *text
+      params: language
+      output: <%= @node.wrap_content_xhtml :code, :lang => @node.language %>
+
+  # structure
+
+    header: &header
+      <<: *node
+      silent: true
+
+    header_outside_above: &header_insert
+      <<: *header
+      output: |
+        <%= @node.parent_tabs_begin %>
+        <div class="<%= @node.type %>" id="<%= @node.here_frag %>"><%= @node.content_xhtml %></div>
+        <%= @node.parent_tabs_end %>
+
+    header_inside_above:  *header_insert
+    header_inside_below:  *header_insert
+    header_outside_below: *header_insert
+
+    footer:               *header
+    footer_outside_above: *header_insert
+    footer_inside_above:  *header_insert
+    footer_inside_below:  *header_insert
+    footer_outside_below: *header_insert
+
+    abstract:
+      <<: *node
+      output: |
+        <div id="<%= @node.type_frag %>">
+          <h1 class="title"><%= @node.type_label %></h1>
+          <%= @node.content_xhtml_div %>
+        </div>
+
+  # organization
+
+    part: &latex
+      index:  tree
+      chain:  true
+      number: section
+      silent: false
+      inline: false
+      params: [title, id]
+      output: |
+        <%= @node.parent_tabs_begin %>
+        <div class="<%= @node.type %>" id="<%= @node.here_frag %>">
+          <%= @node.navigation %>
+          <h1 class="title">
+            <%= @node.type_label %>&nbsp;<%= @node.section_number_label %>
+            <br/>
+            <big><%= @node.title_label %></big>
+          </h1>
+          <%= @node.content_xhtml_div %>
+        </div>
+        <%= @node.parent_tabs_end %>
+
+    chapter: *latex
+
+    section:
+      <<: *latex
+      output: |
+        <% depth = [6, @node.depth + 1].min %>
+        <%= @node.parent_tabs_begin %>
+        <div class="<%= @node.type %>" id="<%= @node.here_frag %>">
+          <%= @node.navigation %>
+          <h<%= depth %> class="title">
+            <%= @node.section_number_and_title_label %>
+          </h<%= depth %>>
+          <%= @node.content_xhtml_div %>
+        </div>
+        <%= @node.parent_tabs_end %>
+
+    paragraph:
+      <<: *latex
+      index:  false
+      chain:  false
+      number: false
+      output: |
+        <%= @node.parent_tabs_begin %>
+        <div class="<%= @node.type %>" id="<%= @node.here_frag %>">
+          <%= @node.navigation %>
+          <p class="title"><%= @node.title_label %></p>
+          <%= @node.content_xhtml_div %>
+        </div>
+        <%= @node.parent_tabs_end %>
+
+  # arbitrary floats
+  # see also http://www.sagehill.net/docbookxsl/FormalTitles.html
+
+    float:
+      index:  list
+      chain:  true
+      number: ordinal
+      silent: false
+      inline: false
+      params: [title, id, type]
+      output: |
+        <%
+          if @node.type == 'command' and @node.title
+            @node.title = "<tt>#{verbatim @node.title}</tt>"
+          end
+        %>
+        <%= @node.parent_tabs_begin %>
+        <div class="_float ui-tabs ui-widget ui-widget-content ui-corner-all <%= @node.type %>" id="<%= @node.here_frag %>">
+          <%= @node.navigation %>
+          <p class="title ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><%= @node.ordinal_number_and_title_label %></p>
+          <% if ICON_BY_NAME.key? @node.type %>
+            <% unless @node.content.join.empty? %>
+              <div class="content ui-tabs-panel ui-widget-content ui-corner-bottom">
+                <%= ICON_BY_NAME[@node.type].to_xhtml %>
+                <%= @node.content_xhtml %>
+              </div>
+            <% end %>
+          <% else %>
+            <%= @node.content_xhtml_div %>
+          <% end %>
+        </div>
+        <%= @node.parent_tabs_end %>
+
+  # tables
+
+    table: &table
+      <<: *node
+      inline: false
+      params: [xml_atts]
+      output: |
+        <ins><table border="1"<%=
+          (@node.xml_atts || {}).to_xml_atts
+        %>><%= @node.content_xhtml %></table></ins>
+
+    thead: &table_child
+      <<: *table
+      output: |
+        <<%= @node.type %><%=
+          (@node.xml_atts || {}).to_xml_atts
+        %>><%= @node.content_xhtml %></<%= @node.type %>>
+
+    tbody:  *table_child
+    tfoot:  *table_child
+    th:     *table_child
+    tr:     *table_child
+    td:     *table_child
+
+  # cross-references
+    xref:
+      <<: *node
+      params: [query, label]
+      output: |
+        <%=
+          scope  = @nodes.select {|n| n.content }
+          target = scope.find {|n| n.id == @node.query } || # id has priority
+                   scope.find {|n| n.title == @node.query }
+
+          if target
+            target.xref_link @node.label
+          else
+            raise ArgumentError, "invalid cross-reference to #{@node.query.inspect}", @node.backtrace
+          end
+        %>
+
+  # bibliography
+
+    reference: &reference
+      index:  false
+      chain:  false
+      number: ordinal
+      silent: true
+      inline: false
+      params: [title, id]
+
+    cite:
+      <<: *node
+      params: [target]
+      output: |
+        <%=
+          target = @nodes_by_type['reference'].find do |n|
+            n.title == @node.target
+          end
+
+          if target
+            '<sup>[%s]</sup>' % [
+              target.xref_link(target.ordinal_number), *@node.arguments
+            ].compact.join(', ')
+          else
+            raise ArgumentError, "invalid citation for #{@node.target.inspect}", @node.backtrace
+          end
+        %>
+
+output: |
+  <%
+    # set default parameter values
+    $title    = '$title' unless defined? $title
+    $subtitle = '$subtitle' unless defined? $subtitle
+    $authors  = {'$authors' => nil} unless defined? $authors
+    $date     = Time.now.strftime("%d %B %Y") unless defined? $date
+    $logo     = nil unless defined? $logo
+    $feeds    = nil unless defined? $feeds
+
+    abstract = @nodes_by_type['abstract'].first
+
+    references = @nodes_by_type['reference']
+    if references.empty?
+      references = nil
+    end
+
+    # compute table of contents
+      toc_builder = lambda do |n|
+        nested = n.children.inject('') {|s,c| s << toc_builder[c] }
+        nested = nil if nested.empty?
+
+        if n.index_toc?
+          entry = '%s<a id="%s" href="#%s">%s</a>' % [
+            (n.section_number.to_s + '&nbsp;&nbsp;' if n.section_number),
+            n.list_frag,
+            n.here_frag,
+            n.title.to_s.to_xhtml
+          ]
+
+          %{<li>#{entry}#{"<ul>#{nested}</ul>" if nested}</li>}
+        else
+          nested
+        end.to_s
+      end
+
+      toc = @roots.inject('') {|s,n| s << toc_builder[n] }
+
+    # compute list of figures
+      lof_nodes_by_type = Hash.new {|h,k| h[k] = [] }
+      @nodes.each do |node|
+        if node.index_lof?
+          lof_nodes_by_type[node.type] << node
+        end
+      end
+
+      lof_enums = {} # type => nodes
+      lof_nodes_by_type.each do |type, nodes|
+        lof_enums[type] = nodes unless nodes.empty?
+      end
+
+      lof_sections_frag_and_label = []
+      lof = lof_enums.sort.map do |type, nodes|
+        nested = nodes.map do |n|
+          %{<li><a id="#{n.list_frag}" href="##{n.here_frag}">#{n.title.to_s.to_xhtml}</a></li>}
+        end.join
+
+        label = ERBook::PHRASES[type.capitalize << 's']
+        frag = nodes.first.type_frag
+        lof_sections_frag_and_label << [frag, label]
+
+        %{<div id="#{frag}"><h2 class="title">#{label}</h2> <ol>#{nested}</ol></div>}
+      end
+  %><?xml version="1.0" encoding="utf-8"?>
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+      <meta name="generator" content="<%=
+        [ERBook::DISPLAY, ERBook::WEBSITE].join(' &mdash; ')
+      %>"/>
+
+      % if $title || $subtitle
+        <title><%=
+          [$title, $subtitle].compact.map do |t|
+            t.to_s.to_xhtml
+          end.join(' &mdash; ')
+        %></title>
+
+      % if $authors
+        <meta name="author" content="<%= $authors.keys.join(', ') %>"/>
+
+      % if $date
+        <meta name="date" content="<%= $date %>"/>
+
+      % if $feeds
+        % $feeds.each_pair do |url, fmt|
+          <link rel="alternate" type="application/<%= fmt %>+xml" href="<%= url %>"/>
+
+      <style type="text/css" media="screen">
+      /*<![CDATA[*/
+        <%=
+          css = File.read(File.join(JQUERY_DIR, 'jquery-ui-1.7.2.custom.css'))
+
+          # embed images used by jQuery UI as data URIs
+          css.gsub! %r{\bimages/.*?\.png\b} do |path|
+            # XXX: using inspect to put quotes around the value
+            #      because jQuery did not put them in their CSS
+            ERBook.base_64_embed_file(File.join(JQUERY_DIR, path)).inspect
+          end
+
+          css
+        %>
+      /*]]>*/
+      </style>
+
+      %# convert font-family values from YAML list into CSS list
+      % (fonts = @format['fonts']).each do |family, values|
+        % fonts[family] = values.map {|v| v.to_s.inspect }.push(family).join(', ')
+
+      % @format['styles'].each do |style|
+        % style.each_pair do |media, sass|
+          <style type="text/css" media="<%= media %>">
+          /*<![CDATA[*/<%=
+
+            # expand eRuby directives in SASS templates
+            sass = sass.to_s.thru_ember(binding)
+
+            # compile SASS into CSS
+            require 'sass'
+            css = ::Sass::Engine.new(sass).render
+
+          %>/*]]>*/
+          </style>
+
+      <script type="text/javascript">
+      //<![CDATA[
+        %< File.join(JQUERY_DIR, 'jquery-1.3.2.min.js')
+        %< File.join(JQUERY_DIR, 'jquery-ui-1.7.2.custom.min.js')
+        <%=
+          # expand eRuby directives in JavaScript template
+          js = @format['javascript'].to_s.thru_ember(binding)
+        %>
+      //]]>
+      </script>
+    </head>
+    <body>
+      <div id="_loading"></div>
+
+      <div id="_body">
+        %= node.output if node = @nodes_by_type['header_outside_above'].first
+
+        <div id="_header">
+          %= node.output if node = @nodes_by_type['header_inside_above'].first
+
+          % if header = @nodes_by_type['header'].first
+            <%= header.output %>
+          % else
+            % if $logo
+              <div class="logo"><%= $logo %></div>
+
+            <div class="title_and_subtitle">
+              % if $title
+                <h1 class="title"><%= $title.to_s.to_xhtml %></h1>
+
+              % if $subtitle
+                <h2 class="subtitle"><%= $subtitle.to_s.to_xhtml %></h2>
+            </div>
+
+            <div class="authors_and_date">
+              % if $authors
+                <h3 class="authors"><%=
+                  $authors.map do |name, url|
+                    if url
+                      %{<a href="#{url}">#{name}</a>}
+                    else
+                      name
+                    end
+                  end.join(', ')
+                %></h3>
+
+              % if $date
+                <h3 class="date"><%= $date %></h3>
+            </div>
+
+          %= node.output if node = @nodes_by_type['header_inside_below'].first
+        </div>
+
+        %= node.output if node = @nodes_by_type['header_outside_below'].first
+
+        <div class="tabs">
+          <ul>
+            % if abstract
+              <li><a href="#_abstract"><%= ERBook::PHRASES['Abstract'] %></a></li>
+
+            <li><a href="#_document"><%= ERBook::PHRASES['Document'] %></a></li>
+
+            % unless toc.empty?
+              <li><a href="#_contents"><%= ERBook::PHRASES['Contents'] %></a></li>
+
+            % if references
+              <li><a href="#_references"><%= ERBook::PHRASES['References'] %></a></li>
+
+            <li><a href="#_about"><%= ERBook::PHRASES['About'] %></a></li>
+          </ul>
+
+          %= abstract.output if abstract
+
+          % unless toc.empty?
+            <div id="_contents">
+              <h1 class="title"><%= ERBook::PHRASES['Contents'] %></h1>
+              <ul><%= toc %></ul>
+
+              % unless lof.empty?
+                <div id="_floats"><%= lof %></div>
+            </div>
+
+          <div id="_document" class="tabs">
+            <h1 style="display: none"><%= ERBook::PHRASES['Document'] %></h1>
+            <ul>
+              % @roots.select {|n| n.index_toc? }.each do |n|
+                <li><a href="#<%= n.here_frag %>"><%= n.title.to_s.to_xhtml %></a></li>
+            </ul>
+
+            %= @content
+          </div>
+
+          % if references
+            <div id="_references">
+              <h1 class="title"><%= ERBook::PHRASES['References'] %></h1>
+              <ol>
+              % references.each do |n|
+                <li id="<%= n.here_frag %>"><%= n.content_xhtml %></li>
+              </ol>
+            </div>
+
+          %= TEXT_ONLY_DIVIDER
+
+          <div id="_about">
+            <p><%=
+              ERBook::PHRASES[
+                'This document was generated by %s on %s using the following resources.',
+                %{<a href="#{ERBook::WEBSITE}">#{ERBook::DISPLAY}</a>},
+                %{<b>#{Time.now.strftime '%c'}</b>}
+              ]
+            %></p>
+
+            <table border="1">
+              <thead>
+                <tr>
+                  <th><%= ERBook::PHRASES['Resource'] %></th>
+                  <th><%= ERBook::PHRASES['Origin'] %></th>
+                  <th><%= ERBook::PHRASES['License'] %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    % ICONS.select {|i| i.origin == 'tango' }.each do |icon|
+                      %= icon.to_xhtml
+                  </td>
+                  <td>
+                    <a href="http://tango.freedesktop.org/Tango_Icon_Library">Tango Icon Theme</a>
+
+                    <p>&copy; 2005 <a href="http://tango.freedesktop.org">Tango Desktop Project</a></p>
+                  </td>
+                  <td>
+                    <a href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons Attribution-ShareAlike 2.5 License Agreement</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    % ICONS.select {|i| i.origin == 'mediawiki' }.each do |icon|
+                      %= icon.to_xhtml
+                  </td>
+                  <td>
+                    <a href="http://www.mediawiki.org/skins-1.5/monobook/external.png">MediaWiki Monobook Skin</a>
+
+                    <p>&copy; 2007 <a href="https://www.ohloh.net/projects/mediawiki/contributors">MediaWiki contributors</a></p>
+                  </td>
+                  <td>
+                    <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public License, version 2</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="validations">
+              <a href="http://validator.w3.org/check?uri=referer"><img
+                  src="<%= ICON_BY_NAME['valid_html'].embed_uri %>"
+                  alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+
+              <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3"><img
+                src="<%= ICON_BY_NAME['valid_css'].embed_uri %>"
+                alt="Valid CSS 3!" height="31" width="88" /></a>
+            </p>
+          </div>
+        </div>
+
+
+        %= node.output if node = @nodes_by_type['footer_outside_above'].first
+
+        <div id="_footer">
+          %= node.output if node = @nodes_by_type['footer_inside_above'].first
+
+          % if footer = @nodes_by_type['footer'].first
+            %= footer.content_xhtml
+
+          %= node.output if node = @nodes_by_type['footer_inside_below'].first
+        </div>
+
+        %= node.output if node = @nodes_by_type['footer_outside_below'].first
+
+      </div>
+    </body>
+  </html>
+
+javascript: |
+  $(function() {
+    /*<%= File.read File.join(ERBook::INSTALL, 'LICENSE') %>*/
+    "use strict";
+
+    //--------------------------------------------------------------------------
+    // utility logic
+    //--------------------------------------------------------------------------
+
+    //
+    // Returns the tab corresponding to the
+    // given panel in the given tabs widget.
+    //
+    function tab_by_panel(panel, tabs_widget) {
+      if (!tabs_widget) {
+        tabs_widget = panel.parent('.ui-tabs');
+      }
+
+      return tabs_widget.find(
+        '.ui-tabs-nav > li > a[href=#'+ panel.attr('id') +']'
+      ).parent('li');
+    }
+
+    //
+    // Returns a jQuery element containing a jQuery UI icon of the given name.
+    //
+    function ui_icon(name) {
+      return $('<div/>').addClass('ui-state-default ui-corner-all').append(
+        $('<span/>').addClass('ui-icon ui-icon-' + name)
+      );
+    }
+
+    //--------------------------------------------------------------------------
+    // document location
+    //--------------------------------------------------------------------------
+
+    var $last_hash;
+
+    //
+    // Sets the location bar hash to the given value.
+    //
+    // [prevent_jump]
+    //  If true, prevents the browser from jumping to
+    //  the element corresponding to the given hash.
+    //
+    function set_hash(hash, prevent_jump) {
+      if (hash === $last_hash) {
+        return;
+      }
+
+      function set_the_hash() {
+        // XXX: bypass on_hash_change() by setting $last_hash
+        window.location.hash = $last_hash = hash;
+      }
+
+      if (prevent_jump) {
+        var target = $(hash);
+
+        if (target.length) {
+          //
+          // This particular approach to solving the browser
+          // jumping problem comes from the jQuery.LocalScroll
+          // plugin, which is dual licensed under MIT and GPL:
+          //
+          //   Copyright (c) 2007-2009 Ariel Flesler - aflesler(at)gmail(dot)com | http://flesler.blogspot.com
+          //
+          //   Permission is hereby granted, free of charge, to any person obtaining a copy
+          //   of this software and associated documentation files (the "Software"), to deal
+          //   in the Software without restriction, including without limitation the rights
+          //   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+          //   copies of the Software, and to permit persons to whom the Software is
+          //   furnished to do so, subject to the following conditions:
+          //
+          //   The above copyright notice and this permission notice shall be included in
+          //   all copies or substantial portions of the Software.
+          //
+          //   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+          //   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+          //   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+          //   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+          //   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+          //   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+          //   THE SOFTWARE.
+          //
+          // The jQuery.LocalScroll plugin is documented at:
+          //
+          //   http://flesler.blogspot.com/2007/10/jquerylocalscroll-10.html
+          //
+          // And its source is available at:
+          //
+          //   http://flesler-plugins.googlecode.com/svn/trunk/jquery.localScroll/jquery.localScroll.js
+          //
+
+          var target_id = target.attr('id');
+
+          // temporarily place a dummy element at the current
+          // screen position and give it the ID of the target
+          var original_screen_position = $(window).scrollTop();
+
+          var dummy = $('<span/>').attr('id', target_id).css({
+            position: 'absolute',
+            top:      original_screen_position
+          });
+
+          target.removeAttr('id').before(dummy);
+
+          // when we set the hash, the browser will jump to the
+          // dummy, which is where the browser screen currently
+          // is, and therefore the jump will not be visualized!
+          set_the_hash();
+
+          // undo the temporary changes
+          dummy.remove();
+          target.attr('id', target_id);
+
+          // the above approach does not work for Opera and IE.
+          // they ignore the dummy and jump to the actual target
+          $(window).scrollTop(original_screen_position);
+
+          return;
+        }
+      }
+
+      set_the_hash();
+    }
+
+    //
+    // Reveals the element at the given hash by (1) activating all
+    // tabs that contain it, (2) smoothly scrolling to it, and (3)
+    // updating the hash in the browser's location bar accordingly.
+    //
+    function reveal(hash_or_elem, callback) {
+      var target = $(hash_or_elem);
+
+      if (target.length) {
+        var target_is_panel = target.is('div') &&
+          target.parent('.ui-tabs').length;
+
+        // reveal all tabs which contain the target
+        if (target.is(':hidden')) {
+          var panels = target.parents('.ui-tabs > div:hidden').get().reverse();
+
+          if (target_is_panel) {
+            panels.push(target);
+          }
+
+          $(panels).each(function() {
+            var panel = $(this);
+            var tabs_widget = panel.parent('.ui-tabs');
+            var selected_index = tabs_widget.tabs('option', 'selected');
+
+            // map the panel to its tab because tabs do not
+            // have to be in the same order as their panels
+            var tab = tab_by_panel(panel, tabs_widget);
+            var wanted_index = tab.prevAll('li').length;
+
+            if (wanted_index !== selected_index) {
+              tabs_widget.tabs('select', wanted_index);
+            }
+          });
+        }
+
+        // scroll to nearest visible element if the target
+        // is naturally hidden (e.g. because of a CSS rule)
+        if (target.is(':hidden')) {
+          target = target.closest(':not(:hidden)');
+        }
+
+        // scroll to the tab bar instead of the target
+        // because it contains the title for the target
+        var scroll_target = target;
+
+        if (target_is_panel) {
+          var tabs_nav = target.parent('.ui-tabs').find('> .ui-tabs-nav');
+
+          if (!tabs_nav.is(':hidden')) {
+            scroll_target = tabs_nav;
+          }
+        }
+
+        var scroll_offset = Math.floor(scroll_target.offset().top);
+
+        // set body height so that any element can be
+        // brought to the top of the screen via scrolling
+        var document_height = $(document).height();
+        var window_height   = $(window).height();
+        if (document_height - scroll_offset <= window_height) {
+          $('body').css('min-height', document_height + window_height);
+        }
+
+        var pending = true;
+        $('html, body').animate(
+          { scrollTop: scroll_offset }, 'slow', 'swing', function() {
+            // prevent the body of this function from being
+            // executed twice -- because there are 2 target
+            // elements in the animation list and only one
+            // of them actually works in different browsers!
+            if (pending && scroll_offset === $(window).scrollTop()) {
+              pending = false;
+
+              var target_id = target.attr('id');
+              set_hash('#' + (target_id || '_reveal' + Math.random()),
+                target_is_panel || !target_id);
+
+              if (callback && typeof(callback) === 'function') {
+                callback();
+              }
+            }
+          }
+        );
+      }
+    }
+
+    //--------------------------------------------------------------------------
+    // search engine
+    //--------------------------------------------------------------------------
+
+    // Adapted from the source code of the ":contains" selector from
+    // the "Search on this Page" plugin by Waldek Mastykarz
+    // <http://blog.mastykarz.nl>, which was (1) published online on
+    // 17 November 2008 at <http://www.endusersharepoint.com/?p=951>
+    // and <http://blog.mastykarz.nl/search-page-jquery/>, and was
+    // (2) updated to work with jQuery 1.3 by "anonymous" here:
+    // <http://stackoverflow.com/questions/187537>.
+    jQuery.expr[':'].matches = function(a, i, m) {
+      // compile the regexp during the first call to this
+      // function only, so that subsequent calls are fast
+      if (typeof(m[3]) === 'string') {
+        m[3] = new RegExp(m[3], 'i');
+      }
+      return jQuery(a).text().match(m[3]);
+    };
+
+    $('.tabs:first > ul').append(
+      $('<li/>').append(
+        $('<a/>').attr('id', '_search_link').attr('href', '#_search').
+        text(<%= ERBook::PHRASES['Search'].inspect %>)
+      ).hide()
+    ).append(
+      $('<form/>').attr('id', '_search_form').append(
+        $('<input/>').attr('type', 'text').attr('name', 'q').
+        addClass('initial').attr('title', <%=
+          ERBook::PHRASES['Search with regular expression'].inspect
+        %>).focus(function() {
+          var box = $(this);
+
+          if (box.is('.initial')) {
+            box.val('').removeClass('initial');
+          }
+        }).blur(function() {
+          var box = $(this);
+
+          if (! box.val().match(/\S/)) {
+            box.val(box.attr('title')).addClass('initial');
+          }
+        }).blur()
+      ).append(
+        ui_icon('search').attr('id', '_search_start').click(function() {
+          $('#_search_form').submit();
+        })
+      ).append(
+        ui_icon('cancel').attr('id', '_search_stop').hide().click(function() {
+          $(this).attr('clicked', 'clicked');
+        })
+      ).submit(function(event) {
+        event.preventDefault();
+
+        var search_box = $(this).find(':text');
+        var query = search_box.val().replace(/^\s+|\s+$/g, '');
+
+        // ignore empty queries
+        if (search_box.is('.initial') || !query.match(/\S/)) {
+          return;
+        }
+
+        // detect invalid regexps
+        try {
+          new RegExp(query);
+        }
+        catch(e) {
+          alert(e);
+          return;
+        }
+
+        // one search at a time
+        if (search_box.attr('disabled')) {
+          return;
+        }
+
+        search_box.attr('disabled', 'disabled');
+
+        // begin the search
+        var status = $('#_search > .status');
+        var results = $('#_search > .results');
+
+        // display the search results tab
+        $('#_search_link').click().parent().show();
+
+        // clear previous search results
+        results.text('');
+        status.text(<%= ERBook::PHRASES['Searching...'].inspect %>);
+
+        // timeout allows status updates to appear
+        setTimeout(function() {
+          var num_results = 0;
+
+          function emit_result(match) {
+            // exclude matches from previous search results,
+            // the table of contents, and jQuery UI tab bars
+            if (match.closest('#_search, #_contents, .ui-tabs-nav').length) {
+              return;
+            }
+
+            var excerpt;
+
+            // resolve tab panels into their section title
+            // because additional matches, which lie within
+            // the content of these tab panels, will come
+            if (match.is('.ui-tabs-panel')) {
+              excerpt = match.find('.title:first').clone().show();
+            }
+            else {
+              excerpt = match.clone();
+            }
+
+            // highlight the query inside the match excerpt
+            excerpt.html(excerpt.html().replace(
+              new RegExp('(<[^>]*)?(' + query + ')', 'ig'),
+              function($0, $1, $2) {
+                // only highlight if not inside an XML tag literal
+                return $1 ? $0 :
+                  '<span class="ui-state-error">' + $2 + '</span>';
+              }
+            ));
+
+            num_results += 1;
+            var result = $('<li/>').addClass('result').append(
+              $('<blockquote/>').addClass('excerpt').append(excerpt)
+            ).attr('id', '_search' + num_results).click(
+              function(event) {
+                event.stopPropagation();
+
+                // save this search result's hash in browser history
+                // before revealing the matching element so that
+                // the user can press the back button to return to
+                // this exact spot in the search results listing
+                reveal(this, function() {
+                  if (!$(event.target).is('a')) {
+                    reveal(match);
+                  }
+                });
+              }
+            );
+
+            // show bread-crumb trail for the match
+            var first = true;
+            match.parents('.ui-tabs-panel').each(function() {
+              var panel = $(this);
+              var tab = tab_by_panel(panel);
+
+              if (tab.length) {
+                if (!first) {
+                  result.prepend(' &rang; ');
+                }
+                first = false;
+
+                result.prepend(tab.find('a').clone());
+              }
+            });
+
+            results.append(result);
+
+            // unhide any hidden elements in the search result
+            result.find(':hidden').removeClass('ui-tabs-hide').show();
+
+            // remove tab bars (used for titles) and mini navigation menus
+            result.find('.ui-tabs-nav, .ui-tabs-panel > .nav').remove();
+          };
+
+          var matching_elems = $('#_body').
+            find(':matches("'+ query.replace(/"/, '\\"') +'")');
+
+          status.text('').progressbar();
+          var start_button = $('#_search_start').hide();
+          var stop_button = $('#_search_stop').show();
+
+          var prev_match;
+          var prev_elem;
+
+          function process_match(i, n) {
+            status.progressbar('value', Math.round(i / n * 100));
+
+            var elem = matching_elems.eq(i);
+
+            // ascend to a larger container for more context
+            var match = elem.closest('pre,ul,ol,dl,table,p,div');
+            if (!match.length) {
+              match = elem;
+            }
+
+            if (
+              prev_match && prev_match.length &&
+              match.get(0) !== prev_match.get(0) && // unique matches only
+              elem.parent().get(0) !== prev_elem.get(0) // leaf nodes only
+            ) {
+              emit_result(prev_match);
+            }
+
+            prev_elem = elem;
+            prev_match = match;
+
+            if (i < n && !stop_button.attr('clicked')) {
+              // timeout allows status updates to appear
+              setTimeout(function() { process_match(i + 1, n); }, 0);
+            }
+            else {
+              // handle the last item in this two-stage prev/curr loop
+              if (prev_match && prev_match.length) {
+                emit_result(prev_match);
+              }
+
+              status.progressbar('destroy').text(<%=
+                ERBook::PHRASES['%d results', 0].inspect
+              %>.replace('0', num_results));
+
+              search_box.removeAttr('disabled');
+              stop_button.hide().removeAttr('clicked');
+              start_button.show();
+            }
+          }
+
+          process_match(0, matching_elems.length);
+
+        }, 0);
+
+        return false;
+      })
+    ).after(
+      $('<div/>').attr('id', '_search').append(
+        $('<p/>').addClass('status')
+      ).append(
+        $('<ol/>').addClass('results')
+      )
+    );
+
+    //--------------------------------------------------------------------------
+    // create print preview toggle
+    //--------------------------------------------------------------------------
+
+    $('#_header > .authors_and_date').append(
+      $('<span/>').addClass('printer_friendly_toggle').append(
+        $('<input/>').attr('type', 'checkbox').
+        attr('id', 'printer_friendly_toggle').click(function() {
+          var checkbox = $(this);
+
+          function change_media(src, dst) {
+            var styles = $('style[media="'+ src +'"]');
+            if (styles.length) {
+              // try changing the media in-place
+              var before = checkbox.offset();
+              styles.attr('media', dst);
+              var after = checkbox.offset();
+
+              // but if that did not work
+              if (after.top === before.top && after.left === before.left) {
+                // try reinserting the <style> into document.
+                // this works in Webkit browsers, which ignore
+                // the in-place changing approach tried above.
+                styles.each(function() {
+                  var style = $(this);
+                  var parent = style.parent();
+
+                  style.remove();
+                  parent.append(style);
+                });
+              }
+            }
+          }
+
+          if (checkbox.is(':checked')) {
+            change_media('screen', 'none');
+            change_media('print', 'screen,print');
+          }
+          else {
+            change_media('screen,print', 'print');
+            change_media('none', 'screen');
+          }
+
+          return true;
+        }).css('margin-right', '0.3em')
+      ).append(
+        $('<label/>').attr('for', 'printer_friendly_toggle').
+        text(<%= ERBook::PHRASES['Printer friendly'].inspect %>)
+      )
+    );
+
+    //--------------------------------------------------------------------------
+    // activate base64 data URIs
+    //--------------------------------------------------------------------------
+
+    var data_uri_by_embed_uri = <%=
+      result = {}
+      ICONS.each do |icon|
+        result[icon.embed_uri] = icon.data_uri
+      end
+
+      require 'json'
+      result.to_json
+    %>;
+
+    $('img[src]').each(function() {
+      var image = $(this);
+      var embed_uri = image.attr('src');
+
+      if (data_uri_by_embed_uri.hasOwnProperty(embed_uri)) {
+        image.attr('src', data_uri_by_embed_uri[embed_uri]);
+      }
+    });
+
+    $('style').each(function() {
+      var style = $(this);
+      var css = style.text();
+
+      if (css) {
+        for (var embed_uri in data_uri_by_embed_uri) {
+          if (data_uri_by_embed_uri.hasOwnProperty(embed_uri)) {
+            var src = new RegExp('\\burl\\(' + embed_uri + '\\)', 'g');
+            var dst = 'url("' + data_uri_by_embed_uri[embed_uri] + '")';
+
+            css = css.replace(src, dst);
+          }
+        }
+
+        style.text(css);
+      }
+    });
+
+    //--------------------------------------------------------------------------
+    // create jQuery UI tabs
+    //--------------------------------------------------------------------------
+
+    $('.tabs').tabs();
+
+    // make internal hyperlinks reveal their targets (which may be
+    // nested within many levels of jQuery UI tabs) when clicked
+    $('a[href^=#]').click(function() {
+      var link = $(this);
+      var hash = link.attr('href');
+
+      if (link.parent('li').parent('.ui-tabs-nav').length) {
+        // tab clicks should not cause the screen to scroll
+        set_hash(hash, true);
+      }
+      else {
+        reveal(hash);
+      }
+
+      return false;
+    });
+
+    // make external hyperlinks open in a separate window
+    $('a[href]').not('[href^=#]').attr('target', '_blank');
+
+    //--------------------------------------------------------------------------
+    // style jQuery UI icons
+    //--------------------------------------------------------------------------
+
+    $('.ui-icon').parent().hover(
+      function() { $(this).addClass('ui-state-hover');    },
+      function() { $(this).removeClass('ui-state-hover'); }
+    );
+
+    //--------------------------------------------------------------------------
+    // unveil the document
+    //--------------------------------------------------------------------------
+
+    $('#_loading').append(<%= ERBook::PHRASES['Ready!'].inspect %>).
+    fadeOut('slow', function() {
+      $(this).remove();
+
+      $('#_body').show();
+
+      // respond to changes in window location
+      (function on_hash_change() {
+        var current_hash = window.location.hash;
+
+        if (current_hash && current_hash !== $last_hash) {
+          $last_hash = current_hash;
+          reveal(current_hash);
+        }
+
+        setTimeout(on_hash_change, 300);
+      })();
+    });
+  });
+
+# definition of font families for use in the CSS styles
+fonts:
+
+  serif:
+    - DejaVu Serif
+    - Bitstream Vera Serif
+    - Constantia
+    - Book Antiqua
+
+  sans-serif:
+    - DejaVu Sans
+    - Bitstream Vera Sans
+    - Calibri
+    - Verdana
+
+  monospace:
+    - DejaVu Sans Mono
+    - Bitstream Vera Sans Mono
+    - Menlo
+    - Consolas
+    - Lucida Console
+    - Fixedsys
+
+styles: # these are SASS templates
+- all: |
+    body
+      color: #000000
+      background-color: #FFFFFF
+      line-height: 1.5em
+      font-family: <%= @format['fonts']['sans-serif'] %>
+
+
+    em, strong, dt
+      font-family: <%= @format['fonts']['serif'] %>
+
+
+    blockquote
+      color: #333
+      font-style: italic
+      background-image: <%= ICON_BY_NAME['quote'].data_css %>
+      background-repeat: no-repeat
+      margin-left: 0
+      padding-left: 65px
+      min-height: 50px
+
+
+    hr
+      height: 0
+      border: 0
+      border-top: thin dashed #000000
+
+
+    tt, code, pre
+      font-family: <%= @format['fonts']['monospace'] %>
+      font-size: 1em
+      line-height: 1em
+
+
+    // output of the syntax coloring library
+    code.para
+      white-space: pre
+
+
+    // proper container (according to XHTML validation) for
+    // inserting block-level elements in arbitrary locations
+    ins
+      text-decoration: none
+
+
+    a > img
+      border: none
+
+
+    dt
+      margin-top: 1.5em
+      font-weight: bolder
+
+
+    h1, h2, h3, h4, h5, h6, .title
+      font-weight: lighter
+      font-family: <%= @format['fonts']['serif'] %>
+
+
+    #_floats
+      h1, h2, h3, h4, h5, h6
+        margin-top: 1.25em
+
+
+    #_document
+      h1, h2, h3, h4, h5, h6
+        margin-top: 2.5em
+        line-height: 1.25em
+
+      h1
+        font-size: 2.0em
+
+      h2
+        font-size: 1.8em
+
+      h3
+        font-size: 1.6em
+
+      h4
+        font-size: 1.4em
+
+      h5
+        font-size: 1.2em
+
+      h6
+        font-size: 1.0em
+
+
+    table
+      border: none
+      // no spacing between cell borders
+      border-collapse: collapse
+      margin: auto
+      margin-top: 1em
+      margin-bottom: 1em
+
+
+    th, td
+      padding: 1em
+      border: 1px solid #bbb
+      vertical-align: top
+      background-color: #FFFFFF
+
+
+    th
+      background-color: #F5F5F5
+
+
+    #_header > .title
+      font-size: 2.25em
+
+
+    @media print
+      #_header .printer_friendly_toggle
+        display: none
+
+
+    @media screen
+      #_header .printer_friendly_toggle
+        display: inline
+
+        label:hover
+          cursor: pointer
+
+
+    #_abstract
+      margin-bottom: 5em
+
+
+    #_contents
+      ul > li
+        list-style-type: none
+
+      li ul
+        padding-bottom: 1em
+
+      > ul
+        padding-left: 1em
+
+
+    #_references > ol > li
+      margin-bottom: 1em
+
+
+    #_footer
+      padding-top: 1em
+      text-align: center
+      margin: auto
+
+
+    .part > .title, .chapter > .title
+      padding-bottom: 0.5em
+
+
+    .part > .title > big, .chapter > .title > big
+      display: block
+      margin-top: 0.25em
+
+
+    .paragraph > .title
+      font-size: large
+
+
+    ._float
+
+      > .title
+        font-size: large
+
+      > .content
+        // height of icon
+        min-height: 48px
+
+        > .icon
+          float: left
+          margin:
+            top: 0
+            right: 1em
+            bottom: 1em
+            left: 0
+
+
+    .figure >
+      .title
+        text-align: center
+
+      .content img
+        display: block
+        margin: auto
+
+
+- screen: |
+    body
+      margin: 0
+      padding: 0.5em
+      background-color: #FFFFFF
+
+
+    #_loading:before
+      content: <%= ERBook::PHRASES['Loading...'].inspect %>
+
+    #_body, #_abstract > .title, #_contents > .title, .part > .title, .chapter > .title, .section > .title, #_references > .title
+      display: none
+
+
+    .tabs
+      // otherwise .nav becomes obscured by the tabs
+      clear: both
+
+
+    .ui-widget
+      // prevent nested widgets from having larger fonts
+      font-size: 1em
+
+
+    .ui-tabs .ui-tabs-nav li.ui-tabs-selected a
+      cursor: pointer
+
+
+    li > p:first-child
+      display: inline
+
+
+    tt
+      background-color: #F0F8FF
+
+
+    pre
+      cursor: text
+      line-height: normal
+      border: 1px solid #b1d827
+      background-color: #F5FFDF
+      padding: 1em
+
+      // fit container to content; no overflow!
+      display: inline-block
+      min-width: 95%
+      margin: 0
+
+
+    // prevent pre blocks from touching tabs containers
+    ins ~ div
+      margin-top: 1.5em
+
+
+    // output of the syntax coloring library
+    code.para
+      cursor: text
+      line-height: normal
+      border: 1px solid #b1d827
+      background-color: #F5FFDF
+      padding: 1em
+      display: inline-block
+      margin: 0
+      min-width: 92.5%
+      background-color: #FFFFE8
+      border-color: #EEDD88
+
+
+    pre.para
+      background-color: #FFFFE8
+      border-color: #EEDD88
+
+
+    a
+      text-decoration: none
+
+      &:hover
+        text-decoration: underline
+
+      &:link
+        // maximum saturation of RoyalBlue
+        color: #0038E1
+
+      &:visited
+        color: #800080
+
+      // decorate external hyperlinks with a visual indicator
+      &[href]:not([href^="#"])
+        background: <%= ICON_BY_NAME['hyperlink'].data_css %>
+        background-position: center right
+        background-repeat: no-repeat
+        padding-right: 13px
+
+
+    #_header >
+      .logo
+        text-align: center
+
+      .title_and_subtitle
+        float: left
+        margin-right: 1.5em
+
+        .title
+          margin-top: 0.25em
+
+      .authors_and_date
+        text-align: right
+
+        .authors, .date
+          margin-top: 0
+          margin-bottom: 0.25em
+
+        .date
+          font-weight: lighter
+
+
+    // visually indicate the current location in
+    // the hierarchy as the cursor hovers about
+    #_contents
+      li ul
+        border-left: thick solid #F5F5F5
+
+        &:hover
+          border-color: #DCDCDC
+
+
+    #_contents a:target, #_floats a:target
+      background: <%= ICON_BY_NAME['here_frag'].data_css %>
+      background-position: center right
+      background-repeat: no-repeat
+      padding-right: 20px
+
+
+    .paragraph
+      margin-top: 1.5em
+      margin-bottom: 1.5em
+
+      > .nav
+        float: left
+
+      > .title
+        // align with .nav
+        padding-left: 2.5em
+        padding-top: 0.25em
+
+
+    ._float
+      margin: 1.5em
+
+      > .title
+        // center the text within the ui-widget-header background
+        padding-top: 0.5em
+        padding-left: 1em
+        padding-right: 1em
+
+      > .nav
+        position: relative
+        z-index: 1
+
+        // center the icons within the ui-widget-header background
+        top: 0.25em
+        right: 0.25em
+
+      > .content
+        margin: 1em
+
+
+    .nav
+      float: right
+      clear: right
+
+      > a > img:hover
+        background-color: yellow
+
+
+    // make navigation menu appear on the tab bar
+    .ui-tabs > .ui-tabs-panel > .nav
+      position: relative
+      margin-top: -3.4em
+      margin-right: -1.25em
+
+
+    // prevent tabs on tab bar from ovelapping with the above navigation menu
+    .ui-tabs > .ui-tabs-nav > li:last-child
+      margin-right: 9em
+
+
+    // hide the section number (prefixed before section title) in a tab label
+    .ui-tabs > .ui-tabs-nav > li > a > .section_number
+      display: none
+
+
+    #_about > table td:first-child, #_about > .validations
+      text-align: center
+
+
+    #_search_form
+      text-align: right
+      font-weight: normal
+
+      input
+        margin-top: 0.25em
+
+        &.initial
+          color: gray
+          font-style: italic
+
+      #_search_start, #_search_stop
+        float: right
+
+        // 1:2 ratio
+        margin: 0.1625em
+        padding: 0.325em
+
+        &:hover
+          cursor: pointer
+
+
+    #_search
+      > .status
+        text-align: center
+
+      > .results > .result > .excerpt:hover
+        background-color: #FFFFE0
+        cursor: pointer
+
+        // show same cursor on contained elements
+        *
+          cursor: pointer
+
+
+- print: |
+    body
+      font-family: <%= @format['fonts']['serif'] %>
+
+
+    em, strong, dt
+      font-family: <%= @format['fonts']['sans-serif'] %>
+
+
+    tt
+      font-weight: normal
+
+
+    pre
+      border: none
+
+
+    h1, h2, h3, h4, h5, h6, .title
+      font-weight: normal
+      font-family: <%= @format['fonts']['sans-serif'] %>
+      clear: both
+
+
+    =emphasize_hyperlinks
+      color: #0000FF
+      text-decoration: underline
+      font-weight: bolder
+
+    a
+      // blend all hyperlinks with normal text
+      &:link, &:visited
+        color: #000000
+        text-decoration: none
+
+      // emphasize external hyperlinks
+      &[href]:not([href^="#"])
+        &:link, &:visited
+          +emphasize_hyperlinks
+
+      // emphasize cross-reference hyperlinks
+      &.xref[title]
+        &:link, &:visited
+          +emphasize_hyperlinks
+
+      // show URL of destination for external hyperlinks
+      &[href]:not([href^="#"]):after
+        content: " " attr(href)
+        font-family: <%= @format['fonts']['monospace'] %>
+
+      // show name of destination for cross-references
+      &.xref[title]:after
+        content: " " attr(title)
+
+      &:after
+        font-weight: normal
+        font-size: smaller
+
+
+    .tabs > ul, .nav, #_floats, #_about, #_search
+      display: none
+
+
+    #_contents, .part, .chapter, #_references
+      page-break-before: always
+
+
+    #_header, #_footer
+      text-align: center
+
+
+    #_header > .authors_and_date > .authors
+      margin-top: 1.625em
+      margin-bottom: -0.25em
+
+
+    .header_outside_above, #_header, .header_outside_below, .logo
+      margin-bottom: 5em
+
+
+    .footer_outside_above, #_footer, .footer_outside_below, #_references, #_about
+      margin-top: 5em
+
+
+    #_header .header_inside_above, #_footer .footer_inside_above
+      margin-bottom: 4em
+
+
+    #_header .header_inside_below, #_footer .footer_inside_below
+      margin-top: 4em
+
+
+    .part > .title > big, .chapter > .title > big
+      padding-bottom: 0.5em
+
+
+    .paragraph > .title
+      margin-top: 2em
+
+
+    ._float
+      margin: 3em
+

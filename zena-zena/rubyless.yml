@@ -1,0 +1,103 @@
+default:
+  context:
+    lang: 'en'
+    visitor: 'anon'
+    node: 'status'
+
+show_literal:
+  src: "<r:void do='%Q{&}'/>"
+  tem: "&amp;"
+  res: "&amp;"
+  
+tagged_relation:
+  context:
+    node: 'art'
+    class: Tag
+    dev: 'true'
+  src: "<r:context select='tagged'><r:each join=', '><r:show attr='title'/></r:each></r:context>"
+  res: "Clean Water project, parc opening"
+
+tagged_relation:
+  context:
+    node:  art
+    class: Tag
+    dev: 'true'
+  src: "<r:tagged foo='bar'><r:each join=', '><r:show attr='title'/></r:each></r:tagged>"
+  res: "Clean Water project, parc opening"
+
+tagged_rubyless:
+  context:
+    node: 'status'
+  src: "<r:tagged do='keys'><r:each join=', ' do='show'/></r:tagged>"
+  res: "/sky, blue|blue, sky/"
+
+optional_hash:
+  src: "<r:dummy do='hello' lang='fr'/>"
+  tem: "<% var1 = @node.dummy %><%=h var1.hello({:lang => \"fr\"}) %>"
+  res: "Salut poilu!"
+
+build_query:
+  src: "<div id='notes' do='notes' in='project' limit='10' order='log_at DESC'>"
+  tem: "/SELECT nodes\.\* FROM nodes/"
+
+next_in_list_s:
+  context:
+    node: letter
+    class: Letter
+  eval: "next_in_list(paper, %q{Kraft, Tyvek})"
+  tem: "<%= next_in_list_s(@node.prop['paper'], \"Kraft, Tyvek\") %>"
+  res: 'Tyvek'
+
+next_in_list_new_value:
+  context:
+    node: letter
+    class: Letter
+  eval: "next_in_list(paper, %q{Foo, Tyvek})"
+  tem: "<%= next_in_list_s(@node.prop['paper'], \"Foo, Tyvek\") %>"
+  res: 'Foo'
+
+next_in_list_nil:
+  context:
+    node: letter
+    class: Letter
+  eval: "next_in_list(paper, %q{Kraft, })"
+  tem: "<%= next_in_list_s(@node.prop['paper'], \"Kraft, \") %>"
+  res: ''
+
+next_in_list_i:
+  context:
+    node: wiki
+  eval: "next_in_list(id, %q{12, 29, 36})"
+  tem: "<%= next_in_list_i(@node.zip, \"12, 29, 36\") %>"
+  res: '36.0'
+
+ancestors:
+  # used to be implemented with 'show_path'
+  src: "<ul id='path' do='ancestors'><li do='each' do='link'/></ul>"
+  tem: "/if var1 = @node.z_ancestors/"
+  res: "/<ul id='path'><li>.*Zena.*<li>.*en/page18.html.*<li><.*/projects-list/Clean-Water-project.*Clean Water project</a></li></ul>/"
+
+ancestors_on_root:
+  context:
+    node: 'zena'
+  src: "<ul id='path' do='ancestors'><li do='each' do='link'/></ul>"
+  res: ''
+
+prop_in_list_context:
+  src: "<div do='nodes in site'><r:title/></div>"
+  tem: "/unknown method <span class='type'>title..</span> .\[Node\] context./"
+
+role_existing_class_name:
+  # Should understand 'Comment' as a Role.
+  src: "<r:Comment?>xx</r:Comment?>"
+  tem: "/<% if @node.has_role\?\(\d+\) %>xx<% end %>/"
+
+class_new:
+  src: "<div do='set' p='Post.new'><p do='p.klass'/>.<p do='p.title'/></div>"
+  tem: "/VirtualClass\[.Post.\].zafu_new.*_zp.klass.*_zp.prop\[.title.\]/"
+  res: "<div><p>Post</p>.<p></p></div>"
+  
+class_new_with_attr:
+  src: "<div do='set' p='Post.new(:title => \"yes\")'><p do='p.klass'/>.<p do='p.title'/></div>"
+  tem: "/VirtualClass\[.Post.\].zafu_new.*_zp.klass.*_zp.prop\[.title.\]/"
+  res: "<div><p>Post</p>.<p>yes</p></div>"

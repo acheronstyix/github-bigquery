@@ -1,0 +1,4 @@
+%n1:individual= render 'shared/individual_link_type', person: (Rails.cache.fetch("people/by_member_id/#{enrollee.m_id}") { enrollee.person })
+%n1:employment_status= "urn:openhbx:terms:v1:employment_status##{enrollee.emp_stat}"
+%n1:physically_disabled_flag= enrollee.ds
+%n1:benefit= render 'shared/enrollee_benefit_type', enrollee: enrollee

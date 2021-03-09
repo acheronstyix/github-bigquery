@@ -1,0 +1,32 @@
+{
+  "name": "node-sspi",
+  "version": "0.2.8",
+  "description": "Windows SSPI server-side authentication for Node",
+  "main": "index.js",
+  "author": "Fred Wen<wenfred@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "install": "node ./build.js"
+  },
+  "dependencies": {
+    "node-addon-api": "^1.7.1",
+    "bindings": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "os": [
+    "win32"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abbr/nodesspi.git"
+  },
+  "homepage": "https://github.com/abbr/nodesspi",
+  "keywords": [
+    "sspi",
+    "authentication",
+    "ntlm",
+    "kerberos"
+  ]
+}

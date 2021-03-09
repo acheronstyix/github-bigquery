@@ -1,0 +1,117 @@
+<!--
+  ~ Copyright (c) 2009, Tim Watson
+  ~ All rights reserved.
+  ~
+  ~ Redistribution and use in source and binary forms, with or without modification,
+  ~ are permitted provided that the following conditions are met:
+  ~
+  ~     * Redistributions of source code must retain the above copyright notice,
+  ~       this list of conditions and the following disclaimer.
+  ~     * Redistributions in binary form must reproduce the above copyright notice,
+  ~       this list of conditions and the following disclaimer in the documentation
+  ~       and/or other materials provided with the distribution.
+  ~     * Neither the name of the author nor the names of its contributors
+  ~       may be used to endorse or promote products derived from this software
+  ~       without specific prior written permission.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  ~ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  ~ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ~ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  ~ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  ~ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+  ~ GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  ~ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  ~ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+  ~ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:camel="http://activemq.apache.org/camel/schema/spring"
+       xmlns:broker="http://activemq.apache.org/schema/core" xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://activemq.apache.org/camel/schema/spring http://activemq.apache.org/camel/schema/spring/camel-spring.xsd
+        http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core-5.1.0.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
+
+    <bean
+        scope="singleton"
+        class="org.axiom.configuration.ExternalConfigurationSourceFactory"
+        id="axiom.configuration.factory" />
+
+    <bean
+        id="axiom.configuration"
+        scope="singleton"
+        factory-bean="axiom.configuration.factory"
+        factory-method="createConfiguration" />
+
+    <camel:camelContext
+        id="axiom.camel.host.context.id"
+        useJmx="true" />
+
+    <bean
+        id="axiom.shutdown.channel.id"
+        scope="prototype"
+        class="org.axiom.service.ShutdownChannel" />
+
+    <bean
+        id="axiom"
+        scope="prototype"
+        class="org.axiom.integration.camel.AxiomComponent">
+        <property name="camelContext" ref="axiom.camel.host.context.id" />
+        <property name="configuration" ref="axiom.configuration" />
+    </bean>
+
+    <lang:jruby
+        scope="prototype"
+        id="axiom.processors.code.eval.id"
+        script-source="classpath:axiom/core/evaluator.rb"
+        script-interfaces="org.axiom.integration.jruby.JRubyScriptEvaluator">
+        <lang:property name="camelContext" ref="axiom.camel.host.context.id" />
+    </lang:jruby>
+
+    <bean
+        id="axiom.scripting.environment"
+        class="org.axiom.service.ScriptingEnvironment"
+        init-method="activate">
+        <constructor-arg ref="axiom.camel.host.context.id"/>
+    </bean>
+
+    <lang:jruby
+        scope="prototype"
+        id="axiom.processors.route.evaluator.id"
+        script-source="classpath:axiom/core/route_builder_configurator.rb"
+        script-interfaces="org.axiom.integration.camel.RouteConfigurationScriptEvaluator">
+        <lang:property name="properties" ref="axiom.configuration" />
+        <lang:property name="camelContext" ref="axiom.camel.host.context.id" />
+    </lang:jruby>
+
+    <lang:jruby
+        scope="prototype"
+        id="axiom.processors.default.id"
+        script-source="classpath:/axiom/core/default_processing_node.rb"
+        script-interfaces="org.axiom.integration.camel.ContextProcessingNode">
+        <lang:property name="context" ref="axiom.camel.host.context.id" />
+    </lang:jruby>
+
+
+    <!-- lets configure the ActiveMQ JMS broker server to listen on TCP 61616 -->
+    <!--<broker:broker useJmx="false" persistent="false" brokerName="localhost">
+        <broker:transportConnectors>
+            <broker:transportConnector name="tcp" uri="tcp://localhost:61616"/>
+        </broker:transportConnectors>
+    </broker:broker>-->
+    
+    <!-- configure the Camel JMS consumer to use the ActiveMQ broker declared above -->
+    <!--<bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                --><!-- use the vm protocol as the JMS broker is running in the same jvm as Camel --><!--
+                <property name="brokerURL" value="vm://localhost"/>
+            </bean>
+        </property>
+    </bean>-->
+
+</beans>

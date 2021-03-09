@@ -1,0 +1,54 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".Activities.MainFragment"
+    android:background="@drawable/abc_list_focused_holo">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="424dp"
+        android:layout_height="28dp"
+        android:text="@string/m5" />
+
+    <ImageView
+        android:background="@drawable/l26"
+        android:layout_width="1225dp"
+        android:layout_height="1270dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center"
+         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reportar"
+        android:id="@+id/m1"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        android:id="@+id/m2"
+        android:layout_gravity="right|bottom"
+
+
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compartir"
+        android:id="@+id/m3"
+        android:layout_gravity="left|bottom" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contactar"
+        android:id="@+id/m4"
+        android:layout_gravity="left|center_vertical" />
+
+
+</FrameLayout>

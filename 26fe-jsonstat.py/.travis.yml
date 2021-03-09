@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.6.12"
+  - "3.7.9"
+  - "3.8.6"
+
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+  - pip install -r requirements_for_test.txt
+  - pip install -e .
+
+# command to run tests
+script:
+  - python -m pytest --doctest-modules
+

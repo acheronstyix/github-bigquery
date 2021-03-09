@@ -1,0 +1,88 @@
+{
+  "type": "statement-input",
+  "name": "returnFunction",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "selectVariable",
+        "logicOperations",
+        "equalityOperations"
+      ],
+      "name": "fd775abd-c62b-4707-963d-765680195b10"
+    }
+  ],
+  "bloqClass": "bloq-return-function",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-return-function-declare"
+      },
+      {
+        "id": "FUNCNAME",
+        "alias": "varInput",
+        "placeholder": "bloq-functions-default"
+      },
+      {
+        "position": "DOWN",
+        "alias": "text",
+        "value": "bloq-return-function-return"
+      },
+      {
+        "position": "DOWN",
+        "bloqInputId": "RETURN",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "selectVariable",
+          "logicOperations",
+          "equalityOperations"
+        ],
+        "name": "fd775abd-c62b-4707-963d-765680195b10"
+      }
+    ]
+  ],
+  "createDynamicContent": "returnFunctions",
+  "returnType": {
+    "type": "fromInput",
+    "bloqInputId": "RETURN"
+  },
+  "code": "{RETURN.connectionType} {FUNCNAME} () {{STATEMENTS}return {RETURN};}",
+  "python": {
+    "codeLines": [
+      {
+        "code": "def {FUNCNAME}():"
+      },
+      {
+        "indentation": 1,
+        "code": "{STATEMENTS}"
+      },
+      {
+        "indentation": 1,
+        "code": "return {RETURN}"
+      }
+    ]
+  },
+  "arduino": {
+    "code": "@{RETURN.returnType} {FUNCNAME} () {{STATEMENTS}return {RETURN};}"
+  }
+}

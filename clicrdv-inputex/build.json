@@ -1,0 +1,10 @@
+{
+   "name": "inputex-select",
+   "builds": {
+      "inputex-select": {
+         "jsfiles": [
+            "select.js"
+         ]
+      }
+   }
+}

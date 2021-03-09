@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmeml>
+<xmeml version="5">
+  <sequence>
+    <duration>111</duration>
+    <name>SEQ001_HSNI_003</name>
+    <rate>
+      <timebase>24</timebase>
+      <ntsc>FALSE</ntsc>
+    </rate>
+    <timecode>
+      <string>00:00:00:00</string>
+    </timecode>
+    <media>
+      <video>
+        <format>
+          <samplecharacteristics>
+            <width>1024</width>
+            <height>778</height>
+          </samplecharacteristics>
+        </format>
+        <track>
+          <locked>FALSE</locked>
+          <enabled>TRUE</enabled>
+          <clipitem id="SEQ001_HSNI_003_0010_v001">
+            <end>55</end>
+            <name>SEQ001_HSNI_003_0010_v001</name>
+            <enabled>True</enabled>
+            <start>1</start>
+            <in>0</in>
+            <duration>54</duration>
+            <out>54</out>
+            <file id="SEQ001_HSNI_003_0010_v001.mov">
+              <duration>54</duration>
+              <name>SEQ001_HSNI_003_0010_v001</name>
+              <pathurl>file://localhost/tmp/SEQ001_HSNI_003_0010_v001.mov</pathurl>
+            </file>
+          </clipitem>
+          <clipitem id="SEQ001_HSNI_003_0020_v001">
+            <end>76</end>
+            <name>SEQ001_HSNI_003_0020_v001</name>
+            <enabled>True</enabled>
+            <start>55</start>
+            <in>20</in>
+            <duration>51</duration>
+            <out>41</out>
+            <file id="SEQ001_HSNI_003_0020_v001.mov">
+              <duration>51</duration>
+              <name>SEQ001_HSNI_003_0020_v001</name>
+              <pathurl>file://localhost/tmp/SEQ001_HSNI_003_0020_v001.mov</pathurl>
+            </file>
+          </clipitem>
+          <clipitem id="SEQ001_HSNI_003_0030_v001">
+            <end>132</end>
+            <name>SEQ001_HSNI_003_0030_v001</name>
+            <enabled>True</enabled>
+            <start>76</start>
+            <in>10</in>
+            <duration>66</duration>
+            <out>66</out>
+            <file id="SEQ001_HSNI_003_0030_v001.mov">
+              <duration>66</duration>
+              <name>SEQ001_HSNI_003_0030_v001</name>
+              <pathurl>file://localhost/tmp/SEQ001_HSNI_003_0030_v001.mov</pathurl>
+            </file>
+          </clipitem>
+        </track>
+      </video>
+    </media>
+  </sequence>
+</xmeml>

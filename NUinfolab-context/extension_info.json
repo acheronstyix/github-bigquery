@@ -1,0 +1,27 @@
+{
+    "content_scripts": [], 
+    "description": "Infolab Context", 
+    "creator": "Northwestern University InfoLab", 
+    "framework_version": "1.7.6 e5b39c50d196", 
+    "base_url": "http://hugin.research.northwestern.edu/context/", 
+    "background_scripts": [
+        "js/main.js"
+    ], 
+    "homepage_url": "http://hugin.research.northwestern.edu", 
+    "version": "0.1.0", 
+    "options_page": "options.html", 
+    "package_id": "kango-79e95064-92e1-48d9-92ef-47031041edc6", 
+    "framework_package_id": "dev", 
+    "browser_button": {
+        "caption": "Context", 
+        "tooltipText": "Context", 
+        "popup": {
+            "url": "popup.html", 
+            "width": 300, 
+            "height": 400
+        }, 
+        "icon": "icons/information.png"
+    }, 
+    "id": "{79E95064-92E1-48D9-92EF-47031041EDC6}", 
+    "name": "Infolab Context"
+}

@@ -1,0 +1,144 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://devstack.openstack.stack:8776/v2/2ab82e30d7984631874def67813dffd8/types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/1.38.0
+      Proxy-Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - 96082e8bba9d418b8ce232496fa059ab
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      X-Compute-Request-Id:
+      - req-8fb272c9-5c2d-4c39-a68d-342139447a0a
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '225'
+      X-Openstack-Request-Id:
+      - req-8fb272c9-5c2d-4c39-a68d-342139447a0a
+      Date:
+      - Tue, 03 May 2016 14:15:41 GMT
+      X-Cache:
+      - MISS from i056593-u1404
+      X-Cache-Lookup:
+      - MISS from i056593-u1404:3128
+      Via:
+      - 1.1 i056593-u1404 (squid/3.3.8)
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"volume_types": [{"name": "lvmdriver-1", "extra_specs": {"volume_backend_name":
+        "lvmdriver-1"}, "os-volume-type-access:is_public": true, "is_public": true,
+        "id": "326e2b0b-3776-49a5-b26d-4de79ac659ed", "description": null}]}'
+    http_version: 
+  recorded_at: Tue, 03 May 2016 14:15:41 GMT
+- request:
+    method: get
+    uri: http://devstack.openstack.stack:8776/v2/2ab82e30d7984631874def67813dffd8/types/326e2b0b-3776-49a5-b26d-4de79ac659ed
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/1.38.0
+      Proxy-Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - 96082e8bba9d418b8ce232496fa059ab
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      X-Compute-Request-Id:
+      - req-5ce8cc43-b17c-4ef4-bc4e-78a94ff376c9
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '222'
+      X-Openstack-Request-Id:
+      - req-5ce8cc43-b17c-4ef4-bc4e-78a94ff376c9
+      Date:
+      - Tue, 03 May 2016 14:15:41 GMT
+      X-Cache:
+      - MISS from i056593-u1404
+      X-Cache-Lookup:
+      - MISS from i056593-u1404:3128
+      Via:
+      - 1.1 i056593-u1404 (squid/3.3.8)
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"volume_type": {"name": "lvmdriver-1", "extra_specs": {"volume_backend_name":
+        "lvmdriver-1"}, "os-volume-type-access:is_public": true, "is_public": true,
+        "id": "326e2b0b-3776-49a5-b26d-4de79ac659ed", "description": null}}'
+    http_version: 
+  recorded_at: Tue, 03 May 2016 14:15:41 GMT
+- request:
+    method: get
+    uri: http://devstack.openstack.stack:8776/v2/2ab82e30d7984631874def67813dffd8/types?lvmdriver-1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog-core/1.38.0
+      Proxy-Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - 96082e8bba9d418b8ce232496fa059ab
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      X-Compute-Request-Id:
+      - req-8e238a69-f835-423c-8b85-6465f2c07c9c
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '225'
+      X-Openstack-Request-Id:
+      - req-8e238a69-f835-423c-8b85-6465f2c07c9c
+      Date:
+      - Tue, 03 May 2016 14:15:41 GMT
+      X-Cache:
+      - MISS from i056593-u1404
+      X-Cache-Lookup:
+      - MISS from i056593-u1404:3128
+      Via:
+      - 1.1 i056593-u1404 (squid/3.3.8)
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"volume_types": [{"name": "lvmdriver-1", "extra_specs": {"volume_backend_name":
+        "lvmdriver-1"}, "os-volume-type-access:is_public": true, "is_public": true,
+        "id": "326e2b0b-3776-49a5-b26d-4de79ac659ed", "description": null}]}'
+    http_version: 
+  recorded_at: Tue, 03 May 2016 14:15:42 GMT
+recorded_with: VCR 3.0.1

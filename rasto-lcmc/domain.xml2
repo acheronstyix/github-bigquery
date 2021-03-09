@@ -1,0 +1,5 @@
+<domain type='lxc'>
+<name>@NAME@</name>
+<source dir='/var/lib/lxc/@NAME@/rootfs'/>
+<interface type='network'>
+<source network='default'/>

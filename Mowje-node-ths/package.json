@@ -1,0 +1,23 @@
+{
+  "name": "ths",
+  "version": "2.1.5",
+  "description": "A module that lets you start a Tor instance, use bridges and create Tor hidden services from node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mowje/node-ths.git"
+  },
+  "keywords": [
+    "tor",
+    "hidden",
+    "service"
+  ],
+  "author": "BatikhSouri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mowje/node-ths/issues"
+  }
+}

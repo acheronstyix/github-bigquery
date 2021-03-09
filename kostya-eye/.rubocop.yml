@@ -1,0 +1,177 @@
+AllCops:
+  Include:
+    - '**/*.eye'
+  Exclude:
+    - 'lib/eye/utils/mini_active_support.rb'
+
+Performance/RedundantBlockCall:
+  Exclude:
+    - 'lib/eye/process/watchers.rb'
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+Style/TernaryParentheses:
+  Exclude:
+    - 'lib/eye/cli/render.rb'
+
+Style/MutableConstant:
+  Exclude:
+    - 'lib/eye.rb'
+    - 'examples/**/*'
+    - 'lib/eye/trigger.rb'
+    - 'lib/eye/checker.rb'
+    - 'lib/eye/notify.rb'
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines
+
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: empty_lines
+  Exclude:
+    - 'lib/eye.rb'
+
+Style/RegexpLiteral:
+  EnforcedStyle: percent_r
+  Exclude:
+    - 'examples/**/*'
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+Style/Lambda:
+  Exclude:
+    - 'examples/**/*'
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'examples/**/*'
+
+Layout/CaseIndentation:
+  IndentOneStep: true
+  EnforcedStyle: end
+
+Style/HashSyntax:
+  Exclude:
+    - 'lib/eye/process/states.rb'
+
+Style/RaiseArgs:
+  EnforcedStyle: exploded
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%w': '[]'
+    '%r': '[]'
+    '%': '{}'
+
+Metrics/LineLength:
+  Max: 142
+
+Metrics/BlockLength:
+  Max: 50
+
+Metrics/PerceivedComplexity:
+  Max: 15
+  Exclude:
+    - 'lib/eye/cli/render.rb'
+
+Metrics/BlockNesting:
+  Max: 3
+  Exclude:
+    - 'lib/eye/trigger/starting_guard.rb'
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/CyclomaticComplexity:
+  Max: 19
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/ModuleLength:
+  Max: 200
+  Exclude:
+    - 'lib/eye/process/commands.rb'
+
+Metrics/AbcSize:
+  Max: 65
+
+Style/GuardClause:
+  MinBodyLength: 10
+
+Lint/RescueException:
+  Exclude:
+    - 'lib/eye/checker/socket.rb'
+    - 'lib/eye/controller/load.rb'
+    - 'lib/eye/logger.rb'
+
+Style/RedundantSelf:
+  Exclude:
+    - 'lib/eye/process/**/*' # self.pid is nicer
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Security/Eval:
+  Enabled: false
+
+Lint/Void:
+  Exclude:
+    - Rakefile
+    - bin/loader_eye
+    - lib/eye/controller.rb
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Lint/HandleExceptions:
+  Enabled: false
+
+Lint/LiteralInInterpolation:
+  Exclude:
+    - 'lib/eye/notify/jabber.rb'
+    - 'lib/eye/notify/slack.rb'
+    - 'lib/eye/process/commands.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Security/MarshalLoad:
+  Enabled: false
+
+Gemspec/OrderedDependencies:
+  Enabled: false
+
+Style/Dir:
+  Enabled: false

@@ -1,0 +1,7 @@
+
+simple:
+  image: busybox:latest
+  command: /bin/sleep 300
+  ports:
+    - '3000'
+    - '49152:3001'

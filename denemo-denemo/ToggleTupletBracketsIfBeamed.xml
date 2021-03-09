@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Denemo>
+  <merge>
+    <title>A Denemo Keymap</title>
+    <author>AT, JRR, RTS</author>
+    <map>
+      <row type="scheme">
+        <after>ToggleTupletNumbering</after>
+        <action>ToggleTupletBracketsIfBeamed</action>
+        <_label>Tuplet Brackets if not Beamed</_label>
+        <_tooltip>Turns tuplet brackets off for beamed notes. Affects tuplets from the cursor onwards.</_tooltip>
+      </row>
+    </map>
+  </merge>
+</Denemo>

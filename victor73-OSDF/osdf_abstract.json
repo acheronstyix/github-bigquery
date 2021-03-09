@@ -1,0 +1,43 @@
+{
+   "description": "base osdf node",
+   "id": "osdf_abstract",
+   "type": "object",
+   "properties":{
+      "acl":{
+         "description": "access control language for this node",
+         "type": "object",
+         "properties":{
+            "read":{
+               "type":"array",
+               "items":{
+                  "type":"string"
+               }
+            },
+            "write":{
+               "type":"array",
+               "items":{
+                  "type":"string"
+               }
+            }
+         }
+      },
+      "linkage":{
+         "description":."defining relationships to other nodes",
+         "type":."object"
+      },
+      "node_type":{
+         "description": "unique name of the node",
+         "type": "string"
+      },
+      "ns":{
+         "description":"namespace id",
+         "type":"string"
+      }
+   },
+   "required": [
+       "acl",
+       "linkage",
+       "node_type",
+       "ns"
+   ]
+}

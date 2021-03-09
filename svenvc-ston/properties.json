@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "STON-Core-Reader",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"stream",
+		"peekedCharacter",
+		"delimiter",
+		"escape"
+	],
+	"name" : "STONCStyleCommentsSkipStream",
+	"type" : "normal"
+}

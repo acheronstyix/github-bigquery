@@ -1,0 +1,32 @@
+
+struct Bar {};
+struct Foo : public Bar { int value };
+struct Blah { Bar* obj };
+
+{
+    "a!Foo": { "value": 10 },   // Foo* a = new Foo(); a.value(10);
+    "b!Blah": { "#obj": "a" },  // Blah* b = new Blah(); b.obj(a);
+    "#c!Bar": "a",              // Bar* c = a;
+    "#d": "a.value",            // auto c = a.value();
+    "e": 10,
+
+    "f": [ 1, 2, 3, 4 ],
+    "#g: [ a ]
+}
+
+
+Top level
+    - pointer -> must be available for non-copy linking.
+    - !isType && !isLink -> num, bool string
+    - !isType && isLink -> resolve when propagating links
+    - isType -> new type
+
+Other levels
+    - isType -> error
+    - isLink -> resolve when propagating links
+
+Linking
+    - link.isPointer && target.isPointer -> link.assign(target)
+    - !link.isPointer && target.isPointer -> link.assign(*target)
+    - link.isPointer && target.isPointer -> error
+    - !link.isPointer && !target.isPointer -> copy

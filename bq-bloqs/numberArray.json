@@ -1,0 +1,43 @@
+{
+  "type": "output",
+  "name": "numberArray",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-numberArray",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-numberArray-arraySize"
+      },
+      {
+        "id": "VALUE",
+        "alias": "numberInput",
+        "value": 3
+      },
+      {
+        "alias": "text",
+        "value": "bloq-numberArray-floatType"
+      }
+    ]
+  ],
+  "code": "(float*)malloc({VALUE}*sizeof(float))",
+  "returnType": {
+    "type": "simple",
+    "value": "float *"
+  },
+  "arduino": {
+    "code": "(float*)malloc({VALUE}*sizeof(float))"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"numberArray\" no preparado para generar código python"
+      }
+    ]
+  }
+}

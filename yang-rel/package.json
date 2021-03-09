@@ -1,0 +1,63 @@
+{
+  "name": "rel",
+  "version": "0.1.0",
+  "description": "Rel is a SQL AST manager for Node JS",
+  "homepage": "http://yang.github.com/rel/",
+  "keywords": [],
+  "author": {
+    "name": "Carl Woodward",
+    "email": "carl@carlwoodward.com",
+    "web": "http://carlwoodward.com"
+  },
+  "maintainers": [
+    {
+      "name": "Carl Woodward",
+      "email": "carl@carlwoodward.com",
+      "web": "http://carlwoodward.com"
+    },
+    {
+      "name": "Yang Zhang",
+      "web": "http://yz.mit.edu"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Carl Woodward",
+      "email": "carl@carlwoodward.com",
+      "web": "http://carlwoodward.com"
+    },
+    {
+      "name": "Zachery Hostens",
+      "email": "zacheryph@gmail.com",
+      "web": "http://zacheryph.github.com"
+    },
+    {
+      "name": "Yang Zhang",
+      "web": "http://yz.mit.edu"
+    }
+  ],
+  "bugs": {
+    "web": "https://github.com/cjwoodward/rel/issues"
+  },
+  "licenses": [],
+  "repository": "https://github.com/cjwoodward/rel",
+  "dependencies": {
+    "coffee-script": "^1.7.1",
+    "date-utils": "0.1.8",
+    "underscore": "1.1.6"
+  },
+  "engines": {
+    "node": ">=0.4.5"
+  },
+  "main": "rel",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "find rel.coffee lib/ -name '*.coffee' | xargs ./node_modules/.bin/coffee --map --compile",
+    "test": "node_modules/.bin/vows vows/*"
+  },
+  "devDependencies": {
+    "vows": "git+https://github.com/snoble/vows.git#1e8fa11fdb2f67eac285cbcbcf6485eec131fa02"
+  }
+}

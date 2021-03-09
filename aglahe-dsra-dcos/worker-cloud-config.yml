@@ -1,0 +1,185 @@
+#cloud-config
+write-files:
+
+    #
+    # Required to pull private docker images via marathon.
+    #
+
+  - path: /etc/docker/certs.d/hub.dsra.local:5000/ca.crt
+    permissions: 0700
+    owner: root
+    content: |
+       -----BEGIN CERTIFICATE-----
+       MIIDdTCCAl2gAwIBAgIJAK0Y/ATHLBNyMA0GCSqGSIb3DQEBCwUAMFExCzAJBgNV
+       BAYTAlVTMQswCQYDVQQIDAJWQTEPMA0GA1UEBwwGTUNMRUFOMQswCQYDVQQKDAJM
+       MzEXMBUGA1UEAwwOaHViLmRzcmEubG9jYWwwHhcNMTUwODI2MDEzODI0WhcNMTYw
+       ODI1MDEzODI0WjBRMQswCQYDVQQGEwJVUzELMAkGA1UECAwCVkExDzANBgNVBAcM
+       Bk1DTEVBTjELMAkGA1UECgwCTDMxFzAVBgNVBAMMDmh1Yi5kc3JhLmxvY2FsMIIB
+       IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmrNGpzIsk8THRgVKWhZw82jg
+       RcP8uG7foMKwxSUNU9TUbGG05Mgq85QY83EmVycNgwTFnxYVP4BiY+o0yV7I2giq
+       sTFUevCQfeG74vs58+jYns18fjreBRWZvGTQZ1Skruyg3f62x4RYcxuYAwwqrkrt
+       /Y1+fBFTKkkX9Fy33yyU08D5EaO9XFbXcWuzB0A9g7kD5jCPW+JsCK4vcy851t4P
+       aC/w8D8o946O3dJxCuG+VUFfPbw4pMDdZOh6oHuCP/ZxEebuzkXvQ6X6RM0Z8Lba
+       dzntQeKRr/pZL7NlmicBVwnI4CX2ztLUTSQROmekl8Rh69YBhNEK+sv6WYVH0QID
+       AQABo1AwTjAdBgNVHQ4EFgQUmHHAztO+Yl36Cp0fZ0eMFlzQr0owHwYDVR0jBBgw
+       FoAUmHHAztO+Yl36Cp0fZ0eMFlzQr0owDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0B
+       AQsFAAOCAQEAIz7Izzeom7HKDcyXzg0GpE2mFNFnsdYRImMLx/y6IRQoy6fWtIGi
+       7uqsGfDxoFcdrR1PNbwsLEKHs+e8dKCVDx0tZPguVsyusK+vtwkB4AEg6YpgCxVU
+       zjFnNTDxOxwVVTF1F2zLdei8I4GkYIfhdi1Bj4Rj7r1MZmV2Z6eIXI+dYbcURoyy
+       zunSyCOIzvB/jfhGXKv8iilkMl57ciSZT4ktvIHN4XiqebwuC+62uwJ7o6uztJOQ
+       g1bwK8+oC+FGc5Wf74rDU+VEvfdY+Kd5ezlYnE6/sLEBt+i0WM4EdsjoGJtaEvvT
+       t+/Cha7Fv0OpCUHLPI0ScF0YWbU4nF2LSw==
+       -----END CERTIFICATE-----
+
+
+    #
+    # Required to pull private docker images via fleet.
+    # 
+
+  - path: /home/core/.docker/config.json 
+    permissions: 0700
+    owner: core:core
+    content: |
+     {
+       "auths": {
+         "hub.dsra.local:5000": {
+           "auth": "bXBhcmtlcjpYREB0YTYxNm1w",
+           "email": ""
+         }
+       }
+     }
+  
+  - path: /tmp/get-docker-registry-login.sh
+    permissions: 0700
+    owner: root:root
+    content: |
+      #!/bin/bash
+      cd /etc
+      wget http://10.105.255.249:8088/dsra/repo/registry/docker.tar.gz
+
+coreos:
+  etcd2:
+    proxy: on
+    discovery-srv: dsra.local
+    listen-client-urls: http://0.0.0.0:2379
+
+  fleet:
+    etcd_servers: http://10.105.0.1:2379,http://10.105.0.3:2379,http://10.105.0.5:2379,http://10.105.0.7:2379,http://10.105.0.9:2379
+    metadata: role=worker
+
+  units:
+  - name: etcd2.service
+    command: start
+
+  - name: fleet.service
+    command: start
+
+  - name: setup-docker-registry-login.service
+    command: start
+    content: |
+      [Unit]
+      Description=Setup Docker Registry Login for Marathon
+      Before=docker.service
+
+      [Service]
+      User=root
+      Type=oneshot
+      ExecStart=/tmp/get-docker-registry-login.sh
+
+  - name: var-lib-docker.mount
+    command: start
+    content: |
+       [Unit]
+       Description=Mount ephemeral to /var/lib/docker
+       Before=docker.service
+       [Mount]
+       What=/dev/sda
+       Where=/var/lib/docker
+       Type=btrfs
+
+  - name: var-lib-docker-volumes.mount
+    command: start
+    content: |
+       [Unit]
+       Description=Mount Docker Volumes
+       [Mount]
+       What=/dev/sdb
+       Where=/var/lib/docker/volumes
+       Type=btrfs
+
+  - name: reset-interfaces.service
+    command: start
+    content: |
+     [Unit]
+      Description=Setting interfaces to down and restarting networking post boot.
+      After=network-online.target
+
+      [Service]
+      Type=oneshot
+      ExecStart=/tmp/reset-interfaces
+
+write_files:
+   - path: /tmp/reset-interfaces
+     permissions: 0700
+     owner: root
+     content: |
+      #!/bin/bash
+      logger "Resetting network interfaces for bonding."
+      ip link set eno1 down
+      ip link set eno2 down
+      systemctl restart systemd-networkd
+      logger "Network interfaces have been reset"
+      rm /tmp/reset-interfaces
+   - path: /etc/systemd/network/10-eno1.network
+     permissions: 0644
+     owner: root
+     content: |
+      [Match]
+      Name=eno1
+
+      [Network]
+      Bond=bond0
+   - path: /etc/systemd/network/11-eno2.network
+     permissions: 0644
+     owner: root
+     content: |
+      [Match]
+      Name=eno2
+
+      [Network]
+      Bond=bond0
+   - path: /etc/systemd/network/20-bond.netdev
+     permissions: 0644
+     owner: root
+     content: |
+      [NetDev]
+      Name=bond0
+      Kind=bond
+
+      [Bond]
+      Mode=6
+   - path: /etc/systemd/network/30-setup-bonded-dhcp.network
+     permissions: 0644
+     owner: root
+     content: |
+      [Match]
+      Name=bond0
+
+      [Network]
+      DHCP=true
+
+      [DHCP]
+      UseDomains=true
+   - path: /etc/modprobe.d/bonding.conf
+     permissions: 0644
+     owner: root
+     content: |
+      options bonding mode=6 miimon=100
+   - path: /etc/modules-load.d/bonding.conf
+     permissions: 0644
+     owner: root
+     content: |
+      bonding
+
+ssh_authorized_keys:
+    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFDeCKt/GYFLig9AViMGsCADyXpt3F/D62m2eJPmxUs4EQAT/R3KKMb34T5JIoTfD/AMMffFO4aiRey1YP9ezkbpCBgA6PSU3DO2E75Kb9Y4P+W0iJetGv0pfr8D1nI0bc1wCF96cvODrGwzpSu2tyHeh2IGNYZc3EiExvXb3GhhZ17sXTW5RfBYqgZiV1SJBCbCajeDP4c4ZAI2mW87nJGWXocvZltSKW/GJlNSzNxz6u4mKsKl8YgF812UGDZwbJdI46vFBQ/LKVd0A3nKhh7zMdZU/kYYc1xgUJGHgXr5LM8UK7EhLeHOwLazQPw2mL3EF6kQn6g8FGmQgdeFrb

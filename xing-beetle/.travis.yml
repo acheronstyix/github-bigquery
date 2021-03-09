@@ -1,0 +1,41 @@
+dist: bionic
+rvm:
+  - 2.5.7
+  - 2.6.5
+  - 2.7.0
+before_install:
+  - gimme 1.15.7
+  - source ~/.gimme/envs/go1.15.7.env
+  - curl -s https://releases.hashicorp.com/consul/1.9.1/consul_1.9.1_linux_amd64.zip >/tmp/consul.zip; sudo unzip -d /usr/local/bin /tmp/consul.zip; sudo chmod 755 /usr/local/bin/consul
+  - "consul agent -dev -node machine >/tmp/consul.log 2>&1 &"
+script: "make && make test && (bundle exec rake || (tail -n 50 tmp/*.{log,output}; false))"
+services:
+  - redis-server
+  - rabbitmq
+  - mysql
+addons:
+  apt:
+    sources:
+      - sourceline: "deb https://dl.bintray.com/rabbitmq-erlang/debian bionic erlang-23.x"
+        key_url: "https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc"
+      - sourceline: "deb https://dl.bintray.com/rabbitmq/debian bionic main"
+        key_url: "https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc"
+    packages:
+      - erlang-base
+      - erlang-asn1
+      - erlang-crypto
+      - erlang-eldap
+      - erlang-ftp
+      - erlang-inets
+      - erlang-mnesia
+      - erlang-os-mon
+      - erlang-parsetools
+      - erlang-public-key
+      - erlang-runtime-tools
+      - erlang-snmp
+      - erlang-ssl
+      - erlang-syntax-tools
+      - erlang-tftp
+      - erlang-tools
+      - erlang-xmerl
+      - rabbitmq-server

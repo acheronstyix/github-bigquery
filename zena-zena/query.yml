@@ -1,0 +1,318 @@
+default:
+  context:
+    lang: 'en'
+    visitor: 'ant'
+    node: 'cleanWater'
+  src: "simple text"
+  tem: "simple text"
+  res: "simple text"
+
+# ============= query_parse_param ========
+empty:
+  tem: "<%= query_parse('para' => %{}) %>"
+  res: "1=1"
+
+empty_quotes:
+  tem: "<%= query_parse('para' => %{\"\"}) %>"
+  res: "para = \"\""
+
+empty_single_quotes:
+  tem: "<%= query_parse('para' => %{''}) %>"
+  res: "para = ''"
+
+null_quoted:
+  tem: "<%= query_parse('para' => %{\"null\"}) %>"
+  res: "para = \"null\""
+
+is_null:
+  tem: "<%= query_parse('para' => %{null}) %>"
+  res: "para is null"
+
+is_not_null:
+  tem: "<%= query_parse('para' => %{!null}) %>"
+  res: "not (para is null)"
+
+literal:
+  tem: "<%= query_parse('para' => %{hello}) %>"
+  res: "para = \"hello\""
+
+literal_date:
+  context:
+    lang: fr
+  tem: "<%= query_parse('para' => %{2.12.1983}) %>"
+  res: "para = '1983-12-01 23:00'"
+
+number:
+  tem: "<%= query_parse('para' => %{45}) %>"
+  res: "para = 45"
+
+not_number:
+  tem: "<%= query_parse('para' => %{!45}) %>"
+  res: "not (para = 45)"
+
+greater_then:
+  tem: "<%= query_parse('para' => %{>32}) %>"
+  res: "para >32"
+
+greater_then_date:
+  context:
+    lang: fr
+    tz: Asia/Jakarta
+  tem: "<%= query_parse('para' => %{>7.5.1965}) %>"
+  # Uses visitor timezone to UTC
+  res: "para >'1965-05-06 17:00'"
+
+greater_or_equal_then:
+  tem: "<%= query_parse('para' => %{>=32}) %>"
+  res: "para >=32"
+
+smaller_then:
+  tem: "<%= query_parse('para' => %{< 32}) %>"
+  res: "para < 32"
+
+smaller_or_equal_then:
+  tem: "<%= query_parse('para' => %{<=32}) %>"
+  res: "para <=32"
+
+equal:
+  tem: "<%= query_parse('para' => %{=32+3}) %>"
+  res: "para =32+3"
+
+not_equal:
+  tem: "<%= query_parse('para' => %{!=32}) %>"
+  res: "not (para =32)"
+
+interval:
+  tem: "<%= query_parse('para' => %{10..20}) %>"
+  res: "para >= 10 and para <= 20"
+
+interval_date:
+  context:
+    lang: fr
+  tem: "<%= query_parse('para' => %{1.1.2010..31.12.2010}) %>"
+  res: "para >= '2009-12-31 23:00' and para <= '2010-12-30 23:00'"
+
+not_interval_date:
+  context:
+    lang: fr
+  tem: "<%= query_parse('para' => %{!1.1.2010..31.12.2010}) %>"
+  res: "not (para >= '2009-12-31 23:00' and para <= '2010-12-30 23:00')"
+
+interval_date_en:
+  context:
+    lang: en
+  tem: "<%= query_parse('para' => %{2010/1/1..2010/12/31}) %>"
+  res: "para >= '2009-12-31 23:00' and para <= '2010-12-30 23:00'"
+
+interval_date_iso:
+  context:
+    lang: en
+  tem: "<%= query_parse('para' => %{2010-1-1..2010-12-31}) %>"
+  res: "para >= '2009-12-31 23:00' and para <= '2010-12-30 23:00'"
+
+like:
+  tem: "<%= query_parse('para' => %{*bar}) %>"
+  res: "para like \"%bar\""
+
+like_at_end:
+  tem: "<%= query_parse('para' => %{bar*}) %>"
+  res: "para like \"bar%\""
+
+literal_with_star:
+  tem: "<%= query_parse('para' => %{'*bar'}) %>"
+  res: "para = '*bar'"
+
+many_params:
+  tem: "<%= query_parse('anti' => %{'*bar'}, 'gone' => %{> 13}) %>"
+  res: "/anti = '\*bar' and gone > 13|gone > 13 and anti = '\*bar'/"
+
+rubyless_query_parse:
+  context:
+    p:
+      id: '> 45'
+      name: 'foo'
+  src: "<r:eval>query_parse(params[:p])</r:eval>"
+  res: "/id > 45 and name = \"foo\"|name = \"foo\" and id > 45/"
+
+paginate_list:
+  src: "<r:pages in='site' limit='10' paginate='p' do='link' page='list'/>"
+  # should define page_name
+  res: "1 <a href='/oo/projects-list/Clean-Water-project?p=2'>2</a>"
+
+paginate_count:
+  src: "<r:pages in='site' paginate='p' do='count'/>"
+  # should properly pass the query to sub-contexts.
+  tem: '/<%= _znodes %>/'
+  res: "19"
+
+count:
+  src: "<r:pages in='site' do='count'/>"
+  # should detect 'count' method and count nodes without pagination.
+  tem: '/<%= _znodes %>/'
+  res: "19"
+
+paginate_page_name:
+  context:
+    p: 5
+  src: "<r:pages in='site' limit='3' paginate='p' do='link' page='list' page_count='4' do='each'><r:page_name/>(<r:this/>)</r:pages>"
+  # should define page_name
+  res: "…(4) 5 6(6) 7(7)"
+# ============= Dynamic query ========
+
+query:
+  # Live compile and query from params
+  context:
+    visitor: lion
+    node: cleanWater
+    qb: "nodes where updated_at.year = 2007 in project"
+  src: "<r:query default='nodes in project' do='each' join=', ' do='title'/>"
+  tem: "/if var1 = query\('Node', \"@node\", params\[:qb\] \|\| \"nodes in project\", :find => :all, :binding => binding\)/"
+  res: 'crocodiles'
+
+query_with_default:
+  # Live compile and query from params
+  context:
+    visitor: lion
+    node: cleanWater
+  src: "<r:query default='nodes in project' do='each' join=', ' do='title'/>"
+  res: "crocodiles, it&#39;s a lake, The lake we love, Nice Bananas, parc opening, status title, water"
+
+query_with_param:
+  # Live compile and query from params
+  context:
+    visitor: lion
+    node: cleanWater
+    qb: "nodes where updated_at.year = #{params[:p]} in project"
+    p: 2007
+  src: "<r:query default='nodes in project' do='each' join=', ' do='title'/>"
+  res: 'crocodiles'
+
+query_eval:
+  # Live compile and query from params
+  context:
+    visitor: lion
+    node: cleanWater
+    scope: 'self'
+  src: "<r:query select='pages in #{params[:scope] || \"project\"}' default='pages in project' do='each' join=', ' do='title'/>"
+  res: 'crocodiles, Nice Bananas, status title'
+
+query_with_parse:
+  context:
+    filter:
+      title: 'status title'
+  src: "<r:query default='pages in site' select='pages where #{query_parse(params[:filter])} in site' do='each' join=', ' do='title'/>"
+  tem: '/query.*pages where #\{query_parse\(params\[:filter\]\)\} in site\"/'
+  res: 'status title'
+
+query_with_parse_paginate:
+  src: "<r:query default='pages in site limit 4 paginate p' select='pages where #{query_parse(params[:q])} in site limit 2 paginate p' do='link' page='list'/>"
+  # should properly pass the query to sub-contexts.
+  tem: '/page_numbers/'
+  res: "/1.*2.*3.*4.*5/"
+
+link_page_list:
+  src: |
+    <r:query default='pages in site limit 4 paginate p' select='pages where #{query_parse(params[:q])} in site limit 2 paginate p'>
+      : <r:link page='list' page_count='12' join=' | '/>
+    </r:query>
+  # should properly pass the query to sub-contexts.
+  res: "/: 1 \| <a.*>2</a> \| <a.*>3</a> \| <a/"
+#  res: "/1.*2.*3.*4.*5/"
+
+query_can_be_nil_bad_argument_type:
+  context:
+    filter:
+      title: 'status title'
+  src: "<r:query default='pages in site' eval='params[:filter]' do='each' join=', ' do='title'/>"
+  tem: '/params\[:filter\] \|\| \"pages in site\"/'
+  res: ''
+
+query_eval_in_sub_context:
+  # Live compile and query from params
+  context:
+    visitor: lion
+    node: cleanWater
+    scope: 'self'
+  # Should pass binding so that local var3 is recognized
+  src: "<r:parent do='main'><r:query select='pages' default='pages' do='each' join=', ' do='title'/></r:parent>"
+  res: 'crocodiles, Nice Bananas, status title'
+
+query_eval_find_one:
+  # Live compile and query from params
+  context:
+    visitor: lion
+    node: cleanWater
+  src: "<r:query select='page' default='page' do='link'/>"
+  tem: "/<%= zen_path\(var1\) %>/"
+  res: "/<a href='.*26.html'>crocodiles</a>/"
+
+query_count:
+  tem: '<%= query("Page", "@node", "pages in site", :type => :count) %>'
+  res: '19'
+
+simple_select:
+  src: "<div do='nodes select title as ti' find='first' do='ti'/>"
+  tem: '/<%=h var1.attributes\["ti"\] %>/'
+  res: "<div>crocodiles</div>"
+
+select_with_type:
+  src: "<div do='nodes select created_at as ti:time' find='first' do='ti' format='%d.%m.%Y'/>"
+  tem: '/format_date\(var1.rcast\("ti", :time\)/'
+  res: "<div>11.04.2006</div>"
+
+select_in_from:
+  src: "<div do='images select title as it from projects select title as pt in site' do='each' join=', '><r:pt/>: <r:it/></div>"
+  tem: '/<%=h var2.attributes\["pt"\] %>: <%=h var2.attributes\["it"\] %>/'
+  res: "<div>a wiki with Zena: bird, a wiki with Zena: flower, Clean Water project: it&#39;s a lake</div>"
+
+select_in_from_saved:
+  src: "<div do='images select title as it from projects select title as pt in site' do='set' list='this' do='list' do='each' join=', '><r:pt/>: <r:it/></div>"
+  tem: '/<%=h var3.attributes\["pt"\] %>: <%=h var3.attributes\["it"\] %>/'
+  res: "<div>a wiki with Zena: bird, a wiki with Zena: flower, Clean Water project: it&#39;s a lake</div>"
+
+select_group:
+  src: "<div do='images select title as it from projects select title as pt in site' do='group' by='pt' do='each_group' join=' / '><r:first do='pt'/>: <r:each join=', ' do='it'/></div>"
+  res: "<div>a wiki with Zena: bird, flower / Clean Water project: it&#39;s a lake</div>"
+
+select_group_count:
+  src: "<div do='images select id.count as img_count from projects select id as pid, title as pt in site group by pid' do='each' join=', '><r:pt/>: <r:img_count/></div>"
+  res: "<div>a wiki with Zena: 2, Clean Water project: 1</div>"
+
+select_group_count_having:
+  src: "<div do='images select id.count as img_count from projects select id as pid, title as pt in site group by pid having img_count >= 2' do='each' join=', '><r:pt/>: <r:img_count/></div>"
+  res: "<div>a wiki with Zena: 2</div>"
+
+query_errors:
+  context:
+    c: 'badaboum'
+  src: "<r:query default='nodes' select='nodes in #{params[:c]}'><r:elsif test='query_errors' do='query_errors'/></r:query>"
+  res: "<span class='query'>nodes in badaboum</span> <span class='error'>Invalid scope &#39;badaboum&#39;.</span>"
+
+query_count:
+  context:
+    c: 'badaboum'
+  src: "<r:query default='nodes in site' find='count' select='pages in site'/>"
+  tem: "/:find => :count/"
+  res: "19"
+
+query_count_string_context:
+  context:
+    c: 'badaboum'
+  src: "<r:void do='%q{2007}'><r:query default='nodes in site' find='count' select='pages where created_at.year < #{this} in site'/></r:void>"
+  tem: '/.Node., "@node".*:find => :count/'
+  res: "19"
+  
+find_with_rubyless:
+  src: "<b do='find(\"images in site limit 2\")' do='each' join=', ' do='title'/>"
+  res: "<b>Autumn Tree, bird</b>"
+
+find_loads_class:
+  src: "<div do='find(11)'><r:origin/></div>"
+  tem: "<% if var1 = find_node_by_zip(11) %><div><%=h var1.prop['origin'] %></div><% end %>"
+
+query_on_vclass:
+  # typical syntax error (should be Contact?)
+  src: "<r:Contact><div do='pages in site order by zip asc limit 2' do='each' join=', ' do='title'/></r:Contact>"
+  # does the query on last @node
+  tem: "/Node.do_find/"
+  res: '<div>Zena the wild CMS, people</div>'

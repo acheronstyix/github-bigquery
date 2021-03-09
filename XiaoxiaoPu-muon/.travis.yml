@@ -1,0 +1,45 @@
+os:
+    - linux
+sudo: required
+dist: trusty
+language: c
+compiler:
+    - gcc
+    - clang
+addons:
+    apt:
+        packages:
+            - tree
+script:
+    - 'curl -s -L https://github.com/sustrik/libmill/archive/master.tar.gz | tar -zxf -'
+    - 'mv libmill-master libmill'
+    - 'cd libmill'
+    - 'libtoolize || true'
+    - './autogen.sh'
+    - './configure --enable-shared=false --enable-static'
+    - 'make libmill.la'
+    - 'cd ../'
+    - 'curl -s -L https://github.com/jedisct1/libsodium/archive/master.tar.gz | tar -zxf -'
+    - 'mv libsodium-master libsodium'
+    - 'cd libsodium'
+    - 'libtoolize || true'
+    - './autogen.sh'
+    - './configure --enable-shared=false --enable-static'
+    - 'make'
+    - 'cd ../'
+    - 'curl -s -L https://github.com/lz4/lz4/archive/master.tar.gz | tar -zxf -'
+    - 'mv lz4-master lz4'
+    - 'cd lz4'
+    - 'make -C lib'
+    - 'cd ../'
+    - 'mkdir -p m4'
+    - 'autoreconf -if'
+    - 'export CPPFLAGS="-I$(pwd)/lz4/lib -I$(pwd)/libmill -I$(pwd)/libsodium/src/libsodium/include"'
+    - 'export LDFLAGS="-L$(pwd)/lz4/lib -L$(pwd)/libmill/.libs -L$(pwd)/libsodium/src/libsodium/.libs"'
+    - 'export LIBS="-lrt -lpthread"'
+    - './configure --prefix=/usr --sysconfdir=/etc --enable-shared=false --enable-static'
+    - 'make'
+    - 'make check || (cat tests/test_encapsulate.log && false)'
+    - 'tests/perf'
+    - 'make DESTDIR=$(pwd)/dist/ install'
+    - 'tree $(pwd)/dist/'

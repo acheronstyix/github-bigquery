@@ -1,0 +1,50 @@
+{
+    "name": "bluzphp/framework",
+    "description": "Lightweight PHP framework",
+    "type": "library",
+    "require": {
+        "php": ">=7.2",
+        "ext-PDO": "*",
+        "ext-pdo_mysql": "*",
+        "ext-json": "*",
+        "ext-ctype": "*",
+        "bluzphp/collection": "~1.0",
+        "cache/cache": "~1.0",
+        "psr/log": "~1.0",
+        "zendframework/zend-diactoros": "~2.1.1",
+        "zendframework/zend-httphandlerrunner": "~1.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "~2.5.3",
+        "php-coveralls/php-coveralls": "~2.1",
+        "squizlabs/php_codesniffer": "~3.3",
+        "phploc/phploc": "~4.0"
+    },
+    "suggest": {
+        "ext-gettext": "required by Bluz\\Translator (https://github.com/bluzphp/framework/wiki/Translator)",
+        "ext-redis": "required by Redis adapter for Bluz\\Cache (https://github.com/bluzphp/framework/wiki/Cache)",
+        "ext-memcached": "required by Memcached adapter for Bluz\\Cache (https://github.com/bluzphp/framework/wiki/Cache)",
+        "phpmailer/phpmailer": "required by Bluz\\Mailer (https://github.com/bluzphp/framework/wiki/Mailer)",
+        "predis/predis": "required by Cache\\Adapter\\Predis (https://github.com/bluzphp/framework/wiki/Cache)"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bluz\\": "src/"
+        },
+        "files": [
+            "src/_functions.php",
+            "src/_loader.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Bluz Framework Contributors",
+            "homepage": "https://github.com/bluzphp/framework/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/bluzphp/framework/issues",
+        "wiki": "https://github.com/bluzphp/framework/wiki"
+    },
+    "license": "MIT"
+}

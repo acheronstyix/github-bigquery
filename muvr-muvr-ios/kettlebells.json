@@ -1,0 +1,2127 @@
+{
+    "type" : {
+        "id" : "resistanceWholeBody"
+    },
+    "plan" : {
+        "chain" : [
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:legs\/sumo-squat" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/double-arm-high-pull" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:back\/windmill" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:shoulders\/single-arm-high-row" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-swing" : 4
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing",
+                                   "resistanceWholeBody:double-arm-push-press"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceTargeted:arms\/triceps-extension" : 2
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceWholeBody:double-arm-push-press",
+                                   "resistanceTargeted:arms\/triceps-extension",
+                                   "resistanceTargeted:back\/double-arm-high-pull",
+                                   "resistanceTargeted:back\/windmill",
+                                   "resistanceTargeted:legs\/sumo-squat"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:kettlebell-tip" : 3
+                   }
+                   },
+                   {
+                   "stateChain" : [
+                                   "resistanceTargeted:legs\/sumo-squat",
+                                   "resistanceWholeBody:kettlebell-tip",
+                                   "resistanceTargeted:shoulders\/single-arm-high-row",
+                                   "resistanceWholeBody:double-arm-swing"
+                                   ],
+                   "transitionSet" : {
+                   "resistanceWholeBody:double-arm-push-press" : 4
+                   }
+                   }
+                   ],
+        "states" : [
+                    "resistanceTargeted:legs\/sumo-squat",
+                    "resistanceWholeBody:kettlebell-tip",
+                    "resistanceTargeted:shoulders\/single-arm-high-row",
+                    "resistanceWholeBody:double-arm-swing",
+                    "resistanceWholeBody:double-arm-push-press",
+                    "resistanceTargeted:arms\/triceps-extension",
+                    "resistanceTargeted:back\/double-arm-high-pull",
+                    "resistanceTargeted:back\/windmill",
+                    "resistanceTargeted:legs\/sumo-squat",
+                    "resistanceWholeBody:kettlebell-tip",
+                    "resistanceTargeted:shoulders\/single-arm-high-row",
+                    "resistanceWholeBody:double-arm-swing",
+                    "resistanceWholeBody:double-arm-push-press",
+                    "resistanceTargeted:arms\/triceps-extension",
+                    "resistanceTargeted:back\/double-arm-high-pull",
+                    "resistanceTargeted:back\/windmill"
+                    ]
+    },
+    "id" : "F37F6BE6-6F1D-4158-A32A-1C29B1DF3A60",
+    "items" : [
+               {
+               "id" : "resistanceTargeted:legs\/sumo-squat",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 15
+               }
+               },
+               {
+               "id" : "resistanceWholeBody:kettlebell-tip",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 10
+               }
+               },
+               {
+               "id" : "resistanceTargeted:shoulders\/single-arm-high-row",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 10
+               }
+               },
+               {
+               "id" : "resistanceWholeBody:double-arm-swing",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 15
+               }
+               },
+               {
+               "id" : "resistanceWholeBody:double-arm-push-press",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 10
+               }
+               },
+               {
+               "id" : "resistanceTargeted:arms\/triceps-extension",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 12
+               }
+               },
+               {
+               "id" : "resistanceTargeted:back\/double-arm-high-pull",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 12
+               }
+               },
+               {
+               "id" : "resistanceTargeted:back\/windmill",
+               "rest" : 60,
+               "labels" : {
+               "repetitions" : 6
+               }
+               },
+               {
+               "id" : "resistanceTargeted:legs\/sumo-squat",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 15
+               }
+               },
+               {
+               "id" : "resistanceWholeBody:kettlebell-tip",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 10
+               }
+               },
+               {
+               "id" : "resistanceTargeted:shoulders\/single-arm-high-row",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 10
+               }
+               },
+               {
+               "id" : "resistanceWholeBody:double-arm-swing",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 15
+               }
+               },
+               {
+               "id" : "resistanceWholeBody:double-arm-push-press",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 10
+               }
+               },
+               {
+               "id" : "resistanceTargeted:arms\/triceps-extension",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 12
+               }
+               },
+               {
+               "id" : "resistanceTargeted:back\/double-arm-high-pull",
+               "rest" : 30,
+               "labels" : {
+               "repetitions" : 12
+               }
+               },
+               {
+               "id" : "resistanceTargeted:back\/windmill",
+               "rest" : 60,
+               "labels" : {
+               "repetitions" : 6
+               }
+               }
+               ],
+    "name" : "Kettlebells workout"
+}

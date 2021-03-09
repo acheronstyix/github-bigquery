@@ -1,0 +1,751 @@
+<project name="nosco" default="jar" basedir=".">
+
+
+
+  <!-- ========[ BEGIN PROPS ]======== -->
+  
+    <description>get to know youe database...</description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="bin"/>
+  <property name="gen" location="gen"/>
+  <property name="dist"  location="dist"/>
+  <property name="reports"  location="reports"/>
+
+  <property name="lib_nosco_jar"  location="lib/dko.jar"/>
+
+  <property name="dep_junit_jar"  location="deps/junit.jar"/>
+  <property name="dep_hsqldb_jar"  location="deps/hsqldb.jar"/>
+  <property name="dep_mysql_jar"  location="deps/mysql.jar"/>
+  <property name="dep_mssql_jar"  location="deps/mssql-sqljdbc.jar"/>
+  <property name="dep_sqlite_jar"  location="deps/sqlite-jdbc.jar"/>
+  <property name="dep_postgresql_jar"  location="deps/postgresql-jdbc4.jar"/>
+  <property name="dep_oracle_jar"  location="deps/oracle-jdbc.jar"/>
+  <property name="dep_derby_jar"  location="deps/derby.jar"/>
+  
+  <!--property name="dep_gson_jar"  location="deps/gson/gson-2.2.2.jar"/-->
+  <property name="all_deps" value="${dep_mysql_jar}:${dep_junit_jar}:${dep_hsqldb_jar}:${dep_postgresql_jar}:${dep_oracle_jar}:${dep_sqlite_jar}"/>
+
+
+  <!-- ========[ END PROPS ]======== -->
+
+
+
+  <!-- ========[ BEGIN BASIC DEVELOPMENT TASKS ]======== -->
+
+  <target name="extract-persistence-schema" depends="init">
+    <taskdef name="noscoextractschema" classname="org.kered.dko.ant.SchemaExtractor" classpath="${lib_nosco_jar}:${dep_sqlite_jar}"/>
+    <noscoextractschema
+    	url="jdbc:sqlite:src/db/persistence.db"
+    	username="sa"
+    	password=""
+    	out="src/db/persistence_schema.json"
+    />
+  </target>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+    <mkdir dir="bin_test"/>
+    <mkdir dir="${gen}/joinsrc"/>
+    <mkdir dir="${gen}/docbook"/>
+    <mkdir dir="${reports}"/>
+    <exec executable="hg" outputproperty="hg_id">
+        <arg value="id"/>
+        <arg value="-i"/>
+    </exec>
+    <exec executable="hg" outputproperty="hg_branch">
+        <arg value="id"/>
+        <arg value="-b"/>
+    </exec>
+    <exec executable="hg" outputproperty="hg_tag">
+        <arg value="id"/>
+        <arg value="-t"/>
+    </exec>
+    <exec executable="git" outputproperty="git_tag">
+        <arg value="describe"/>
+        <arg value="--tags"/>
+    </exec>
+  </target>
+
+  <target name="bootstrap" depends="init">
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" 
+    	includes="org/kered/dko/ant/JoinGenerator.java,org/kered/dko/ant/CodeGenerator.java,org/kered/dko/ant/ClassGenerator.java,org/kered/dko/ant/SchemaExtractor.java" 
+		destdir="${build}" debug="on" target="1.6" source="1.6"/>
+    <!--java classname="org.kered.dko.ant.JoinGenerator" fork="yes">
+        <arg value="9"/>
+		<classpath>
+			<pathelement path="${build}"/>
+		</classpath>
+    </java-->
+    <echo file="gen/joinsrc/org/kered/dko/BuildInfo.java">package org.kered.dko;
+public class BuildInfo {
+	public static final String HG_ID = "${hg_id}";
+	public static final String HG_BRANCH = "${hg_branch}";
+	public static final String HG_TAG = "${hg_tag}";
+	public static final String GIT_TAG = "${git_tag}";
+	public static final String TODAY = "${TODAY}";
+	public static final String DESCRIPTION = "DKO "+ HG_TAG +" ("+ HG_ID +")";
+}
+    </echo>
+    <taskdef name="dkogenbootstrap" classname="org.kered.dko.ant.CodeGenerator" classpath="${build}"/>
+    <dkogenbootstrap package="org.kered.dko.persistence" 
+      debug="true"
+      javaoutputdir="gen/joinsrc"
+      schemas="src/db/persistence_schema.json"
+      datasource="ds = org.kered.dko.persistence.Util.getDS();"
+      fakefks="src/db/persistence_fakefks.json"
+    /><!-- datasource="ds = org.kered.dko.persistence.Util.getDS();" -->
+  </target>
+
+  <target name="compile" depends="bootstrap"
+        description="compile the source " >
+    <javac destdir="${build}" debug="on" target="1.6" source="1.6">
+        <src path="${src}"/>
+        <src path="gen/joinsrc"/>
+    </javac>
+  </target>
+
+  <target name="jar" depends="compile"
+        description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="lib"/>
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${lib_nosco_jar}">
+      <fileset dir="${build}" />
+      <fileset dir="${src}" includes="**/*.java"/>
+      <manifest>
+        <attribute name="Main-Class" value="org.kered.dko.Main"/>
+        <!--attribute name="Class-Path" value="${all_deps}"/-->
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="dist" depends="compile" description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/lib"/>
+
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/lib/dko-${git_tag}.jar">
+      <fileset dir="${build}" />
+      <fileset dir="${src}" includes="**/*.java"/>
+      <manifest>
+        <attribute name="Main-Class" value="org.kered.dko.Main"/>
+        <!--attribute name="Class-Path" value="${all_deps}"/-->
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="clean" description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="lib"/>
+    <delete dir="${dist}"/>
+    <delete dir="gensrc"/>
+    <delete dir="${gen}"/>
+    <delete dir="bin_test"/>
+    <delete dir="reports"/>
+  </target>
+
+
+  <!-- ========[ END BASIC DEVELOPMENT TASKS ]======== -->
+
+
+  <!-- ========[ BEGIN DOCUMENTATION TASKS ]======== -->
+
+
+  <target name="doc" description="generate documentation" depends="javadoc, docbook">
+  </target>
+
+
+  <target name="extract-thebook-schema" depends="init">
+    <taskdef name="noscoextractschema" classname="org.kered.dko.ant.SchemaExtractor" classpath="${lib_nosco_jar}:${dep_sqlite_jar}"/>
+    <noscoextractschema
+    	url="jdbc:sqlite:docsrc/thebook/thebook.db"
+    	username="sa"
+    	password=""
+    	out="docsrc/thebook/thebook_schema.json"
+    />
+  </target>
+
+
+  <target name="docbook" description="generate docbook" depends="init">
+    <taskdef name="dkogen" classname="org.kered.dko.ant.CodeGenerator" classpath="${lib_nosco_jar}"/>
+    <dkogen package="org.kered.docbook" 
+      debug="true"
+      javaoutputdir="${gen}/docbook"
+      schemas="docsrc/thebook/thebook_schema.json"
+      fakefks="docsrc/thebook/thebook_fakefks.json"
+      datasource="ds = test.DefaultDataSource.get();"
+    />
+    <javac srcdir="test/docbook:gen/docbook" destdir="bin" debug="on" 
+    	classpath="${lib_nosco_jar}:${dep_sqlite_jar}"
+   	/>
+    <copy todir="bin" overwrite="true">
+      <fileset file="docsrc/thebook/thebook.db"/>
+    </copy>
+    <copy file="bin/thebook.db" tofile="bin/thebook2.db" overwrite="true"/>
+    <junit printsummary="yes" haltonfailure="no" fork="yes">
+      <classpath>
+        <pathelement location="bin"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_sqlite_jar}"/>
+      </classpath>
+      <!--jvmarg value="-Xdebug"/>
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,address=41337,server=y,suspend=y"/-->
+      <jvmarg value="-Dorg.nosco.log_sql=true"/>
+      <jvmarg value="-Djava.util.logging.config.file=test/logging.properties"/>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/docbook">
+          <include name="**/*Test.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+    <exec executable="python">
+      <arg value="docsrc/thebook/extract_examples.py"/>
+    </exec>
+    <exec executable="db2html">
+      <arg value="-u"/>
+      <arg value="-o"/>
+      <arg value="doc/dkos-the-book"/>
+      <arg value="docsrc/thebook/dkos-the-book.xml"/>
+    </exec>
+    <exec executable="db2html">
+      <arg value="-o"/>
+      <arg value="doc/dkos-the-book"/>
+      <arg value="docsrc/thebook/dkos-the-book.xml"/>
+    </exec>
+    <!-- -o doesn't work... -->
+    <move todir="doc/dkos-the-book">
+      <fileset dir="docsrc/thebook/dkos-the-book"/>
+    </move>
+    <copy todir="doc/dkos-the-book">
+      <fileset file="docsrc/thebook/*.png"/>
+      <fileset file="docsrc/thebook/*.svg"/>
+    </copy>
+  </target>
+
+
+
+  
+  <target name="javadoc" description="generate javadoc" >
+    <delete includeemptydirs="true">
+      <fileset dir="doc/api" includes="**/*.html"/>
+    </delete>
+    <javadoc packagenames="org.kered.dko.*"
+           sourcepath="src"
+           excludepackagenames="org.kered.dko.json.*,org.kered.dko.util.*,org.kered.dko.QueryImpl,org.kered.dko.RSArgsParser"
+           defaultexcludes="yes"
+           destdir="doc/api"
+           author="true"
+           version="true"
+           use="true"
+           additionalparam="-notimestamp"
+           windowtitle="Nosco API"
+           Public="true">
+      <doctitle><![CDATA[<h1>Nosco</h1>]]></doctitle>
+      <bottom><![CDATA[<i>Copyright &#169; 2011 Derek Anderson. All Rights Reserved.</i>]]></bottom>
+      <tag name="todo" scope="all" description="To do:"/>
+      <!--group title="Group 1 Packages" packages="com.dummy.test.a*"/>
+      <group title="Group 2 Packages" packages="com.dummy.test.b*:com.dummy.test.c*"/>
+      <link offline="true" href="http://download.oracle.com/javase/6/docs/api/" packagelistLoc="C:\tmp"/>
+      <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/-->
+      <source file="gen/joinsrc/org/kered/dko/persistence/QuerySize.java" />
+    </javadoc>
+  </target>
+
+  <!-- ========[ END DOCUMENTATION TASKS ]======== -->
+
+
+  
+  <!-- ========[ BEGIN UNIT TEST SHARED ]======== -->
+
+  <target name="unit-test" depends="unit-test-hsql, unit-test-mysql, unit-test-json">
+  </target>
+
+  <!-- ========[ END UNIT TEST SHARED ]======== -->
+  
+  
+  
+  <!-- ========[ BEGIN UNIT TEST HSQL ]======== -->
+  
+  <target name="unit-test-extract-schema-hsql" depends="jar">
+    <taskdef name="noscoextractschema" classname="org.kered.dko.ant.SchemaExtractor" classpath="${lib_nosco_jar}:${dep_hsqldb_jar}"/>
+    <noscoextractschema
+    	url="jdbc:hsqldb:file:deps/jpetstore/hsql/jpetstore.jsqldb"
+    	username="sa"
+    	password=""
+    	schemas="public"
+    	out="bin/unit_test_schema.json"
+    />
+  </target>
+
+  <target name="unit-test-gen-src-hsql" depends="unit-test-extract-schema-hsql">
+    <taskdef name="dkogen" classname="org.kered.dko.ant.CodeGenerator" classpath="${lib_nosco_jar}"/>
+    <dkogen package="org.kered.dko.unittest" 
+      debug="true"
+      javaoutputdir="gensrc"
+      jarfile="bin/unittest.jar"
+      schemas="bin/unit_test_schema.json"
+      callbackPackage="test.db.callback"
+      aliases="public as nosco_test_jpetstore"
+    />
+    <javac srcdir="gensrc" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}"
+   	/>
+  </target>
+
+  <target name="unit-test-hsql" depends="unit-test-gen-src-hsql">
+    <javac srcdir="test/utest" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}:bin_test"
+   	/>
+    <mkdir dir="lib"/>
+    <jar jarfile="lib/test.jar" basedir="bin_test"/>
+    <junit printsummary="yes" haltonfailure="no" fork="yes">
+      <classpath>
+        <pathelement location="lib/test.jar"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_hsqldb_jar}"/>
+      </classpath>
+      <!--jvmarg value="-Xdebug"/>
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,address=41337,server=y,suspend=y"/-->
+      <jvmarg value="-Dorg.nosco.log_sql=true"/>
+      <jvmarg value="-Djava.util.logging.config.file=test/logging.properties"/>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/utest">
+          <include name="**/*TestHSQL*.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <!-- ========[ END UNIT TEST HSQL ]======== -->
+
+
+
+  <!-- ========[ BEGIN UNIT TEST MYSQL ]======== -->
+  
+  <available file="bin/unit_test_mysql_schema.json" property="exists.unit_test_mysql_schema"/>
+  <target name="unit-test-extract-schema-mysql" depends="jar" unless="${exists.unit_test_mysql_schema}">
+    <taskdef name="noscoextractschema" classname="org.kered.dko.ant.SchemaExtractor" classpath="${lib_nosco_jar}:${dep_mysql_jar}"/>
+    <exec executable="mysql">
+      <arg value="-u"/>
+      <arg value="root"/>
+      <arg value="-e"/>
+      <arg value="create database nosco_test_jpetstore;"/>
+    </exec>
+    <exec executable="mysql" input="deps/jpetstore/mysql/jpetstore-mysql-schema.sql">
+      <arg value="-u"/>
+      <arg value="root"/>
+      <arg value="nosco_test_jpetstore"/>
+    </exec>
+    <exec executable="mysql" input="deps/jpetstore/mysql/jpetstore-mysql-dataload.sql">
+      <arg value="-u"/>
+      <arg value="root"/>
+      <arg value="nosco_test_jpetstore"/>
+    </exec>
+    <noscoextractschema
+    	url="jdbc:mysql://localhost:3306"
+    	username="root"
+    	password=""
+    	schemas="nosco_test_jpetstore"
+    	out="bin/unit_test_mysql_schema.json"
+    />
+  </target>
+  
+  <target name="unit-test-gen-src-mysql" depends="unit-test-extract-schema-mysql">
+    <taskdef name="dkogen" classname="org.kered.dko.ant.CodeGenerator" classpath="${lib_nosco_jar}"/>
+    <dkogen package="org.kered.dko.unittest" 
+      debug="true"
+      javaoutputdir="gensrc"
+      jarfile="bin/unittest.jar"
+      schemas="bin/unit_test_mysql_schema.json"
+      callbackPackage="test.db.callback"
+    />
+    <javac srcdir="gensrc" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}"
+   	/>
+  </target>
+
+  <target name="unit-test-build-mysql" depends="unit-test-gen-src-mysql">
+    <javac srcdir="test/utest" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}:bin_test"
+   	/>
+    <mkdir dir="lib"/>
+    <jar jarfile="lib/test.jar" basedir="bin_test"/>
+  </target>
+
+  <target name="unit-test-mysql" depends="unit-test-build-mysql">
+    <junit printsummary="yes" haltonfailure="no" fork="yes">
+      <classpath>
+        <pathelement location="lib/test.jar"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_hsqldb_jar}"/>
+        <pathelement location="${dep_mysql_jar}"/>
+        <pathelement location="${dep_sqlite_jar}"/>
+      </classpath>
+      <!--jvmarg value="-Xdebug"/>
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,address=41337,server=y,suspend=y"/-->
+      <jvmarg value="-Dorg.nosco.log_sql=true"/>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/utest">
+          <include name="**/*TestMySQL*.java"/>
+          <include name="**/TestUsageMonitor.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <!-- ========[ END UNIT TEST MYSQL ]======== -->
+
+  <!-- ========[ BEGIN UNIT TEST MSSQL ]======== -->
+  
+  <available file="bin/unit_test_mssql_schema.json" property="exists.unit_test_mssql_schema"/>
+  <target name="unit-test-extract-schema-mssql" depends="jar" unless="${exists.unit_test_mssql_schema}">
+    <taskdef name="noscoextractschema" classname="org.kered.dko.ant.SchemaExtractor" classpath="${lib_nosco_jar}:${dep_mssql_jar}"/>
+    <noscoextractschema
+    	url="jdbc:sqlserver://XXXXXXXX:1433"
+    	username="XXXXXXXX"
+    	password="XXXXXXXX"
+    	schemas="nosco_test_jpetstore"
+    	out="bin/unit_test_mssql_schema.json"
+    />
+  </target>
+  
+  <target name="unit-test-gen-src-mssql" depends="unit-test-extract-schema-mssql">
+    <taskdef name="dkogen" classname="org.kered.dko.ant.CodeGenerator" classpath="${lib_nosco_jar}"/>
+    <dkogen package="org.kered.dko.unittest" 
+      debug="true"
+      javaoutputdir="gensrc"
+      jarfile="bin/unittest.jar"
+      schemas="bin/unit_test_mssql_schema.json"
+      callbackPackage="test.db.callback"
+    />
+    <javac srcdir="gensrc" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}"
+   	/>
+  </target>
+
+  <target name="unit-test-build-mssql" depends="unit-test-gen-src-mssql">
+    <javac srcdir="test/utest" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}:bin_test"
+   	/>
+    <mkdir dir="lib"/>
+    <jar jarfile="lib/test.jar" basedir="bin_test"/>
+  </target>
+
+  <target name="unit-test-mssql" depends="unit-test-build-mssql">
+    <junit printsummary="yes" haltonfailure="no" fork="yes">
+      <classpath>
+        <pathelement location="lib/test.jar"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_hsqldb_jar}"/>
+        <pathelement location="${dep_mssql_jar}"/>
+      </classpath>
+      <!--jvmarg value="-Xdebug"/>
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,address=41337,server=y,suspend=y"/-->
+      <jvmarg value="-Dorg.nosco.log_sql=true"/>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/utest">
+          <include name="**/*TestMSSQL*.java"/>
+          <include name="**/TestUsageMonitor.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <!-- ========[ END UNIT TEST MSSQL ]======== -->
+
+  <target name="performance-test-mysql" depends="unit-test-build-mysql">
+    <javac srcdir="test/performance" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}:bin_test"
+   	/>
+    <java fork="yes" classname="performance.PetStoreMysql">
+      <classpath>
+        <pathelement location="bin_test"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_hsqldb_jar}"/>
+        <pathelement location="${dep_mysql_jar}"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="performance-test-core" depends="unit-test-build-mysql">
+    <javac srcdir="test/performance" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}:bin_test"
+   	/>
+    <java fork="yes" classname="performance.MicroBenchmarks">
+      <classpath>
+        <pathelement location="bin_test"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_hsqldb_jar}"/>
+        <pathelement location="${dep_mysql_jar}"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="unit-test-json" depends="jar">
+    <javac srcdir="test/utest" destdir="bin_test" debug="on" 
+    	classpath="${lib_nosco_jar}:${all_deps}"
+    	includes="test/nosco/json/*.java"
+   	/>
+    <junit printsummary="yes" haltonfailure="no" fork="yes">
+      <classpath>
+        <pathelement path="bin_test"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+      </classpath>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/utest">
+          <include name="**/json/*TestPickle*.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <target name="unit-test-serializable" depends="jar">
+    <javac srcdir="test/utest" destdir="bin_test" debug="on"
+        classpath="${lib_nosco_jar}:${all_deps}"
+        includes="test/TestSerializable.java"
+        />
+    <junit printsummary="yes" haltonfailure="yes" fork="yes">
+      <classpath>
+        <pathelement path="bin_test"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+      </classpath>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/utest">
+          <include name="**/*TestSerializable*.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+
+
+
+  <!-- ========[ BEGIN UNIT TEST POSTGRESQL ]======== -->
+  
+  <available file="bin/unit_test_postgresql_schema.json" property="exists.unit_test_postgresql_schema"/>
+  <target name="unit-test-extract-schema-postgresql" depends="jar" unless="${exists.unit_test_postgresql_schema}">
+    <taskdef name="noscoextractschema" classname="org.kered.dko.ant.SchemaExtractor" classpath="${lib_nosco_jar}:${dep_postgresql_jar}"/>
+    <exec executable="sudo" input="deps/jpetstore/postgres/jpetstore-postgres-schema.sql">
+      <arg value="-u"/>
+      <arg value="postgres"/>
+      <arg value="psql"/>
+      <arg value="-d"/>
+      <arg value="nosco_test_jpetstore"/>
+    </exec>
+    <exec executable="sudo" input="deps/jpetstore/postgres/jpetstore-postgres-dataload.sql">
+      <arg value="-u"/>
+      <arg value="postgres"/>
+      <arg value="psql"/>
+      <arg value="-d"/>
+      <arg value="nosco_test_jpetstore"/>
+    </exec>
+    <noscoextractschema
+    	url="jdbc:postgresql://localhost/nosco_test_jpetstore"
+    	username="postgres"
+    	password=""
+    	schemas="nosco_test_jpetstore"
+    	out="bin/unit_test_postgresql_schema.json"
+    />
+  </target>
+  
+  <target name="unit-test-gen-src-postgresql" depends="unit-test-extract-schema-postgresql">
+    <taskdef name="dkogen" classname="org.kered.dko.ant.CodeGenerator" classpath="${lib_nosco_jar}"/>
+    <dkogen package="org.kered.dko.unittest" 
+      debug="true"
+      javaoutputdir="gensrc"
+      jarfile="bin/unittest.jar"
+      schemas="bin/unit_test_postgresql_schema.json"
+      aliases="public as nosco_test_jpetstore"
+      callbackPackage="test.db.callback"
+    />
+    <javac srcdir="gensrc" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}"
+   	/>
+  </target>
+
+  <target name="unit-test-build-postgresql" depends="unit-test-gen-src-postgresql">
+    <javac srcdir="test/utest" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}:bin_test"
+   	/>
+    <mkdir dir="lib"/>
+    <jar jarfile="lib/test.jar" basedir="bin_test"/>
+  </target>
+
+  <target name="unit-test-postgresql" depends="unit-test-build-postgresql">
+    <junit printsummary="yes" haltonfailure="no" fork="yes">
+      <classpath>
+        <pathelement location="lib/test.jar"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_hsqldb_jar}"/>
+        <pathelement location="${dep_mysql_jar}"/>
+        <pathelement location="${dep_sqlite_jar}"/>
+        <pathelement location="${dep_postgresql_jar}"/>
+      </classpath>
+      <!--jvmarg value="-Xdebug"/>
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,address=41337,server=y,suspend=y"/-->
+      <jvmarg value="-Dorg.nosco.log_sql=true"/>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/utest">
+          <include name="**/*TestPostgreSQL*.java"/>
+          <include name="**/TestUsageMonitor.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <!-- ========[ END UNIT TEST POSTGRESQL ]======== -->
+
+
+
+
+  <!-- ========[ BEGIN UNIT TEST ORACLE ]======== -->
+  
+  <available file="bin/unit_test_oracle_schema.json" property="exists.unit_test_oracle_schema"/>
+  <target name="unit-test-extract-schema-oracle" depends="jar" unless="${exists.unit_test_oracle_schema}">
+    <java classname="org.kered.dko.junk.OracleLoadTestSchema" classpath="${lib_nosco_jar}:${dep_oracle_jar}" fork="true" />
+    <taskdef name="noscoextractschema" classname="org.kered.dko.ant.SchemaExtractor" classpath="${lib_nosco_jar}:${dep_oracle_jar}"/>
+    <noscoextractschema
+    	url="jdbc:oracle:thin:nosco_test_jpetstore/password@localhost:1521:orcl"
+    	username="nosco_test_jpetstore"
+    	password="password"
+    	schemas="NOSCO_TEST_JPETSTORE"
+    	out="bin/unit_test_oracle_schema.json"
+    />
+  </target>
+  
+  <target name="unit-test-gen-src-oracle" depends="unit-test-extract-schema-oracle">
+    <taskdef name="dkogen" classname="org.kered.dko.ant.CodeGenerator" classpath="${lib_nosco_jar}"/>
+    <dkogen package="org.kered.dko.unittest" 
+      debug="true"
+      javaoutputdir="gensrc"
+      jarfile="bin/unittest.jar"
+      schemas="bin/unit_test_oracle_schema.json"
+      aliases="public as nosco_test_jpetstore"
+      callbackPackage="test.db.callback"
+    />
+    <javac srcdir="gensrc" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}"
+   	/>
+  </target>
+
+  <target name="unit-test-build-oracle" depends="unit-test-gen-src-oracle">
+    <javac srcdir="test/utest" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}:bin_test"
+   	/>
+    <mkdir dir="lib"/>
+    <jar jarfile="lib/test.jar" basedir="bin_test"/>
+  </target>
+
+  <target name="unit-test-oracle" depends="unit-test-build-oracle">
+    <junit printsummary="yes" haltonfailure="no" fork="yes">
+      <classpath>
+        <pathelement location="lib/test.jar"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_hsqldb_jar}"/>
+        <pathelement location="${dep_mysql_jar}"/>
+        <pathelement location="${dep_sqlite_jar}"/>
+        <pathelement location="${dep_postgresql_jar}"/>
+        <pathelement location="${dep_oracle_jar}"/>
+      </classpath>
+      <!--jvmarg value="-Xdebug"/>
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,address=41337,server=y,suspend=y"/-->
+      <jvmarg value="-Dorg.nosco.log_sql=true"/>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/utest">
+          <include name="**/*TestOracle*.java"/>
+          <include name="**/TestUsageMonitor.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <!-- ========[ END UNIT TEST ORACLE ]======== -->
+
+
+
+  <!-- ========[ BEGIN UNIT TEST DERBY ]======== -->
+  
+  <target name="unit-test-extract-schema-derby" depends="jar">
+    <delete dir="bin/testderby"/>
+    <java classname="org.kered.dko.junk.DerbyLoadTestSchema" classpath="${lib_nosco_jar}:${dep_derby_jar}" fork="yes" />
+    <taskdef name="noscoextractschema" classname="org.kered.dko.ant.SchemaExtractor" classpath="${lib_nosco_jar}:${dep_derby_jar}"/>
+    <noscoextractschema
+    	url="jdbc:derby:bin/testderby"
+    	out="bin/unit_test_schema.json"
+    />
+  </target>
+
+  <target name="unit-test-gen-src-derby" depends="unit-test-extract-schema-derby">
+    <taskdef name="dkogen" classname="org.kered.dko.ant.CodeGenerator" classpath="${lib_nosco_jar}"/>
+    <dkogen package="org.kered.dko.unittest" 
+      debug="true"
+      javaoutputdir="gensrc"
+      jarfile="bin/unittest.jar"
+      schemas="bin/unit_test_schema.json"
+      callbackPackage="test.db.callback"
+      aliases="APP as nosco_test_jpetstore"
+    />
+    <javac srcdir="gensrc" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}"
+   	/>
+  </target>
+
+  <target name="unit-test-derby" depends="unit-test-gen-src-derby">
+    <javac srcdir="test/utest" destdir="bin_test" debug="on" 
+    	classpath="examples/bugzilla/lib/dkogen.jar:${lib_nosco_jar}:${all_deps}:bin_test"
+   	/>
+    <mkdir dir="lib"/>
+    <jar jarfile="lib/test.jar" basedir="bin_test"/>
+    <junit printsummary="yes" haltonfailure="no" fork="yes">
+      <classpath>
+        <pathelement location="lib/test.jar"/>
+        <pathelement location="${lib_nosco_jar}"/>
+        <pathelement location="${dep_junit_jar}"/>
+        <pathelement location="${dep_sqlite_jar}"/>
+        <pathelement location="${dep_derby_jar}"/>
+      </classpath>
+      <!--jvmarg value="-Xdebug"/>
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,address=41337,server=y,suspend=y"/-->
+      <jvmarg value="-Dorg.nosco.log_sql=true"/>
+      <jvmarg value="-Djava.util.logging.config.file=test/logging.properties"/>
+      <formatter type="plain"/>
+      <batchtest fork="yes" todir="${reports}">
+        <fileset dir="test/utest">
+          <include name="**/*TestDerby*.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <!-- ========[ END UNIT TEST DERBY ]======== -->
+
+
+
+</project>
+
+
+

@@ -1,0 +1,52 @@
+<xml>
+  <object name="PathDesired" settings="false" singleinstance="true">
+    <description>The endpoint or path the craft is trying to achieve.  Can come from @ref ManualControl or @ref PathPlanner </description>
+    <access gcs="readwrite" flight="readwrite"/>
+    <logging updatemode="onchange" period="0"/>
+    <telemetrygcs acked="false" updatemode="manual" period="0"/>
+    <telemetryflight acked="false" updatemode="throttled" period="1000"/>
+    <field defaultvalue="0" name="Start" type="float" units="m">
+      <description/>
+      <elementnames>
+        <elementname>North</elementname>
+        <elementname>East</elementname>
+        <elementname>Down</elementname>
+      </elementnames>
+    </field>
+    <field defaultvalue="0" name="End" type="float" units="m">
+      <description/>
+      <elementnames>
+        <elementname>North</elementname>
+        <elementname>East</elementname>
+        <elementname>Down</elementname>
+      </elementnames>
+    </field>
+    <field defaultvalue="0" elements="1" name="StartingVelocity" type="float" units="m/s">
+      <description/>
+    </field>
+    <field defaultvalue="0" elements="1" name="EndingVelocity" type="float" units="m/s">
+      <description/>
+    </field>
+    <field defaultvalue="0" elements="1" name="Waypoint" type="int16" units="">
+      <description/>
+    </field>
+    <field defaultvalue="Endpoint" elements="1" name="Mode" type="enum" units="">
+      <options>
+        <!-- Move directly towards endpoint, speed proportional to error -->
+        <option>Endpoint</option>
+        <!-- Try to move along a line smoothly -->
+        <option>Vector</option>
+        <!-- Trace arcs as commanded -->
+        <option>CircleRight</option>
+        <option>CircleLeft</option>
+        <option>HoldPosition</option>
+        <option>CirclePositionLeft</option>
+        <option>CirclePositionRight</option>
+        <option>Land</option>
+      </options>
+    </field>
+    <field defaultvalue="0" elements="1" name="ModeParameters" type="float" units="">
+      <description>For CircleRight / CircleLeft, this is the radius in meters</description>
+    </field>
+  </object>
+</xml>

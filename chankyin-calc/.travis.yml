@@ -1,0 +1,17 @@
+language: c++
+sudo: false
+
+install:
+- "chmod +x tests.sh"
+- "FAILURES=0"
+- source tests.sh
+
+script:
+- 'do_test triangle_centers "0\n6\n3\n0\n0\n0\n" "Centroid: (1, 2)\nOrthocenter: (0, 0)\nCircumcenter: (1.5, 3)\nIncenter: (1.1459, 1.1459)" 4'
+# repeated real root
+- 'do_test surd_quadratic "4\n12\n9\n" "One real root: -1.5"'
+# 2 distinct real roots
+- 'do_test surd_quadratic "0.5\n-5\n-774\n" "Two real roots: 44.6611 OR -34.6611\nSurd form: 5 +- 11 sqrt( 13 )" 2'
+# 2 distinct imaginary roots
+- 'do_test surd_quadratic "0.5\n-5\n799\n" "Two imaginary roots: 5 +- sqrt( 1573 ) i\nSurd form: 5 +- 11i sqrt( 13 )" 2'
+

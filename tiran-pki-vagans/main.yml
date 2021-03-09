@@ -1,0 +1,87 @@
+---
+# A private network without forwarder has no default route. Ansible populates
+# ansible_default_ipv4.address from interface with a default route.
+- name: Check default route
+  tags:
+    - bootstrap
+  raw: ip route | grep -q default
+  failed_when: false
+  register: default_route
+
+- name: Create some default route
+  tags:
+    - bootstrap
+  raw: sudo ip route add default via $(ip route | tail -n1 | awk -F. '{printf "%u.%u.%u.1\n", $1, $2, $3}')
+  when: default_route.rc != 0
+
+- name: Check for dnf command
+  tags:
+    - package-install
+    - bootstrap
+  raw: "which dnf 2>/dev/null"
+  register: which_dnf
+  failed_when: which_dnf.rc > 1
+  changed_when: false
+
+- name: Install python2 and deps for ansible modules
+  tags:
+    - package-install
+    - network
+    - bootstrap
+  raw: "dnf install -y python2 python2-dnf libselinux-python"
+  args:
+    creates: /usr/bin/python2
+  register: result
+  # ignore disabled repos
+  failed_when: "result.rc != 0 and 'Error: There are no enabled repos.' not in result.stdout_lines"
+  when: which_dnf.rc == 0  and package_install
+
+# ini_file depends on Python 2
+- name: Auto select fastest DNF mirror
+  tags:
+    - package-install
+    - bootstrap
+  ini_file: dest=/etc/dnf/dnf.conf
+            section=main
+            option=fastestmirror
+            value=1
+            backup=yes
+  when: which_dnf.rc == 0  and package_install
+
+# Fedora 23+ doesn't have Python 2 installed.
+- name: Refresh dnf cache
+  tags:
+    - package-install
+    - network
+    - bootstrap
+  raw: "dnf makecache"
+  register: result
+  # ignore disabled repos
+  failed_when: "result.rc != 0 and 'Error: There are no enabled repos.' not in result.stdout_lines"
+  when: which_dnf.rc == 0 and package_install
+
+- name: Gather facts
+  tags:
+    - bootstrap
+    - setup
+  setup:
+
+- name: Create directories in ipa_data_dir
+  tags:
+    - bootstrap
+  become: no
+  local_action:
+    file path={{ item }} state=directory
+  with_items:
+    - "{{ ipa_data_dir }}"
+    - "{{ ipa_script_dir }}"
+    - "{{ ipa_rpm_dir }}"
+    - "{{ ipa_firefox_dir }}"
+  run_once: true
+  changed_when: false
+
+- name: Dummy (for ansible.skip_tags)
+  tags:
+    - dummy
+  raw: "true"
+  changed_when: false

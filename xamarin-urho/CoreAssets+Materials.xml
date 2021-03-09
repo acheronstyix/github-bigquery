@@ -1,0 +1,36 @@
+<Type Name="CoreAssets+Materials" FullName="Urho.CoreAssets+Materials">
+  <TypeSignature Language="C#" Value="public static class CoreAssets.Materials" />
+  <TypeSignature Language="ILAsm" Value=".class nested public auto ansi abstract sealed beforefieldinit CoreAssets/Materials extends System.Object" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Provides access to the materials that are part of every CoreAssets package in Urho.</summary>
+    <remarks>
+      <para>You might want to take a look at Material.FromColor and Material.FromImage in order to construct a simple material.</para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="DefaultGrey">
+      <MemberSignature Language="C#" Value="public static Urho.Material DefaultGrey { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Material DefaultGrey" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Material</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Accesses the Default Grey material in CoreAssets.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

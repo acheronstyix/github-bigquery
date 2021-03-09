@@ -1,0 +1,57 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - db/migrate/**/*
+    - db/schema.rb
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+
+Documentation:
+  Enabled: false
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyleForEmptyBraces: space
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - config/**/*
+
+Metrics/ClassLength:
+  Max: 256
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - spec/**/*
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - spec/**/*
+
+Rails:
+  Enabled: true
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/RedundantFreeze:
+  Enabled: false
+
+Style/VariableNumber:
+  EnforcedStyle: snake_case
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison

@@ -1,0 +1,20 @@
+{
+  "path": "./runtime",
+  "files": {
+    "src": {
+      "a.js": "(function () {\n  console.log('Hello world!');\n})();\n",
+      "b": {
+        "a.js": "// Nothing here...",
+        "a.css": "a:hover {\n  color: blue;\n}\n",
+        "b.js": "b.js",
+        "b.json": "b.json",
+        "b.txt": "b.txt",
+        "b.scss": "a {\n  color: blue;\n  &:hover {\n    color: red;\n  }\n}\n",
+        "c": {
+          "a.js": "a.js",
+          "a.css": "a.css"
+        }
+      }
+    }
+  }
+}

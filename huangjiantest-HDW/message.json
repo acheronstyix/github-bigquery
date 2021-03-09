@@ -1,0 +1,11 @@
+{
+	"info" : {
+		"suc" : {"code" : 1},
+		"loginsuc" : {"code" : 1,"msg" : "登录成功"}
+	},
+	"error" : {
+		"loginerr" : {"code" : 0,"msg" : "登录失败，用户或密码错误!"},
+		"adminAdderr" : {"code" : 0,"msg" : "增加管理员失败！请稍后重试！" },
+		"newsAdderr" : {"code" : 0,"msg" : "留言添加失败！请稍后重试！" }
+	}
+}

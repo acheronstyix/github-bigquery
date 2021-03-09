@@ -1,0 +1,24 @@
+{
+  "name": "arrow-js",
+  "version": "0.1.9",
+  "description" : "Display an arrow pointing to the browser download location",
+  "main": [
+    "src/js/arrow.js"
+  ],
+  "ignore": [
+    "lib",
+    "test",
+    "spec",
+    "node_modules",
+    "Gruntfile.js",
+    "SpecRunner.html",
+    "package.json",
+    "bower.json",
+    ".travis.yml",
+    ".gitignore"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

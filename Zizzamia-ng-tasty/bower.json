@@ -1,0 +1,30 @@
+{
+  "name": "ng-tasty",
+  "version": "0.6.1",
+  "homepage": "https://github.com/Zizzamia/ng-tasty",
+  "authors": [
+    {
+      "name": "Leonardo Zizzamia",
+      "homepage": "https://twitter.com/Zizzamia"
+    }
+  ],
+  "description": "A lightweight, flexible, and tasty collection of reusable UI components for AngularJS.",
+  "devDependencies": {
+    "angular": "^1.4.1",
+    "angular-route": "^1.4.1",
+    "angular-mocks": "^1.4.1",
+    "bootstrap": "3.2.0",
+    "ng-tasty": "~0.6.0"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "angular": ">=1"
+  }
+}

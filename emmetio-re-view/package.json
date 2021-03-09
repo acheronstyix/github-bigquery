@@ -1,0 +1,33 @@
+{
+  "name": "emmet-re-view",
+  "version": "0.0.0",
+  "description": "A Google Chrome extension for viewing page in breakpoints view",
+  "main": "responsive.js",
+  "scripts": {
+    "test": "./node_modules/.bin/gulp"
+  },
+  "keywords": [
+    "chrome",
+    "emmet",
+    "responsive",
+    "media",
+    "query"
+  ],
+  "author": "Sergey Chikuyonok <serge.che@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mensch": "^0.3.1",
+    "requirejs": "^2.1.14"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.5",
+    "gulp-browserify": "^0.5.0",
+    "gulp-minify-css": "^0.3.5",
+    "del": "^0.1.1",
+    "gulp-zip": "^0.4.0",
+    "gulp-replace": "^0.3.0",
+    "crc": "^2.1.1",
+    "gulp-uglify": "^0.3.1",
+    "gulp-gzip": "0.0.8"
+  }
+}

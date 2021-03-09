@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <app title="Asteroids" file="Asteroids" main="net.richardlord.asteroids.Main"/>
+    <window width="800" height="600" background="#000000" />
+
+    <source path="src" />
+    <source path="examples/asteroids" />
+
+    <haxelib name="openfl"/>
+</project>
